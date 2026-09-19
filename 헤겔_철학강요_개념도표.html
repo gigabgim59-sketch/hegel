@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>헤겔 『철학강요』 — 개념 도표·관계도</title>
+<style>
+  :root{--bg:#faf9f6;--ink:#1f1e1b;--sub:#46443f;--hint:#9a978e;--line2:#cfccc2;
+    --base:#eef1f4;--base-bd:#b9c2cc;
+    --lg:#f0ecf3;--lg-bd:#c8b6d6;    /* 논리학 — 이념의 즉자 */
+    --nt:#eef1e6;--nt-bd:#c2cca8;    /* 자연 — 이념의 대자(소외) */
+    --gs:#eef0f4;--gs-bd:#b6c1d0;    /* 정신 — 즉자대자(자기 복귀) */
+    --ab:#f6ede2;--ab-bd:#d8be9a;    /* 절대 정신 — 귀결 */}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.7;}
+  .wrap{max-width:880px;margin:0 auto;padding:52px 24px 90px;}
+  header.book{text-align:center;margin-bottom:34px;padding-bottom:26px;border-bottom:1px solid var(--line2);}
+  header.book h1{font-size:24px;font-weight:600;margin:0 0 8px;letter-spacing:1px;}
+  header.book .sub{font-size:14px;color:var(--sub);margin:0;}
+  nav.toc{margin:0 0 40px;padding:18px 22px;border:1px solid var(--line2);border-radius:10px;background:#fffdf8;}
+  nav.toc h2{font-size:15px;font-weight:600;margin:0 0 10px;text-align:center;letter-spacing:1px;}
+  nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;}
+  nav.toc a{display:block;text-decoration:none;color:var(--ink);padding:8px 10px;border-radius:7px;font-size:14px;}
+  nav.toc a:hover{background:#f1eee5;}
+  nav.toc .k{color:var(--hint);font-size:12px;margin-left:6px;}
+  section{margin:0 0 56px;scroll-margin-top:16px;}
+  h2.dp-h{font-size:19px;font-weight:600;margin:46px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--line2);letter-spacing:.5px;}
+  h2.dp-h .sub{font-size:13px;font-weight:400;color:var(--hint);letter-spacing:0;}
+  h3.dp-h3{font-size:16px;font-weight:600;margin:36px 0 8px;color:#3a382f;}
+  .lead{font-size:14px;color:var(--sub);margin:0 0 14px;line-height:1.75;}
+  .note{font-size:12.5px;color:var(--hint);line-height:1.7;margin:10px 0 0;padding:10px 14px;background:#f4f2ec;border-radius:8px;}
+  .dp-svg{width:100%;height:auto;display:block;margin:6px 0 4px;border:1px solid var(--line2);border-radius:10px;background:#fff;padding:6px;}
+  .box{stroke-width:1;}
+  .b-base{fill:var(--base);stroke:var(--base-bd);}
+  .b-lg{fill:var(--lg);stroke:var(--lg-bd);}
+  .b-nt{fill:var(--nt);stroke:var(--nt-bd);}
+  .b-gs{fill:var(--gs);stroke:var(--gs-bd);}
+  .b-ab{fill:var(--ab);stroke:var(--ab-bd);}
+  .ln{stroke:#8a8578;stroke-width:1.2;fill:none;}
+  .ln-d{stroke:#8a8578;stroke-width:1.2;stroke-dasharray:4 3;fill:none;}
+  .t-tt{font-size:13px;font-weight:600;fill:#23221d;}
+  .t-tt2{font-size:12px;font-weight:600;fill:#23221d;}
+  .t-d{font-size:11.5px;fill:#46443f;}
+  .t-d2{font-size:10.5px;fill:#7a776e;}
+  .t-band{font-size:12.5px;font-weight:600;fill:#5a6b7a;}
+  .band-p{fill:#7a5a95;}
+  .band-g{fill:#5a7a5c;}
+  .band-b{fill:#4a6a95;}
+  .band-o{fill:#a06f3a;}
+  .t-flow{font-size:12px;font-weight:500;fill:#6a665c;}
+  .cat{margin:0 0 18px;border:1px solid var(--line2);border-radius:10px;overflow:hidden;background:#fff;}
+  .cat-head{display:flex;align-items:baseline;gap:10px;padding:10px 16px;background:#f3f1ea;border-bottom:1px solid var(--line2);}
+  .cat-no{font-size:12px;color:#fff;background:#8a8578;border-radius:50%;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:none;}
+  .cat-title{font-size:15px;font-weight:600;}
+  .cat-han{font-family:"Noto Serif KR","Batang",serif;font-size:13px;color:var(--hint);margin-left:auto;}
+  .subcat{padding:8px 16px 4px;}
+  .sub-t{font-size:13px;font-weight:600;color:#5a584e;margin:6px 0 6px;}
+  .terms{display:flex;flex-wrap:wrap;gap:7px;padding:6px 16px 14px;}
+  .subcat .terms{padding:0 0 10px;}
+  .term{font-size:13px;padding:4px 10px;background:#f6f4ee;border:1px solid #e6e2d8;border-radius:14px;white-space:nowrap;}
+  .term b{font-family:"Noto Serif KR","Batang",serif;font-weight:600;margin-right:3px;}
+  .backtop{text-align:right;margin:8px 0 0;font-size:12px;}
+  .backtop a{color:var(--hint);text-decoration:none;}
+  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--line2);text-align:center;font-size:12px;color:var(--hint);}
+  @media print{html{scroll-behavior:auto;}nav.toc a:hover{background:none;}.backtop{display:none;}.dp-svg{break-inside:avoid;}.cat{break-inside:avoid;}.def-tip{display:none !important;}.def-hint{display:none !important;}}
+  .term.has-def{cursor:pointer;transition:background .15s,border-color .15s;}
+  .term.has-def:hover{background:#ede7d3;border-color:#c9bf9e;}
+  .term.has-def:focus{outline:2px solid #b8a980;outline-offset:1px;}
+  .term.has-def.active{background:#e6dcb8;border-color:#b8a980;}
+  .def-tip{position:fixed;z-index:200;max-width:380px;min-width:240px;
+    padding:14px 32px 14px 16px;background:#fffdf6;border:1px solid #c9bf9e;
+    border-radius:10px;box-shadow:0 6px 22px rgba(60,50,20,.14);
+    font-size:13.5px;line-height:1.68;color:var(--ink);display:none;
+    overscroll-behavior:contain;}
+  .def-tip.on{display:block;}
+  .def-tip .dt-h{font-family:"Noto Serif KR","Batang",serif;font-size:17px;
+    font-weight:600;margin:0 0 2px;color:#2e2c26;letter-spacing:.5px;}
+  .def-tip .dt-k{font-size:12px;color:var(--hint);margin:0 0 8px;}
+  .def-tip .dt-b{margin:0;font-size:13.5px;line-height:1.7;}
+  .def-tip .dt-x{position:absolute;top:6px;right:8px;font-size:18px;
+    color:var(--hint);cursor:pointer;background:none;border:none;
+    padding:2px 8px;line-height:1;border-radius:4px;}
+  .def-tip .dt-x:hover{color:var(--ink);background:#f1eee5;}
+  .def-hint{margin:-6px 0 18px;padding:9px 14px;background:#f4f0e2;
+    border:1px dashed #d9cfa8;border-radius:8px;font-size:12.5px;
+    color:#6a614a;text-align:center;}
+  /* SVG 스크롤 래퍼(모바일에서 원본 폭 유지) */
+  .dp-svg-wrap{margin:6px 0 4px;}
+  /* 모바일: SVG 가로 스크롤, 팝오버 바텀시트, 폰트·터치 조정 */
+  @media (max-width:640px){
+    .wrap{padding:24px 12px 60px;}
+    body{font-size:15px;line-height:1.72;}
+    header.book h1{font-size:20px;letter-spacing:.5px;}
+    header.book .sub{font-size:13px;}
+    nav.toc{padding:14px 14px;margin-bottom:30px;}
+    nav.toc h2{font-size:14px;}
+    nav.toc a{font-size:13.5px;padding:9px 8px;}
+    nav.toc .k{display:block;margin-left:0;margin-top:2px;font-size:11.5px;}
+    h2.dp-h{font-size:17.5px;margin:36px 0 12px;}
+    h2.dp-h .sub{display:block;margin-top:2px;}
+    h3.dp-h3{font-size:15px;margin:28px 0 8px;}
+    .lead{font-size:14px;line-height:1.72;}
+    .note{font-size:12.5px;padding:9px 12px;}
+    .cat{margin:0 0 14px;}
+    .cat-head{padding:10px 12px;gap:8px;}
+    .cat-han{font-size:12px;}
+    .cat-title{font-size:14.5px;}
+    .subcat{padding:6px 12px 2px;}
+    .sub-t{font-size:12.5px;}
+    .terms{padding:4px 12px 12px;gap:6px;}
+    .term{font-size:13px;padding:6px 11px;}
+    .def-hint{font-size:12.5px;padding:10px 12px;}
+    /* SVG 도표: 원본 폭을 유지한 채 가로 스크롤 */
+    .dp-svg-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;
+      margin:6px -12px 4px;padding:0 12px;
+      scrollbar-width:thin;scrollbar-color:#cfccc2 transparent;}
+    .dp-svg-wrap::-webkit-scrollbar{height:5px;}
+    .dp-svg-wrap::-webkit-scrollbar-thumb{background:#cfccc2;border-radius:3px;}
+    .dp-svg-wrap::-webkit-scrollbar-track{background:transparent;}
+    .dp-svg{min-width:620px;width:620px;margin:0;}
+    /* 뜻풀이 팝오버: 하단 바텀시트 */
+    .def-tip{position:fixed;left:0 !important;right:0 !important;
+      bottom:0;top:auto !important;
+      max-width:none;min-width:0;width:100%;
+      border-radius:16px 16px 0 0;
+      max-height:72vh;overflow-y:auto;
+      padding:22px 50px 26px 18px;
+      box-shadow:0 -8px 28px rgba(60,50,20,.22);
+      border-left:none;border-right:none;border-bottom:none;
+      font-size:14.5px;line-height:1.72;}
+    .def-tip .dt-h{font-size:18px;}
+    .def-tip .dt-k{font-size:12.5px;}
+    .def-tip .dt-b{font-size:14.5px;line-height:1.75;}
+    .def-tip .dt-x{top:10px;right:12px;font-size:26px;padding:4px 12px;}
+    /* 바텀시트가 떠 있을 때 페이지 뒤 스크롤 방지용 그림자 */
+    .def-tip.on::before{content:"";position:fixed;left:0;right:0;top:0;bottom:72vh;
+      background:linear-gradient(to bottom,transparent 70%,rgba(0,0,0,0.08));
+      pointer-events:none;z-index:-1;}
+  }
+</style></head><body><div class="wrap" id="top">
+<header class="book"><h1>헤겔 『철학강요(Enzyklopädie)』 — 개념 도표</h1>
+<p class="sub">이념(理念)의 자기 전개 · 논리학 → 자연철학 → 정신철학 (G. W. F. Hegel, 3판 1830)</p></header>
+<nav class="toc"><h2>도표 목차</h2><ol>
+<li><a href="#overview">Ⅰ. 전체 조감도<span class="k">— 세 편의 큰 줄기와 이념의 자기 복귀</span></a></li>
+<li><a href="#rel">Ⅱ. 핵심 주제별 관계도<span class="k">— 논리·자연·정신의 삼분과 변증법의 계기</span></a></li>
+<li><a href="#tree">Ⅲ. 전체 개념 트리<span class="k">— 목차 개념어 망라 · 클릭 시 설명</span></a></li>
+</ol></nav>
+
+<section id="overview"><h2 class="dp-h">Ⅰ. 전체 조감도 <span class="sub">— 세 편의 큰 줄기</span></h2>
+<p class="lead">헤겔 체계의 물음은 하나다. <b>사유하는 이념(理念)은 어떻게 자기 밖으로 나가고[外化], 어떻게 자기 자신에게로 되돌아오는가[復歸].</b> 『철학강요』세 편은 이 물음을 ‘즉자(卽自) → 대자(對自, 자기 밖으로) → 즉자대자(卽自對自, 자기에게로 돌아옴)’의 순서로 풀어 간다.</p>
+<svg viewBox="0 0 760 580" class="dp-svg" role="img" aria-label="철학강요 3편 조감도">
+  <defs>
+    <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a8578"/></marker>
+  </defs>
+  <text x="380" y="30" text-anchor="middle" class="t-band">서론 · 예비 개념 — 객관성에 대한 사상의 세 태도</text>
+  <g>
+    <rect x="60" y="46" width="200" height="60" rx="10" class="box b-base"/>
+    <text x="160" y="70" text-anchor="middle" class="t-tt2">① 첫째 태도 — 형이상학</text>
+    <text x="160" y="90" text-anchor="middle" class="t-d2">사유가 대상을 곧 진리로 봄(素朴)</text>
+    <rect x="280" y="46" width="200" height="60" rx="10" class="box b-base"/>
+    <text x="380" y="70" text-anchor="middle" class="t-tt2">② 둘째 태도 — 경험론·비판철학</text>
+    <text x="380" y="90" text-anchor="middle" class="t-d2">경험과 오성의 반성(칸트)</text>
+    <rect x="500" y="46" width="200" height="60" rx="10" class="box b-base"/>
+    <text x="600" y="70" text-anchor="middle" class="t-tt2">③ 셋째 태도 — 직접지</text>
+    <text x="600" y="90" text-anchor="middle" class="t-d2">사유를 배제한 직관(야코비)</text>
+  </g>
+  <text x="380" y="132" text-anchor="middle" class="t-d2">— 세 태도의 한계에서 사변(思辨)의 방법이 요청된다 →</text>
+  <line x1="380" y1="140" x2="380" y2="160" class="ln"/>
+
+  <text x="380" y="176" text-anchor="middle" class="t-band band-p">제1편 논리학 — 이념의 즉자(卽自)태(態), 순수 사유의 자기 규정</text>
+  <g>
+    <rect x="60" y="192" width="200" height="78" rx="10" class="box b-lg"/>
+    <text x="160" y="218" text-anchor="middle" class="t-tt">유론 (有論, Sein)</text>
+    <text x="160" y="238" text-anchor="middle" class="t-d">질 · 양 · 한도</text>
+    <text x="160" y="255" text-anchor="middle" class="t-d2">직접적 규정 — 즉자</text>
+    <rect x="280" y="192" width="200" height="78" rx="10" class="box b-lg"/>
+    <text x="380" y="218" text-anchor="middle" class="t-tt">본질론 (本質論, Wesen)</text>
+    <text x="380" y="238" text-anchor="middle" class="t-d">반성 · 현상 · 현실성</text>
+    <text x="380" y="255" text-anchor="middle" class="t-d2">매개된 규정 — 대자</text>
+    <rect x="500" y="192" width="200" height="78" rx="10" class="box b-lg"/>
+    <text x="600" y="218" text-anchor="middle" class="t-tt">개념론 (槪念論, Begriff)</text>
+    <text x="600" y="238" text-anchor="middle" class="t-d">주관 · 객관 · 이념</text>
+    <text x="600" y="255" text-anchor="middle" class="t-d2">자유로운 규정 — 즉자대자</text>
+  </g>
+  <text x="380" y="290" text-anchor="middle" class="t-flow">→ 직접(有)이 매개(本質)로, 매개가 자기 관계의 자유(槪念)로 →</text>
+  <line x1="380" y1="300" x2="380" y2="320" class="ln" marker-end="url(#ar)"/>
+
+  <text x="380" y="336" text-anchor="middle" class="t-band band-g">제2편 자연철학 — 이념의 자기 외화(外化), 타자태(他者態)</text>
+  <g>
+    <rect x="60" y="352" width="200" height="70" rx="10" class="box b-nt"/>
+    <text x="160" y="378" text-anchor="middle" class="t-tt">역학 (力學, Mechanik)</text>
+    <text x="160" y="397" text-anchor="middle" class="t-d">공간·시간·물질·운동</text>
+    <text x="160" y="413" text-anchor="middle" class="t-d2">추상적 외재성</text>
+    <rect x="280" y="352" width="200" height="70" rx="10" class="box b-nt"/>
+    <text x="380" y="378" text-anchor="middle" class="t-tt">물리학 (物理學, Physik)</text>
+    <text x="380" y="397" text-anchor="middle" class="t-d">천체·원소·응집·열·화학</text>
+    <text x="380" y="413" text-anchor="middle" class="t-d2">특수한 개체성</text>
+    <rect x="500" y="352" width="200" height="70" rx="10" class="box b-nt"/>
+    <text x="600" y="378" text-anchor="middle" class="t-tt">유기적 자연학</text>
+    <text x="600" y="397" text-anchor="middle" class="t-d">지질·식물·동물</text>
+    <text x="600" y="413" text-anchor="middle" class="t-d2">주관적 개체성</text>
+  </g>
+  <text x="380" y="442" text-anchor="middle" class="t-flow">→ 무관심의 외재(役學)에서 개체성의 물리로, 마침내 살아 있는 유기체(생명)로 →</text>
+  <line x1="380" y1="452" x2="380" y2="472" class="ln" marker-end="url(#ar)"/>
+
+  <text x="380" y="488" text-anchor="middle" class="t-band band-b">제3편 정신철학 — 이념의 자기 복귀(復歸), 즉자대자태(卽自對自態)</text>
+  <g>
+    <rect x="60" y="504" width="200" height="52" rx="10" class="box b-gs"/>
+    <text x="160" y="524" text-anchor="middle" class="t-tt2">주관적 정신</text>
+    <text x="160" y="542" text-anchor="middle" class="t-d2">인간학·현상학·심리학</text>
+    <rect x="280" y="504" width="200" height="52" rx="10" class="box b-gs"/>
+    <text x="380" y="524" text-anchor="middle" class="t-tt2">객관적 정신</text>
+    <text x="380" y="542" text-anchor="middle" class="t-d2">법·도덕성·인륜</text>
+    <rect x="500" y="504" width="200" height="52" rx="10" class="box b-ab"/>
+    <text x="600" y="524" text-anchor="middle" class="t-tt2">절대적 정신</text>
+    <text x="600" y="542" text-anchor="middle" class="t-d2">예술·계시종교·철학</text>
+  </g>
+</svg>
+<p class="note">※ 세 편은 각각 <b>이념(理念)</b>이 (1) 순수 사유 안에서 자기를 규정하고, (2) 자기 밖으로 나가 자연이 되고, (3) 자연 위에서 자기를 다시 파악하는 정신이 되는 세 국면이다. 논리학이 “신을 창조하기 전 신의 사유”(대논리학 서문)라면, 자연은 그 이념의 소외태, 정신은 소외를 지양하고 자기에게 돌아온 이념 그 자체다.</p>
+</section>
+<div class="backtop"><a href="#top">↑ 목차</a></div>
+
+<section id="rel"><h2 class="dp-h">Ⅱ. 핵심 주제별 관계도 <span class="sub">— 개념 사이의 이행·부정·복귀</span></h2>
+
+<h3 class="dp-h3">① 논리학의 삼분 — 유·본질·개념 (즉자·대자·즉자대자)</h3>
+<p class="lead">헤겔 논리학은 사유의 <b>세 가지 층위</b>를 순차로 밟는다. 유(有)는 규정을 밖에 두고, 본질(本質)은 자기 안으로 반성하며, 개념(槪念)은 그 둘을 자기 안에서 통일한다. 각 부문은 다시 세 계기로 갈라진다.</p>
+<svg viewBox="0 0 760 440" class="dp-svg" role="img" aria-label="논리학 삼분">
+  <defs><marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a8578"/></marker></defs>
+
+  <rect x="30" y="20" width="220" height="40" rx="8" class="box b-lg"/>
+  <text x="140" y="45" text-anchor="middle" class="t-tt">Ⅰ. 유론(有論) — 즉자</text>
+  <rect x="270" y="20" width="220" height="40" rx="8" class="box b-lg"/>
+  <text x="380" y="45" text-anchor="middle" class="t-tt">Ⅱ. 본질론(本質論) — 대자</text>
+  <rect x="510" y="20" width="220" height="40" rx="8" class="box b-lg"/>
+  <text x="620" y="45" text-anchor="middle" class="t-tt">Ⅲ. 개념론(槪念論) — 즉자대자</text>
+
+  <path d="M250,40 L270,40" class="ln" marker-end="url(#ar2)"/>
+  <path d="M490,40 L510,40" class="ln" marker-end="url(#ar2)"/>
+
+  <text x="140" y="86" text-anchor="middle" class="t-d2">직접적·질적 규정</text>
+  <text x="380" y="86" text-anchor="middle" class="t-d2">타자를 통한 반성적 매개</text>
+  <text x="620" y="86" text-anchor="middle" class="t-d2">자기 관계 안에서의 매개</text>
+
+  <g>
+   <rect x="30" y="100" width="220" height="40" rx="7" class="box b-base"/><text x="140" y="125" text-anchor="middle" class="t-tt2">질(質) — 유·정유·대자유</text>
+   <rect x="30" y="148" width="220" height="40" rx="7" class="box b-base"/><text x="140" y="173" text-anchor="middle" class="t-tt2">양(量) — 순수량·정량·도(度)</text>
+   <rect x="30" y="196" width="220" height="40" rx="7" class="box b-base"/><text x="140" y="221" text-anchor="middle" class="t-tt2">한도(限度, Maß)</text>
+  </g>
+  <g>
+   <rect x="270" y="100" width="220" height="40" rx="7" class="box b-base"/><text x="380" y="125" text-anchor="middle" class="t-tt2">본질 — 반성·현존·물(物)</text>
+   <rect x="270" y="148" width="220" height="40" rx="7" class="box b-base"/><text x="380" y="173" text-anchor="middle" class="t-tt2">현상(現象) — 세계·내용과 형식·관계</text>
+   <rect x="270" y="196" width="220" height="40" rx="7" class="box b-base"/><text x="380" y="221" text-anchor="middle" class="t-tt2">현실성(現實性) — 실체성·인과성·교호작용</text>
+  </g>
+  <g>
+   <rect x="510" y="100" width="220" height="40" rx="7" class="box b-base"/><text x="620" y="125" text-anchor="middle" class="t-tt2">주관적 개념 — 개념·판단·추리</text>
+   <rect x="510" y="148" width="220" height="40" rx="7" class="box b-base"/><text x="620" y="173" text-anchor="middle" class="t-tt2">객관(客觀) — 기계론·화학론·목적론</text>
+   <rect x="510" y="196" width="220" height="40" rx="7" class="box b-ab"/><text x="620" y="221" text-anchor="middle" class="t-tt2">이념(理念) — 생명·인식·절대이념</text>
+  </g>
+
+  <text x="380" y="266" text-anchor="middle" class="t-band">각 부문의 삼분에 관철되는 계기(변증법)</text>
+  <g>
+   <rect x="80" y="280" width="180" height="52" rx="9" class="box b-lg"/>
+   <text x="170" y="302" text-anchor="middle" class="t-tt2">추상적 오성(悟性)의 계기</text>
+   <text x="170" y="320" text-anchor="middle" class="t-d2">규정을 고정된 것으로 봄</text>
+   <rect x="290" y="280" width="180" height="52" rx="9" class="box b-nt"/>
+   <text x="380" y="302" text-anchor="middle" class="t-tt2">변증적(否定的) 계기</text>
+   <text x="380" y="320" text-anchor="middle" class="t-d2">규정이 스스로 자기 반대로 넘어감</text>
+   <rect x="500" y="280" width="180" height="52" rx="9" class="box b-gs"/>
+   <text x="590" y="302" text-anchor="middle" class="t-tt2">사변적(思辨的) 계기</text>
+   <text x="590" y="320" text-anchor="middle" class="t-d2">대립을 자기 안에서 통일함</text>
+  </g>
+  <path d="M260,306 L290,306" class="ln" marker-end="url(#ar2)"/>
+  <path d="M470,306 L500,306" class="ln" marker-end="url(#ar2)"/>
+
+  <text x="380" y="360" text-anchor="middle" class="t-flow">이 세 계기가 <tspan font-weight="700">지양(止揚, Aufheben)</tspan>이라는 하나의 운동이다 — 없앰·간직함·높임</text>
+  <text x="380" y="384" text-anchor="middle" class="t-d2">유론은 규정이 다른 것으로 <tspan font-weight="700">이행</tspan>하고, 본질론은 자기 반대 안으로 <tspan font-weight="700">반성</tspan>하며, 개념론은 자기 자신을 <tspan font-weight="700">전개</tspan>한다.</text>
+  <text x="380" y="408" text-anchor="middle" class="t-d2">§ 79–82 (오성·부정적 이성·긍정적 이성)에 이 삼중의 계기가 미리 정식화되어 있다.</text>
+</svg>
+
+<h3 class="dp-h3">② 객관성에 대한 사상의 세 태도 — 사변(思辨)의 요청</h3>
+<p class="lead">‘사유가 어떻게 객관에 이르는가’에 대한 지금까지의 세 답변을 헤겔은 예비 개념에서 검토한다. 세 태도는 각각 필요한 계기를 담고 있으나 홀로는 모두 좌초하며, 그 좌초에서 <b>사변적 사유</b>의 필요가 나온다.</p>
+<svg viewBox="0 0 760 340" class="dp-svg" role="img" aria-label="사상의 세 태도">
+  <defs><marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a8578"/></marker></defs>
+
+  <rect x="30" y="20" width="220" height="98" rx="9" class="box b-base"/>
+  <text x="140" y="42" text-anchor="middle" class="t-tt">첫째 태도 — 형이상학</text>
+  <text x="140" y="62" text-anchor="middle" class="t-d">사유가 대상을 그대로 진리로 삼는다</text>
+  <text x="140" y="80" text-anchor="middle" class="t-d2">(볼프 학파의 이성적 신학·심리학·우주론)</text>
+  <text x="140" y="100" text-anchor="middle" class="t-d2">— 사유와 존재의 통일이 “소박히” 전제됨</text>
+
+  <rect x="270" y="20" width="220" height="98" rx="9" class="box b-base"/>
+  <text x="380" y="42" text-anchor="middle" class="t-tt">둘째 태도 — 경험론·비판철학</text>
+  <text x="380" y="62" text-anchor="middle" class="t-d">경험과 반성으로 대상을 시험한다</text>
+  <text x="380" y="80" text-anchor="middle" class="t-d2">경험론(로크·흄) / 비판철학(칸트)</text>
+  <text x="380" y="100" text-anchor="middle" class="t-d2">— 인식을 유한으로 제한하고 물자체를 둔다</text>
+
+  <rect x="510" y="20" width="220" height="98" rx="9" class="box b-base"/>
+  <text x="620" y="42" text-anchor="middle" class="t-tt">셋째 태도 — 직접지</text>
+  <text x="620" y="62" text-anchor="middle" class="t-d">사유를 배제한 직접 확신에 호소한다</text>
+  <text x="620" y="80" text-anchor="middle" class="t-d2">(야코비의 직관·믿음)</text>
+  <text x="620" y="100" text-anchor="middle" class="t-d2">— 매개(思惟)를 부정하여 다시 소박으로 되돌아옴</text>
+
+  <text x="380" y="146" text-anchor="middle" class="t-band band-p">각 태도의 좌초점</text>
+  <g>
+   <rect x="30" y="160" width="220" height="44" rx="7" class="box b-nt"/>
+   <text x="140" y="180" text-anchor="middle" class="t-tt2">유한한 규정을 절대에 적용</text>
+   <text x="140" y="197" text-anchor="middle" class="t-d2">→ 이율배반</text>
+   <rect x="270" y="160" width="220" height="44" rx="7" class="box b-nt"/>
+   <text x="380" y="180" text-anchor="middle" class="t-tt2">사유를 주관에 가둠</text>
+   <text x="380" y="197" text-anchor="middle" class="t-d2">→ 물자체 · 불가지</text>
+   <rect x="510" y="160" width="220" height="44" rx="7" class="box b-nt"/>
+   <text x="620" y="180" text-anchor="middle" class="t-tt2">매개를 제거</text>
+   <text x="620" y="197" text-anchor="middle" class="t-d2">→ 근거 없는 확신</text>
+  </g>
+
+  <path d="M140,208 C160,240 300,250 380,240" class="ln" marker-end="url(#ar3)"/>
+  <path d="M380,208 L380,238" class="ln" marker-end="url(#ar3)"/>
+  <path d="M620,208 C600,240 460,250 380,240" class="ln" marker-end="url(#ar3)"/>
+
+  <rect x="230" y="244" width="300" height="60" rx="10" class="box b-ab"/>
+  <text x="380" y="270" text-anchor="middle" class="t-tt">사변적(思辨的) 사유의 요청</text>
+  <text x="380" y="290" text-anchor="middle" class="t-d2">유한을 지양하면서 매개를 살리는 사유 — 곧 논리학의 방법</text>
+</svg>
+
+<h3 class="dp-h3">③ 유론의 전개 — 유·무·성과 질·양·한도</h3>
+<p class="lead">논리학의 첫 걸음이자 헤겔 철학의 상징적 대목이다. 가장 공허한 규정 <b>순수한 유(有)</b>는 곧 <b>무(無)</b>와 같고, 그 하나됨의 진리가 <b>성(成, Werden)</b>이다. 여기서부터 유론의 모든 규정이 발생한다.</p>
+<svg viewBox="0 0 760 460" class="dp-svg" role="img" aria-label="유론">
+  <defs><marker id="ar4" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a8578"/></marker></defs>
+
+  <rect x="120" y="20" width="150" height="46" rx="9" class="box b-lg"/>
+  <text x="195" y="42" text-anchor="middle" class="t-tt">유(有, Sein)</text>
+  <text x="195" y="59" text-anchor="middle" class="t-d2">규정 없는 직접성</text>
+  <rect x="490" y="20" width="150" height="46" rx="9" class="box b-lg"/>
+  <text x="565" y="42" text-anchor="middle" class="t-tt">무(無, Nichts)</text>
+  <text x="565" y="59" text-anchor="middle" class="t-d2">일체 규정의 결여</text>
+  <path d="M270,42 L490,42" class="ln" marker-end="url(#ar4)"/>
+  <path d="M490,50 C400,80 360,80 270,50" class="ln-d"/>
+  <text x="380" y="30" text-anchor="middle" class="t-d2">동일 — 완전히 공허하다는 점에서 서로 넘어감</text>
+
+  <line x1="380" y1="76" x2="380" y2="96" class="ln"/>
+  <rect x="290" y="100" width="180" height="46" rx="9" class="box b-ab"/>
+  <text x="380" y="122" text-anchor="middle" class="t-tt">성(成, Werden)</text>
+  <text x="380" y="139" text-anchor="middle" class="t-d2">유와 무의 살아 있는 통일</text>
+
+  <line x1="380" y1="150" x2="380" y2="170" class="ln"/>
+  <text x="380" y="184" text-anchor="middle" class="t-band">유론의 세 부문</text>
+
+  <g>
+    <rect x="30" y="198" width="220" height="76" rx="10" class="box b-lg"/>
+    <text x="140" y="220" text-anchor="middle" class="t-tt">Ⅰ. 질(質, Qualität)</text>
+    <text x="140" y="240" text-anchor="middle" class="t-d">유 · 정유(定有) · 대자유(對自有)</text>
+    <text x="140" y="258" text-anchor="middle" class="t-d2">§86–98</text>
+
+    <rect x="270" y="198" width="220" height="76" rx="10" class="box b-lg"/>
+    <text x="380" y="220" text-anchor="middle" class="t-tt">Ⅱ. 양(量, Quantität)</text>
+    <text x="380" y="240" text-anchor="middle" class="t-d">순수량 · 정량(定量) · 도(度)</text>
+    <text x="380" y="258" text-anchor="middle" class="t-d2">§99–106</text>
+
+    <rect x="510" y="198" width="220" height="76" rx="10" class="box b-lg"/>
+    <text x="620" y="220" text-anchor="middle" class="t-tt">Ⅲ. 한도(限度, Maß)</text>
+    <text x="620" y="240" text-anchor="middle" class="t-d">질·양의 통일 — 규정된 척도</text>
+    <text x="620" y="258" text-anchor="middle" class="t-d2">§107–111</text>
+  </g>
+  <path d="M250,236 L270,236" class="ln" marker-end="url(#ar4)"/>
+  <path d="M490,236 L510,236" class="ln" marker-end="url(#ar4)"/>
+
+  <text x="380" y="310" text-anchor="middle" class="t-band band-g">이행의 두 논리</text>
+  <g>
+   <rect x="70" y="324" width="280" height="60" rx="9" class="box b-nt"/>
+   <text x="210" y="346" text-anchor="middle" class="t-tt2">‘양적 변화 → 질적 도약’</text>
+   <text x="210" y="366" text-anchor="middle" class="t-d2">한도가 결절점(節點)에서 새로운 질로 넘어감</text>
+   <rect x="410" y="324" width="280" height="60" rx="9" class="box b-nt"/>
+   <text x="550" y="346" text-anchor="middle" class="t-tt2">‘유한(有限) → 무한(無限)’</text>
+   <text x="550" y="366" text-anchor="middle" class="t-d2">한계 지음이 곧 자기 넘어섬, 참된 무한은 원환(圓環)</text>
+  </g>
+  <text x="380" y="410" text-anchor="middle" class="t-flow">한도의 자기 지양이 <tspan font-weight="700">본질(本質)</tspan>로 넘어간다 — 유의 자기 반성이 곧 본질이다.</text>
+  <text x="380" y="434" text-anchor="middle" class="t-d2">§ 111: “Maß의 자기 지양이 곧 Wesen이다.”</text>
+</svg>
+
+<h3 class="dp-h3">④ 개념론 — 보편·특수·개별과 판단·추리</h3>
+<p class="lead">개념(Begriff)은 유·본질을 지양한 <b>자유로운 사유</b>다. 보편·특수·개별은 세 별개 항이 아니라 <b>같은 개념의 세 계기</b>이며, 이 셋의 관계가 곧 판단(判斷)과 추리(推理)의 형식으로 펼쳐진다.</p>
+<svg viewBox="0 0 760 430" class="dp-svg" role="img" aria-label="개념·판단·추리">
+  <defs><marker id="ar5" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a8578"/></marker></defs>
+
+  <rect x="290" y="14" width="180" height="42" rx="8" class="box b-lg"/>
+  <text x="380" y="40" text-anchor="middle" class="t-tt">개념(Begriff)의 세 계기</text>
+
+  <g>
+   <rect x="60" y="80" width="180" height="60" rx="9" class="box b-base"/>
+   <text x="150" y="102" text-anchor="middle" class="t-tt2">보편(A, Allgemeinheit)</text>
+   <text x="150" y="121" text-anchor="middle" class="t-d2">자기 안에 있음 · 자유</text>
+   <rect x="290" y="80" width="180" height="60" rx="9" class="box b-base"/>
+   <text x="380" y="102" text-anchor="middle" class="t-tt2">특수(B, Besonderheit)</text>
+   <text x="380" y="121" text-anchor="middle" class="t-d2">규정된 보편 · 구별</text>
+   <rect x="520" y="80" width="180" height="60" rx="9" class="box b-base"/>
+   <text x="610" y="102" text-anchor="middle" class="t-tt2">개별(E, Einzelnheit)</text>
+   <text x="610" y="121" text-anchor="middle" class="t-d2">보편과 특수의 통일 · 현실</text>
+  </g>
+  <path d="M240,110 L290,110" class="ln" marker-end="url(#ar5)"/>
+  <path d="M470,110 L520,110" class="ln" marker-end="url(#ar5)"/>
+
+  <text x="380" y="172" text-anchor="middle" class="t-band">판단(判斷) — 개념의 근원 분할(Ur-teilung)</text>
+  <g>
+   <rect x="60" y="186" width="640" height="56" rx="9" class="box b-lg"/>
+   <text x="380" y="208" text-anchor="middle" class="t-tt">“E — B — A”  개별이 특수를 매개로 보편에 포섭된다</text>
+   <text x="380" y="228" text-anchor="middle" class="t-d2">현존판단 → 반성판단 → 필연판단 → 개념판단 (계사 ‘~이다’의 심화)</text>
+  </g>
+
+  <text x="380" y="270" text-anchor="middle" class="t-band band-b">추리(推理) — 판단의 진리 · 개념의 완전한 회복</text>
+  <g>
+   <rect x="30" y="284" width="220" height="70" rx="9" class="box b-gs"/>
+   <text x="140" y="306" text-anchor="middle" class="t-tt2">현존추리 (E–B–A)</text>
+   <text x="140" y="325" text-anchor="middle" class="t-d2">전통적 삼단논법</text>
+   <text x="140" y="343" text-anchor="middle" class="t-d2">개별→보편의 외적 매개</text>
+   <rect x="270" y="284" width="220" height="70" rx="9" class="box b-gs"/>
+   <text x="380" y="306" text-anchor="middle" class="t-tt2">반성추리 (B–E–A)</text>
+   <text x="380" y="325" text-anchor="middle" class="t-d2">귀납·유비</text>
+   <text x="380" y="343" text-anchor="middle" class="t-d2">특수가 개별 전체를 통해 매개</text>
+   <rect x="510" y="284" width="220" height="70" rx="9" class="box b-ab"/>
+   <text x="620" y="306" text-anchor="middle" class="t-tt2">필연추리 (A–E–B)</text>
+   <text x="620" y="325" text-anchor="middle" class="t-d2">정언·가언·선언</text>
+   <text x="620" y="343" text-anchor="middle" class="t-d2">보편이 스스로 매개 — 참된 추리</text>
+  </g>
+  <path d="M250,320 L270,320" class="ln" marker-end="url(#ar5)"/>
+  <path d="M490,320 L510,320" class="ln" marker-end="url(#ar5)"/>
+
+  <text x="380" y="384" text-anchor="middle" class="t-flow">추리는 자신의 매개를 자기 자신 안에 두어, 개념을 <tspan font-weight="700">객관</tspan>으로 실현한다.</text>
+  <text x="380" y="406" text-anchor="middle" class="t-d2">→ 객관(기계론·화학론·목적론)을 거쳐, 마침내 <tspan font-weight="700">이념</tspan>(생명·인식·절대이념)에 이른다.</text>
+</svg>
+
+<h3 class="dp-h3">⑤ 자연 철학의 삼분 — 역학·물리학·유기적 자연학</h3>
+<p class="lead">자연은 이념의 <b>타자태(他者態)</b>이므로 그 자체가 완전한 자유는 아니다. 그러나 자연 안에서도 이념은 점점 자기 자신에게로 접근한다 — 무관심한 외재로부터 개체성의 물리로, 마침내 <b>살아 있는 유기체(생명)</b>에 이른다.</p>
+<svg viewBox="0 0 760 430" class="dp-svg" role="img" aria-label="자연 철학">
+  <defs><marker id="ar6" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a8578"/></marker></defs>
+
+  <g>
+   <rect x="30" y="20" width="220" height="46" rx="9" class="box b-nt"/>
+   <text x="140" y="42" text-anchor="middle" class="t-tt">Ⅰ. 역학(力學)</text>
+   <text x="140" y="60" text-anchor="middle" class="t-d2">추상적·무관심적 외재</text>
+   <rect x="270" y="20" width="220" height="46" rx="9" class="box b-nt"/>
+   <text x="380" y="42" text-anchor="middle" class="t-tt">Ⅱ. 물리학(物理學)</text>
+   <text x="380" y="60" text-anchor="middle" class="t-d2">특수한·전체적 개체성</text>
+   <rect x="510" y="20" width="220" height="46" rx="9" class="box b-ab"/>
+   <text x="620" y="42" text-anchor="middle" class="t-tt">Ⅲ. 유기적 자연학</text>
+   <text x="620" y="60" text-anchor="middle" class="t-d2">주관적 개체성 — 생명</text>
+  </g>
+  <path d="M250,44 L270,44" class="ln" marker-end="url(#ar6)"/>
+  <path d="M490,44 L510,44" class="ln" marker-end="url(#ar6)"/>
+
+  <text x="140" y="96" text-anchor="middle" class="t-band">공간·시간·물질·운동</text>
+  <g>
+   <rect x="30" y="108" width="220" height="38" rx="7" class="box b-base"/><text x="140" y="132" text-anchor="middle" class="t-tt2">공간과 시간 · 장소와 운동</text>
+   <rect x="30" y="150" width="220" height="38" rx="7" class="box b-base"/><text x="140" y="174" text-anchor="middle" class="t-tt2">유한적 역학 — 관성·충격·낙하</text>
+   <rect x="30" y="192" width="220" height="38" rx="7" class="box b-base"/><text x="140" y="216" text-anchor="middle" class="t-tt2">절대 역학 — 자유로운 낙하·태양계</text>
+  </g>
+
+  <text x="380" y="96" text-anchor="middle" class="t-band">질적 규정을 획득한 물질</text>
+  <g>
+   <rect x="270" y="108" width="220" height="38" rx="7" class="box b-base"/><text x="380" y="132" text-anchor="middle" class="t-tt2">보편적 개체성 — 천체·원소·과정</text>
+   <rect x="270" y="150" width="220" height="38" rx="7" class="box b-base"/><text x="380" y="174" text-anchor="middle" class="t-tt2">특수한 개체성 — 중력·응집·음향·열</text>
+   <rect x="270" y="192" width="220" height="38" rx="7" class="box b-base"/><text x="380" y="216" text-anchor="middle" class="t-tt2">전체적 개체성 — 형태·화학적 과정</text>
+  </g>
+
+  <text x="620" y="96" text-anchor="middle" class="t-band band-g">생명의 삼단계</text>
+  <g>
+   <rect x="510" y="108" width="220" height="38" rx="7" class="box b-gs"/><text x="620" y="132" text-anchor="middle" class="t-tt2">지질학적 자연 — 무기 유기체</text>
+   <rect x="510" y="150" width="220" height="38" rx="7" class="box b-gs"/><text x="620" y="174" text-anchor="middle" class="t-tt2">식물적 자연 — 미숙한 주체성</text>
+   <rect x="510" y="192" width="220" height="38" rx="7" class="box b-gs"/><text x="620" y="216" text-anchor="middle" class="t-tt2">동물적 유기체 — 자기 감정</text>
+  </g>
+
+  <text x="380" y="266" text-anchor="middle" class="t-band">동물적 유기체의 세 과정 (§352–376)</text>
+  <g>
+   <rect x="60" y="280" width="200" height="60" rx="9" class="box b-gs"/>
+   <text x="160" y="302" text-anchor="middle" class="t-tt2">형태 (形態, Gestalt)</text>
+   <text x="160" y="321" text-anchor="middle" class="t-d2">자기 안에서 자기를 유지</text>
+   <rect x="280" y="280" width="200" height="60" rx="9" class="box b-gs"/>
+   <text x="380" y="302" text-anchor="middle" class="t-tt2">동화 (同化, Assimilation)</text>
+   <text x="380" y="321" text-anchor="middle" class="t-d2">타자를 자기로 변형</text>
+   <rect x="500" y="280" width="200" height="60" rx="9" class="box b-ab"/>
+   <text x="600" y="302" text-anchor="middle" class="t-tt2">유(類)의 과정 (Gattungsprozess)</text>
+   <text x="600" y="321" text-anchor="middle" class="t-d2">종·재생·죽음</text>
+  </g>
+  <path d="M260,310 L280,310" class="ln" marker-end="url(#ar6)"/>
+  <path d="M480,310 L500,310" class="ln" marker-end="url(#ar6)"/>
+
+  <text x="380" y="374" text-anchor="middle" class="t-flow">개별 유기체는 <tspan font-weight="700">유(類)</tspan> 앞에서 죽음으로써 자연을 넘어선다.</text>
+  <text x="380" y="396" text-anchor="middle" class="t-d2">자연의 진리는 “자기 자신을 넘어 정신이 되는 것”이다. → <tspan font-weight="700">정신철학</tspan>으로.</text>
+  <text x="380" y="418" text-anchor="middle" class="t-d2">§ 376: “자연의 자기 지양이 곧 정신의 발생이다.”</text>
+</svg>
+
+<h3 class="dp-h3">⑥ 주관적 정신의 삼분 — 심령·의식·정신</h3>
+<p class="lead">자연에서 깨어난 정신은 먼저 자기 안에 갇힌 <b>개인의 정신</b>으로 나타난다. 인간학은 자연과 얽힌 마음(心靈)을, 정신 현상학은 대상을 마주한 의식(意識)을, 심리학은 자기 자신에 대해 자유로운 정신(精神)을 다룬다.</p>
+<svg viewBox="0 0 760 340" class="dp-svg" role="img" aria-label="주관적 정신">
+  <defs><marker id="ar7" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a8578"/></marker></defs>
+
+  <rect x="30" y="20" width="220" height="52" rx="9" class="box b-gs"/>
+  <text x="140" y="42" text-anchor="middle" class="t-tt">Ⅰ. 인간학 — 심령(心靈)</text>
+  <text x="140" y="60" text-anchor="middle" class="t-d2">자연에 매인 정신</text>
+  <rect x="270" y="20" width="220" height="52" rx="9" class="box b-gs"/>
+  <text x="380" y="42" text-anchor="middle" class="t-tt">Ⅱ. 정신현상학 — 의식</text>
+  <text x="380" y="60" text-anchor="middle" class="t-d2">대상과 대립하는 정신</text>
+  <rect x="510" y="20" width="220" height="52" rx="9" class="box b-gs"/>
+  <text x="620" y="42" text-anchor="middle" class="t-tt">Ⅲ. 심리학 — 정신</text>
+  <text x="620" y="60" text-anchor="middle" class="t-d2">자기 자신에 대한 정신</text>
+  <path d="M250,46 L270,46" class="ln" marker-end="url(#ar7)"/>
+  <path d="M490,46 L510,46" class="ln" marker-end="url(#ar7)"/>
+
+  <g>
+   <rect x="30" y="90" width="220" height="34" rx="6" class="box b-base"/><text x="140" y="112" text-anchor="middle" class="t-tt2">자연적 심령</text>
+   <rect x="30" y="128" width="220" height="34" rx="6" class="box b-base"/><text x="140" y="150" text-anchor="middle" class="t-tt2">감지하는 심령</text>
+   <rect x="30" y="166" width="220" height="34" rx="6" class="box b-base"/><text x="140" y="188" text-anchor="middle" class="t-tt2">현실적 심령</text>
+
+   <rect x="270" y="90" width="220" height="34" rx="6" class="box b-base"/><text x="380" y="112" text-anchor="middle" class="t-tt2">의식 그 자체</text>
+   <rect x="270" y="128" width="220" height="34" rx="6" class="box b-base"/><text x="380" y="150" text-anchor="middle" class="t-tt2">자기 의식</text>
+   <rect x="270" y="166" width="220" height="34" rx="6" class="box b-base"/><text x="380" y="188" text-anchor="middle" class="t-tt2">이성</text>
+
+   <rect x="510" y="90" width="220" height="34" rx="6" class="box b-base"/><text x="620" y="112" text-anchor="middle" class="t-tt2">이론적 정신</text>
+   <rect x="510" y="128" width="220" height="34" rx="6" class="box b-base"/><text x="620" y="150" text-anchor="middle" class="t-tt2">실천적 정신</text>
+   <rect x="510" y="166" width="220" height="34" rx="6" class="box b-ab"/><text x="620" y="188" text-anchor="middle" class="t-tt2">자유로운 정신</text>
+  </g>
+
+  <text x="380" y="224" text-anchor="middle" class="t-band band-b">계기의 성격</text>
+  <text x="140" y="248" text-anchor="middle" class="t-d">신체·감각·습관 — 몸을 자기로 삼음</text>
+  <text x="380" y="248" text-anchor="middle" class="t-d">주–객 대립 — 노예와 주인, 상호 인정</text>
+  <text x="620" y="248" text-anchor="middle" class="t-d">직관·표상·사유·의지 — 자유의지의 발생</text>
+
+  <text x="380" y="286" text-anchor="middle" class="t-flow">자유로운 정신이 자신을 세계에 실현하는 순간, 정신은 <tspan font-weight="700">객관적 정신</tspan>이 된다.</text>
+  <text x="380" y="310" text-anchor="middle" class="t-d2">§ 481–487: 이론적 정신에서 실천적 정신을 거쳐 ‘자유의지’가 성립.</text>
+  <text x="380" y="330" text-anchor="middle" class="t-d2">이 자유의지가 대상적 세계로 나갈 때 처음 만나는 규정이 곧 <tspan font-weight="700">법(法)</tspan>이다.</text>
+</svg>
+
+<h3 class="dp-h3">⑦ 객관적 정신 — 법·도덕성·인륜, 그리고 인륜의 삼분</h3>
+<p class="lead">주관적 정신이 자신을 세계 속에 실현한 것이 객관적 정신이다. 자유는 먼저 외적인 <b>법</b>(추상적)으로, 다음으로 내면적 <b>도덕성</b>으로, 마침내 이 둘의 통일인 <b>인륜</b>(살아 있는 공동체)으로 전개된다. 『법철학』과 대응한다.</p>
+<svg viewBox="0 0 760 430" class="dp-svg" role="img" aria-label="객관적 정신">
+  <defs><marker id="ar8" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a8578"/></marker></defs>
+
+  <g>
+   <rect x="30" y="20" width="220" height="66" rx="10" class="box b-gs"/>
+   <text x="140" y="44" text-anchor="middle" class="t-tt">Ⅰ. 법(法, Recht)</text>
+   <text x="140" y="63" text-anchor="middle" class="t-d">추상적 법 — 외적 자유</text>
+   <text x="140" y="80" text-anchor="middle" class="t-d2">소유 · 계약 · 불법에 대한 법</text>
+
+   <rect x="270" y="20" width="220" height="66" rx="10" class="box b-gs"/>
+   <text x="380" y="44" text-anchor="middle" class="t-tt">Ⅱ. 도덕성(道德性, Moralität)</text>
+   <text x="380" y="63" text-anchor="middle" class="t-d">내적 자유 — 주관적 의지</text>
+   <text x="380" y="80" text-anchor="middle" class="t-d2">기도(企圖) · 의도와 복지 · 선과 악</text>
+
+   <rect x="510" y="20" width="220" height="66" rx="10" class="box b-ab"/>
+   <text x="620" y="44" text-anchor="middle" class="t-tt">Ⅲ. 인륜(人倫, Sittlichkeit)</text>
+   <text x="620" y="63" text-anchor="middle" class="t-d">양자의 통일 — 살아 있는 공동체</text>
+   <text x="620" y="80" text-anchor="middle" class="t-d2">가족 · 시민 사회 · 국가</text>
+  </g>
+  <path d="M250,52 L270,52" class="ln" marker-end="url(#ar8)"/>
+  <path d="M490,52 L510,52" class="ln" marker-end="url(#ar8)"/>
+
+  <text x="380" y="118" text-anchor="middle" class="t-band">각 단계의 결함과 다음으로의 이행</text>
+  <g>
+   <rect x="30" y="132" width="220" height="54" rx="8" class="box b-nt"/>
+   <text x="140" y="152" text-anchor="middle" class="t-d">법은 외적 물건에 자유를 실현하지만</text>
+   <text x="140" y="170" text-anchor="middle" class="t-d">주체의 의도는 담지 못함 →</text>
+   <rect x="270" y="132" width="220" height="54" rx="8" class="box b-nt"/>
+   <text x="380" y="152" text-anchor="middle" class="t-d">도덕성은 의도를 담지만</text>
+   <text x="380" y="170" text-anchor="middle" class="t-d">내면에 갇혀 실현되지 않음 →</text>
+   <rect x="510" y="132" width="220" height="54" rx="8" class="box b-nt"/>
+   <text x="620" y="152" text-anchor="middle" class="t-d">인륜은 객관적 제도로서</text>
+   <text x="620" y="170" text-anchor="middle" class="t-d">주관과 객관을 살아 있게 통일</text>
+  </g>
+
+  <text x="380" y="216" text-anchor="middle" class="t-band band-b">인륜(Sittlichkeit)의 삼분 — 자유의 구체적 형상들</text>
+  <g>
+   <rect x="30" y="230" width="220" height="86" rx="10" class="box b-gs"/>
+   <text x="140" y="252" text-anchor="middle" class="t-tt">가족(家族, Familie)</text>
+   <text x="140" y="270" text-anchor="middle" class="t-d">사랑·직접적 통일</text>
+   <text x="140" y="286" text-anchor="middle" class="t-d2">혼인 · 재산 · 자녀 교육</text>
+   <text x="140" y="304" text-anchor="middle" class="t-d2">보편이 감정으로 있음</text>
+
+   <rect x="270" y="230" width="220" height="86" rx="10" class="box b-gs"/>
+   <text x="380" y="252" text-anchor="middle" class="t-tt">시민 사회(市民社會)</text>
+   <text x="380" y="270" text-anchor="middle" class="t-d">욕구 체계·분화</text>
+   <text x="380" y="286" text-anchor="middle" class="t-d2">노동 · 계급 · 사법 · 경찰 · 조합</text>
+   <text x="380" y="304" text-anchor="middle" class="t-d2">특수가 서로 매개하는 무대</text>
+
+   <rect x="510" y="230" width="220" height="86" rx="10" class="box b-ab"/>
+   <text x="620" y="252" text-anchor="middle" class="t-tt">국가(國家, Staat)</text>
+   <text x="620" y="270" text-anchor="middle" class="t-d">보편과 특수의 참된 통일</text>
+   <text x="620" y="286" text-anchor="middle" class="t-d2">내적 국가법 · 대외 국제법 · 세계사</text>
+   <text x="620" y="304" text-anchor="middle" class="t-d2">인륜의 정점 · 자유의 현실태</text>
+  </g>
+  <path d="M250,270 L270,270" class="ln" marker-end="url(#ar8)"/>
+  <path d="M490,270 L510,270" class="ln" marker-end="url(#ar8)"/>
+
+  <text x="380" y="352" text-anchor="middle" class="t-flow">국가의 자기 전개인 <tspan font-weight="700">세계사(世界史)</tspan>에서 정신은 자기가 무엇인지를 시간 속에 실현한다.</text>
+  <text x="380" y="376" text-anchor="middle" class="t-d2">동방 → 그리스 → 로마 → 게르만적 세계로 이어지는 자유 의식의 진보(§548–552)</text>
+  <text x="380" y="398" text-anchor="middle" class="t-d2">그러나 세계사는 여전히 유한한 정신의 무대이며, 그 진리는 스스로를 대상 삼는 <tspan font-weight="700">절대 정신</tspan>이다.</text>
+  <text x="380" y="420" text-anchor="middle" class="t-d2">— 세계사의 심판 뒤에는 <tspan font-weight="700">예술·종교·철학</tspan>이 온다.</text>
+</svg>
+
+<h3 class="dp-h3">⑧ 절대 정신 — 예술·종교·철학</h3>
+<p class="lead">『철학강요』 전체가 향해 온 지점이다. 절대 정신은 이념이 자기 자신을 <b>자기의 대상</b>으로 삼아 파악하는 국면이다. 같은 진리[絕對]가 세 가지 다른 형식 — <b>직관·표상·개념</b> — 으로 자신을 드러낸다.</p>
+<svg viewBox="0 0 760 400" class="dp-svg" role="img" aria-label="절대 정신">
+  <defs><marker id="ar9" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#8a8578"/></marker></defs>
+
+  <rect x="230" y="20" width="300" height="46" rx="9" class="box b-ab"/>
+  <text x="380" y="42" text-anchor="middle" class="t-tt">절대(絕對) — 정신이 자기 자신을 앎</text>
+  <text x="380" y="60" text-anchor="middle" class="t-d2">같은 진리, 세 가지 자기 인식의 형식</text>
+
+  <g>
+   <rect x="30" y="94" width="220" height="76" rx="10" class="box b-gs"/>
+   <text x="140" y="116" text-anchor="middle" class="t-tt">Ⅰ. 예술(藝術)</text>
+   <text x="140" y="136" text-anchor="middle" class="t-d">감성적 <tspan font-weight="700">직관(直觀)</tspan>의 형식</text>
+   <text x="140" y="153" text-anchor="middle" class="t-d2">이상(理想)의 감각적 현현</text>
+
+   <rect x="270" y="94" width="220" height="76" rx="10" class="box b-gs"/>
+   <text x="380" y="116" text-anchor="middle" class="t-tt">Ⅱ. 계시 종교(啓示宗敎)</text>
+   <text x="380" y="136" text-anchor="middle" class="t-d"><tspan font-weight="700">표상(表象)</tspan>의 형식</text>
+   <text x="380" y="153" text-anchor="middle" class="t-d2">신·삼위일체·화해의 서사</text>
+
+   <rect x="510" y="94" width="220" height="76" rx="10" class="box b-ab"/>
+   <text x="620" y="116" text-anchor="middle" class="t-tt">Ⅲ. 철학(哲學)</text>
+   <text x="620" y="136" text-anchor="middle" class="t-d">순수한 <tspan font-weight="700">개념(槪念)</tspan>의 형식</text>
+   <text x="620" y="153" text-anchor="middle" class="t-d2">사유가 사유를 사유함</text>
+  </g>
+  <path d="M250,132 L270,132" class="ln" marker-end="url(#ar9)"/>
+  <path d="M490,132 L510,132" class="ln" marker-end="url(#ar9)"/>
+
+  <text x="380" y="200" text-anchor="middle" class="t-band band-o">‘형식’의 심화 — 매개의 완전화</text>
+  <g>
+   <rect x="30" y="214" width="220" height="52" rx="8" class="box b-base"/>
+   <text x="140" y="234" text-anchor="middle" class="t-d">직관은 즉시적이지만</text>
+   <text x="140" y="252" text-anchor="middle" class="t-d">감각에 묶여 있다.</text>
+   <rect x="270" y="214" width="220" height="52" rx="8" class="box b-base"/>
+   <text x="380" y="234" text-anchor="middle" class="t-d">표상은 보편적이지만</text>
+   <text x="380" y="252" text-anchor="middle" class="t-d">여전히 그림(像)에 의존한다.</text>
+   <rect x="510" y="214" width="220" height="52" rx="8" class="box b-base"/>
+   <text x="620" y="234" text-anchor="middle" class="t-d">개념은 그림 없이</text>
+   <text x="620" y="252" text-anchor="middle" class="t-d">자기 자신을 사유한다.</text>
+  </g>
+
+  <text x="380" y="298" text-anchor="middle" class="t-flow">철학은 종교의 진리를 개념적으로 다시 쓴 것 — 내용은 같고, 형식만 다르다.</text>
+  <text x="380" y="320" text-anchor="middle" class="t-d2">§ 574: 철학은 “논리적인 것이 정신적 활동의 결과로 드러나 있음”을 파악한다.</text>
+
+  <rect x="180" y="342" width="400" height="46" rx="10" class="box b-ab"/>
+  <text x="380" y="365" text-anchor="middle" class="t-tt">체계의 자기 폐쇄(圓還) — 논리학으로의 귀환</text>
+  <text x="380" y="382" text-anchor="middle" class="t-d2">§ 575–577: 철학은 다시 논리의 이념을 자기 결과로 가진다.</text>
+</svg>
+
+</section>
+<div class="backtop"><a href="#top">↑ 목차</a></div>
+
+<section id="tree"><h2 class="dp-h">Ⅲ. 전체 개념 트리 <span class="sub">— 목차 개념어 · 클릭 시 뜻풀이</span></h2>
+<div class="def-hint">각 용어를 <b>클릭</b>하면 뜻풀이가 뜹니다. (ESC · 바깥 클릭 · × 로 닫기)</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">0</span><span class="cat-title">체계 일반</span><span class="cat-han">Enzyklopädie</span></div>
+<div class="terms"><span class="term"><b>철학강요</b> 철학강요(哲學綱要)</span><span class="term"><b>이념</b> 이념(理念)</span><span class="term"><b>정신</b> 정신(精神)</span><span class="term"><b>절대</b> 절대(絕對)</span><span class="term"><b>변증법</b> 변증법(辨證法)</span><span class="term"><b>사변</b> 사변(思辨)</span><span class="term"><b>지양</b> 지양(止揚)</span><span class="term"><b>즉자</b> 즉자(卽自)</span><span class="term"><b>대자</b> 대자(對自)</span><span class="term"><b>즉자대자</b> 즉자대자(卽自對自)</span></div>
+</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">1</span><span class="cat-title">서론 · 객관성에 대한 사상의 세 태도</span><span class="cat-han">Vorbegriff</span></div>
+<div class="subcat"><div class="sub-t">예비 개념 일반</div>
+<div class="terms"><span class="term"><b>예비개념</b> 예비 개념</span><span class="term"><b>사유</b> 사유(思惟)</span><span class="term"><b>오성</b> 오성(悟性)</span><span class="term"><b>이성</b> 이성(理性)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">첫째 태도 — 형이상학</div>
+<div class="terms"><span class="term"><b>형이상학</b> 형이상학(形而上學)</span><span class="term"><b>본체론</b> 본체론(本體論)</span><span class="term"><b>이성적신학</b> 이성적 신학</span><span class="term"><b>이성적심리학</b> 이성적 심리학</span><span class="term"><b>이성적우주론</b> 이성적 우주론</span></div>
+</div>
+<div class="subcat"><div class="sub-t">둘째 태도 — 경험론과 비판철학</div>
+<div class="terms"><span class="term"><b>경험론</b> 경험론(經驗論)</span><span class="term"><b>비판철학</b> 비판 철학</span><span class="term"><b>물자체</b> 물자체(物自體)</span><span class="term"><b>이율배반</b> 이율배반(二律背反)</span><span class="term"><b>범주</b> 범주(範疇)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">셋째 태도 — 직접지</div>
+<div class="terms"><span class="term"><b>직접지</b> 직접지(直接知)</span><span class="term"><b>직관</b> 직관(直觀)</span><span class="term"><b>믿음</b> 믿음(信)</span></div>
+</div>
+</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">2</span><span class="cat-title">논리학 — 유론(有論)</span><span class="cat-han">Die Lehre vom Sein</span></div>
+<div class="subcat"><div class="sub-t">유론의 기초 규정</div>
+<div class="terms"><span class="term"><b>유론</b> 유론(有論)</span><span class="term"><b>유</b> 유(有)</span><span class="term"><b>무</b> 무(無)</span><span class="term"><b>성</b> 성(成)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">질(質) — 세 계기</div>
+<div class="terms"><span class="term"><b>질</b> 질(質)</span><span class="term"><b>정유</b> 정유(定有)</span><span class="term"><b>대자유</b> 대자유(對自有)</span><span class="term"><b>유한</b> 유한(有限)</span><span class="term"><b>무한</b> 무한(無限)</span><span class="term"><b>일자</b> 일자(一者)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">양(量) — 세 계기</div>
+<div class="terms"><span class="term"><b>양</b> 양(量)</span><span class="term"><b>순수량</b> 순수량(純粹量)</span><span class="term"><b>정량</b> 정량(定量)</span><span class="term"><b>도</b> 도(度)</span><span class="term"><b>수</b> 수(數)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">한도(限度)</div>
+<div class="terms"><span class="term"><b>한도</b> 한도(限度)</span><span class="term"><b>절점</b> 절점(節點)</span></div>
+</div>
+</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">3</span><span class="cat-title">논리학 — 본질론(本質論)</span><span class="cat-han">Die Lehre vom Wesen</span></div>
+<div class="subcat"><div class="sub-t">본질과 그 반성 규정</div>
+<div class="terms"><span class="term"><b>본질</b> 본질(本質)</span><span class="term"><b>반성</b> 반성(反省)</span><span class="term"><b>동일성</b> 동일성(同一性)</span><span class="term"><b>구별</b> 구별(區別)</span><span class="term"><b>모순</b> 모순(矛盾)</span><span class="term"><b>근거</b> 근거(根據)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">현존 · 물</div>
+<div class="terms"><span class="term"><b>현존</b> 현존(現存)</span><span class="term"><b>물</b> 물(物)</span><span class="term"><b>성질</b> 성질(性質)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">현상(現象)</div>
+<div class="terms"><span class="term"><b>현상</b> 현상(現象)</span><span class="term"><b>현상의세계</b> 현상의 세계</span><span class="term"><b>내용과형식</b> 내용과 형식</span><span class="term"><b>관계</b> 관계(關係)</span><span class="term"><b>힘과발현</b> 힘과 발현</span></div>
+</div>
+<div class="subcat"><div class="sub-t">현실성(現實性)</div>
+<div class="terms"><span class="term"><b>현실성</b> 현실성(現實性)</span><span class="term"><b>가능성</b> 가능성(可能性)</span><span class="term"><b>필연성</b> 필연성(必然性)</span><span class="term"><b>실체성</b> 실체성(實體性)</span><span class="term"><b>인과성</b> 인과성(因果性)</span><span class="term"><b>교호작용</b> 교호작용(交互作用)</span><span class="term"><b>우연</b> 우연(偶然)</span></div>
+</div>
+</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">4</span><span class="cat-title">논리학 — 개념론(槪念論)</span><span class="cat-han">Die Lehre vom Begriff</span></div>
+<div class="subcat"><div class="sub-t">주관적 개념</div>
+<div class="terms"><span class="term"><b>개념</b> 개념(槪念)</span><span class="term"><b>보편</b> 보편(普遍)</span><span class="term"><b>특수</b> 특수(特殊)</span><span class="term"><b>개별</b> 개별(個別)</span><span class="term"><b>판단</b> 판단(判斷)</span><span class="term"><b>추리</b> 추리(推理)</span><span class="term"><b>계사</b> 계사(繫辭)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">객관 — 실재화된 개념</div>
+<div class="terms"><span class="term"><b>객관</b> 객관(客觀)</span><span class="term"><b>기계론</b> 기계론(機械論)</span><span class="term"><b>화학론</b> 화학론(化學論)</span><span class="term"><b>목적론</b> 목적론(目的論)</span><span class="term"><b>합목적성</b> 합목적성(合目的性)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">이념(理念)</div>
+<div class="terms"><span class="term"><b>이념</b> 이념(理念)</span><span class="term"><b>생명</b> 생명(生命)</span><span class="term"><b>인식</b> 인식(認識)</span><span class="term"><b>진리이념</b> 진리의 이념</span><span class="term"><b>선의이념</b> 선(善)의 이념</span><span class="term"><b>절대이념</b> 절대 이념</span></div>
+</div>
+</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">5</span><span class="cat-title">자연철학 — 역학(力學)</span><span class="cat-han">Mechanik</span></div>
+<div class="terms"><span class="term"><b>자연</b> 자연(自然)</span><span class="term"><b>역학</b> 역학(力學)</span><span class="term"><b>공간</b> 공간(空間)</span><span class="term"><b>시간</b> 시간(時間)</span><span class="term"><b>장소</b> 장소(場所)</span><span class="term"><b>운동</b> 운동(運動)</span><span class="term"><b>물질</b> 물질(物質)</span><span class="term"><b>관성</b> 관성적 물질</span><span class="term"><b>충격</b> 충격(衝擊)</span><span class="term"><b>낙하</b> 낙하(落下)</span><span class="term"><b>절대역학</b> 절대 역학</span></div>
+</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">6</span><span class="cat-title">자연철학 — 물리학(物理學)</span><span class="cat-han">Physik</span></div>
+<div class="subcat"><div class="sub-t">보편적 개체성</div>
+<div class="terms"><span class="term"><b>보편적개체성</b> 보편적 개체성</span><span class="term"><b>천체</b> 자유스런 물리적 천체</span><span class="term"><b>원소</b> 원소(元素)</span><span class="term"><b>원소과정</b> 원소의 과정</span></div>
+</div>
+<div class="subcat"><div class="sub-t">특수한 개체성</div>
+<div class="terms"><span class="term"><b>특수한중력</b> 특수한 중력</span><span class="term"><b>응집력</b> 응집력(凝集力)</span><span class="term"><b>음향</b> 음향(音響)</span><span class="term"><b>열</b> 열(熱)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">전체적 개체성</div>
+<div class="terms"><span class="term"><b>형태</b> 형태(形態)</span><span class="term"><b>물체의특수화</b> 개체적 물체의 특수화</span><span class="term"><b>화학적과정</b> 화학적 과정</span></div>
+</div>
+</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">7</span><span class="cat-title">자연철학 — 유기적 자연학</span><span class="cat-han">Organik</span></div>
+<div class="terms"><span class="term"><b>유기적자연</b> 유기적 자연</span><span class="term"><b>지질학적자연</b> 지질학적 자연</span><span class="term"><b>식물</b> 식물적 자연</span><span class="term"><b>동물</b> 동물적 유기체</span><span class="term"><b>동물형태</b> 동물의 형태</span><span class="term"><b>동화</b> 동화(同化)</span><span class="term"><b>유의과정</b> 유(類)의 과정</span></div>
+</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">8</span><span class="cat-title">정신철학 — 주관적 정신</span><span class="cat-han">Der subjektive Geist</span></div>
+<div class="subcat"><div class="sub-t">인간학 — 심령(心靈)</div>
+<div class="terms"><span class="term"><b>주관적정신</b> 주관적 정신</span><span class="term"><b>인간학</b> 인간학(人間學)</span><span class="term"><b>심령</b> 심령(心靈)</span><span class="term"><b>자연적심령</b> 자연적 심령</span><span class="term"><b>감지하는심령</b> 감지하는 심령</span><span class="term"><b>현실적심령</b> 현실적 심령</span><span class="term"><b>습관</b> 습관(習慣)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">정신 현상학 — 의식</div>
+<div class="terms"><span class="term"><b>정신현상학</b> 정신 현상학</span><span class="term"><b>의식</b> 의식(意識)</span><span class="term"><b>의식그자체</b> 의식 그 자체</span><span class="term"><b>자기의식</b> 자기 의식</span><span class="term"><b>이성</b> 이성(理性)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">심리학 — 정신</div>
+<div class="terms"><span class="term"><b>심리학</b> 심리학(心理學)</span><span class="term"><b>이론적정신</b> 이론적 정신</span><span class="term"><b>실천적정신</b> 실천적 정신</span><span class="term"><b>자유로운정신</b> 자유로운 정신</span><span class="term"><b>표상</b> 표상(表象)</span><span class="term"><b>의지</b> 의지(意志)</span></div>
+</div>
+</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">9</span><span class="cat-title">정신철학 — 객관적 정신</span><span class="cat-han">Der objektive Geist</span></div>
+<div class="subcat"><div class="sub-t">법 (추상적 법)</div>
+<div class="terms"><span class="term"><b>객관적정신</b> 객관적 정신</span><span class="term"><b>법</b> 법(法)</span><span class="term"><b>소유</b> 소유(所有)</span><span class="term"><b>계약</b> 계약(契約)</span><span class="term"><b>불법에대한법</b> 불법에 대한 법</span><span class="term"><b>인격</b> 인격(人格)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">도덕성(道德性)</div>
+<div class="terms"><span class="term"><b>도덕성</b> 도덕성(道德性)</span><span class="term"><b>기도</b> 기도(企圖)</span><span class="term"><b>의도</b> 의도(意圖)</span><span class="term"><b>복지</b> 복지(福祉)</span><span class="term"><b>선</b> 선(善)</span><span class="term"><b>악</b> 악(惡)</span><span class="term"><b>양심</b> 양심(良心)</span></div>
+</div>
+<div class="subcat"><div class="sub-t">인륜(人倫)</div>
+<div class="terms"><span class="term"><b>인륜</b> 인륜(人倫)</span><span class="term"><b>가족</b> 가족(家族)</span><span class="term"><b>시민사회</b> 시민 사회</span><span class="term"><b>국가</b> 국가(國家)</span><span class="term"><b>세계사</b> 세계사(世界史)</span></div>
+</div>
+</div>
+
+<div class="cat">
+<div class="cat-head"><span class="cat-no">10</span><span class="cat-title">정신철학 — 절대적 정신</span><span class="cat-han">Der absolute Geist</span></div>
+<div class="terms"><span class="term"><b>절대적정신</b> 절대적 정신</span><span class="term"><b>예술</b> 예술(藝術)</span><span class="term"><b>이상</b> 이상(理想)</span><span class="term"><b>계시종교</b> 계시 종교</span><span class="term"><b>표상형식</b> 표상의 형식</span><span class="term"><b>철학</b> 철학(哲學)</span><span class="term"><b>철학사</b> 철학사(哲學史)</span></div>
+</div>
+
+</section>
+<div class="backtop"><a href="#top">↑ 목차</a></div>
+<footer>헤겔 『철학강요(Enzyklopädie der philosophischen Wissenschaften)』 개념 도표 · 조감도 · 관계도 8 · 개념 트리</footer>
+</div>
+
+<div class="def-tip" id="defTip" role="dialog" aria-live="polite">
+  <button class="dt-x" id="defClose" aria-label="닫기">×</button>
+  <p class="dt-h" id="defHan"></p>
+  <p class="dt-k" id="defKor"></p>
+  <p class="dt-b" id="defBody"></p>
+</div>
+<script>
+(function(){
+  var G = {
+    "철학강요":["철학강요(哲學綱要)","독일어 원제 <i>Enzyklopädie der philosophischen Wissenschaften im Grundrisse</i>. 헤겔이 하이델베르크·베를린 강의를 위해 자신의 체계 전체를 강령적으로 요약한 저작으로, 논리학·자연철학·정신철학의 세 편으로 이루어진다. 세 판(1817 하이델베르크판, 1827·1830 베를린 확장판)이 있으며, 1817년 초판은 574절짜리 슬림한 강의 요강이었지만 후속 판에서 예비 개념(§19-83)과 정신철학이 크게 보강되면서 오늘날 우리가 참조하는 표준본(§1-577)이 성립했다. 대(大)저작 셋 — 『정신현상학』(1807)·『논리학』(1812-16)·『법철학』(1820) — 이 이 강령의 특정 절을 부분적으로 확장한 것에 해당하며, 사후 제자들이 편집한 미학·종교철학·역사철학·철학사 강의는 절대 정신 절의 부연이다. 20세기 이후에는 딜타이-크로너의 정신사적 독해, 헤르만 글로크너의 판본학, 마이클 인우드·핀카드·핏피의 분석철학적 재해석을 거쳐 다시 표준 텍스트가 되었다."],
+    "이념":["이념(理念, Idee)","개념과 그 실재성의 통일. 유·본질·개념의 전개가 이르는 진리이며, 논리학의 이념은 자연으로 외화(外化)되고 자연은 정신으로 자기 복귀함으로써 다시 이념을 실현한다. 플라톤의 이데아를 어원으로 삼되, 헤겔은 이를 대상의 저편에 정지해 있는 원형이 아니라 <b>자기 자신을 실현하는 활동성</b>으로 재정의한다. 개념(주관적 형식)과 객관(그 실재성)이 아직 어긋나 있으면 그것은 이념이 아니라 외적 목적이나 도덕적 당위에 지나지 않는다. 이념이 처음 나타나는 자리는 자기 목적적인 <b>생명</b>이고, 완성되는 자리는 방법 자체가 내용이 되는 <b>절대 이념</b>(§236)이다. 논리학의 절대 이념이 자연으로 자기를 놓아준다(Entlassen)는 §244의 극적인 이행은 헤겔 체계 전체의 아치를 이룬다."],
+    "정신":["정신(精神, Geist)","자기 자신을 아는 이념. 자연을 매개로 하여 자기에게 돌아온 이념의 살아 있는 활동이며, 주관적·객관적·절대적 정신의 세 국면으로 전개된다. 히브리 ruach·그리스 pneuma·라틴 spiritus의 종교사적 유산을 배경으로 하지만, 헤겔의 Geist는 개체 심리학의 마음도 초월적 실체도 아닌 <b>공동체적이고 역사적인 자기 실현의 과정</b>이다. 『정신현상학』 서문의 '실체는 곧 주체(Substanz auch als Subjekt)' 명제가 그 정식이다. 오해를 피할 요점 셋: 첫째 정신은 자연과 분리된 별도의 영역이 아니라 자연의 진리이고, 둘째 개인의 정신은 객관적 제도와 세계사 안에서만 실현되며, 셋째 절대 정신은 세계 위에 군림하는 신이 아니라 예술·종교·철학을 통해 스스로를 사유하는 인류의 자기 이해다."],
+    "절대":["절대(絕對, das Absolute)","일체 대립이 지양된 자기 관계적 전체. 헤겔에게 절대는 실체이자 주체이며, 자기 자신을 알아가는 활동으로만 존재한다. 초기 헤겔은 셸링의 절대(주-객의 무차별점) 개념을 공유했으나 『정신현상학』 서문에서 그것을 '모든 소가 검게 보이는 밤'이라며 결별하고, 절대를 <b>스스로 매개하는 과정</b>으로 재정의한다. 결과로서의 절대는 시작에서 이미 즉자적으로 있으나, 이 모든 매개를 거쳐 자기를 되찾을 때 비로소 참으로 있다. 따라서 헤겔의 절대는 세계 밖의 초월자도 아니고 사물의 배후에 놓인 공허도 아니며, 논리·자연·정신의 전 계열이 자기를 사유하는 그 활동 자체다. 예술·종교·철학이 각기 다른 형식으로 이 활동을 드러내므로, 절대는 <i>세 형식의 통일된 대상</i>이라기보다 <i>세 형식으로 스스로를 드러내는 주체</i>다."],
+    "변증법":["변증법(辨證法, Dialektik)","고정된 규정이 자기 안에 있는 부정을 통해 자기 반대로 넘어가는 사유·존재의 운동. 오성적 사유의 유한성을 드러내는 부정적 계기다. 어원 dialegesthai(대화하다)는 소크라테스·플라톤의 문답법을 가리키지만, 헤겔은 이를 주관적 논박술이 아닌 <b>대상 자체의 자기 운동</b>으로 격상시킨다. §81은 변증법을 '유한한 규정들의 자기 지양'으로 정의한다. 흔히 유통되는 '정립-반정립-종합' 도식은 피히테적 잔재이며 헤겔 자신은 거의 쓰지 않으므로 주의해야 한다. 헤겔의 부정은 무규정한 무가 아니라 <b>규정된 부정(bestimmte Negation)</b>이라는 점이 핵심 — 어떤 것을 부정하면 그 자리에 새로운 규정이 남고, 이 남은 것이 다음 단계의 출발점이 된다. 변증법은 오성(§80)과 사변(§82) 사이에 놓인 이성의 부정적 계기다."],
+    "사변":["사변(思辨, Spekulation)","대립을 자기 안에서 통일하는 긍정적 이성의 사유. 오성과 변증법을 지양한 헤겔 논리학의 방법이다. 라틴어 어원 speculum(거울)은 사유가 자기 자신을 거울처럼 비추는 활동임을 함축한다. §82에서 사변적 계기는 '대립된 규정들의 통일 안에서 긍정적인 것을 파악함'으로 정의된다. 근대 이후 '사변적'이란 말은 '경험을 벗어난 공허한 사색'이라는 부정적 함의로 흔히 쓰이지만, 헤겔의 용법은 정반대다 — 사변이야말로 유한한 오성 규정을 넘어 사물의 참된 자기 관계를 파악하는 사유이며, 오성(고정)과 변증법(부정)을 계기로 자기 안에 담고 있다. 헤겔에게 종교의 신비(mystery)와 철학의 사변은 형식만 다른 같은 내용이다 — 삼위일체가 종교적 표상으로 사변적 진리를 담고 있듯이."],
+    "지양":["지양(止揚, Aufheben)","한 규정을 (1) 없애면서(부정) (2) 간직하고(보존) (3) 더 높은 규정 안으로 끌어올리는(고양) 삼중의 운동. 헤겔 변증법의 핵심 조작이다. 헤겔은 독일어 aufheben이 갖는 세 의미 — 폐지(tollere), 보존(conservare), 들어 올림(elevare) — 를 언어 자체가 이미 사변적 진리를 담고 있는 증거로 즐겨 인용한다(『논리학』 § 96 주해). 라틴어 계열 언어에는 이 삼중 의미를 하나로 담는 낱말이 없어 번역이 늘 문제이지만, 한자 <b>止揚</b>(멈춰서 들어 올림)은 이를 잘 담아낸 국역이다. 지양된 것은 완전히 사라지지 않고 새 규정 안에 계기로 살아 있다 — 유론에서 유가 사라진 것이 아니라 본질의 계기로 남고, 본질도 개념의 계기로 남는 식이다. 부정의 부정(zweite Negation)이 곧 이 지양이다."],
+    "즉자":["즉자(卽自, an sich)","아직 자기에 대해 반성되지 않은 직접적·잠재적 상태. 씨앗 안에 나무가, 아이 안에 어른이 아직 잠재로만 있는 방식이 그 예다. 원어 an sich의 문법적 뜻은 '자기 곁/자기 안에' 그대로 있음이며, 아리스토텔레스의 dynamis(가능태)와 상통한다. 즉자적 규정은 실재하지만 아직 자기를 자기로 알지 못한 상태이므로, 다음 단계에서 반드시 대자로 이행해야 참이 된다. 유의할 점: §18의 공식에 따르면 논리학은 이미 즉자대자태이므로 논리학=즉자, 자연=대자, 정신=즉자대자로 삼분하는 도식은 편의상의 도해이지 헤겔의 공식 명제가 아니다. 그러나 유론(즉자)·본질론(대자)·개념론(즉자대자)의 삼분에는 이 도식이 그대로 적용된다."],
+    "대자":["대자(對自, für sich)","자기와 대립하여 자기를 대상으로 삼는 상태. 원어 für sich는 문법적으로 '자기를 위해, 자기에게'의 뜻이며, 즉자에 잠재하던 규정이 자기를 자기로서 대상화한 국면이다. 유론의 대자유(對自有)는 유한한 정유가 자기 관계로 응축된 자리이고, 본질론은 유가 자기 안으로 반성한 대자태이며, 자기 의식은 의식이 자기를 자기 대상으로 세운 대자태다. 대자는 즉자의 부정이므로 자기 안에 이미 매개가 있다. 그러나 대자만으로는 자기 밖의 타자에게 아직 얽매여 있으므로, 즉자와의 통일 곧 즉자대자로 나아가야 완성된다. 헤겔이 '자연은 이념의 대자'라기보다 '이념이 그 타자태(Anderssein) 안에 있음'이라 말한 것도 이 뉘앙스 때문이다."],
+    "즉자대자":["즉자대자(卽自對自, an und für sich)","즉자와 대자의 통일. 자기를 대상 삼아 파악하면서 동시에 자기 자신인 상태로, 참된 자유·자기 완성의 형식이다. 씨앗-나무 비유로 하면, 나무가 자기 열매를 맺어 다시 씨앗을 낳는 원환이 즉자대자다. 논리학의 개념론이 유(즉자)와 본질(대자)의 통일이라는 뜻에서 즉자대자이고, 정신철학 전체가 자연(대자)을 매개로 논리(즉자)에 돌아온 이념이라는 뜻에서 즉자대자다. 헤겔이 절대를 '실체이자 주체'라 정의한 것도 이 형식을 겨냥한 것 — 실체는 즉자적 자립성이고 주체는 대자적 자기 관계이니, 그 통일이 즉자대자다. 국역 '즉자·대자·즉자대자'는 임석진 계열이 정착시킨 표준어이며, 학계에서 '자체·대자·자체대자'라는 대안도 쓰인다."],
+
+    "예비개념":["예비 개념(Vorbegriff)","논리학 본론에 앞서 사변적 사유가 요청되는 이유를 밝히는 서장(§19-83). ‘객관성에 대한 사상의 세 태도’(형이상학·경험론/비판철학·직접지)를 순차로 검토하여, 이 셋이 모두 좌초하는 자리에서 사변 논리학이 발생함을 보인다. 1817 초판에는 이 부분이 아주 짧았으나 1827·1830 판에서 크게 확장되었다. 예비 개념의 구조는 <b>역사적 순서가 곧 논리적 순서</b>라는 헤겔의 중요한 명제를 보여준다 — 고대·중세의 소박한 형이상학, 근대 초기 경험론과 그 완성인 칸트의 비판, 그 반동으로서 야코비의 직접지가 연이어 등장했고, 이 순서 그대로 사변에 다가가는 논리적 상승이기도 하다."],
+    "사유":["사유(思惟, Denken)","단순한 표상이나 감각을 넘어 보편적 규정에 따라 대상을 파악하는 정신의 활동. 헤겔에게 참된 사유는 대상 자체의 자기 규정이기도 하다. §20-25에서 헤겔은 사유를 (1) 자발적 활동, (2) 보편성의 형식, (3) 대상성과 통일된다는 세 특성으로 규정한다. 표상(Vorstellung)이 이미지에 의존해 대상을 붙잡는 데 반해 사유는 순수한 규정으로 파악한다. 이 지점에서 헤겔의 관념론이 급진화된다 — 칸트에서 사유는 '주관의 형식'에 머물지만 헤겔에서 사유의 규정(범주)은 <b>동시에 사물 자체의 자기 규정</b>이다. 이를 놓치면 헤겔이 왜 물자체를 공허하다고 하는지, 왜 논리학이 존재론이 되는지 이해할 수 없다."],
+    "오성":["오성(悟性, Verstand)","규정을 고정된 것으로 붙잡아 서로 구별하는 사유의 단계. 유한한 규정을 다루므로 필연적으로 모순에 부딪히지만, 학문에는 반드시 필요한 계기다. §80이 이를 정의한다. 오성은 A는 A이고 B는 B라는 동일성·구별의 형식을 지키는 사유이며, 근대 자연과학(뉴턴 물리학·린네 분류학)의 사유 형식이 그 전형이다. 헤겔은 오성을 절대 얕보지 않는다 — 오성 없이는 어떤 규정도 명료해질 수 없으므로 학문의 출발은 오성적 정확성이다. 다만 오성이 절대에 대해 자기를 궁극이라 주장할 때 형이상학의 좌초가 일어난다. 오성의 유한성이 스스로 드러나는 자리가 변증법이고, 그것이 자기 안에서 통일되는 자리가 사변이다."],
+    "이성":["이성(理性, Vernunft)","오성의 유한한 규정을 지양하여 대립을 통일하는 사유의 단계. 부정적 이성(변증법, §81)과 긍정적 이성(사변, §82)의 두 계기를 갖는다. 고대 그리스의 nous·logos에 뿌리를 두고, 칸트가 이성을 이념(무제약자)의 능력으로 규정한 것을 헤겔이 이어받되 근본적으로 재편한다. 칸트에서 이성은 이율배반에서 자기 한계에 부딪히지만, 헤겔에서 이성은 바로 그 이율배반 안에서 자기 진리를 획득한다 — 이성은 대립을 파괴하지 않고 자기 안에 담을 만큼 넉넉한 사유다. 유의: 이 항목의 이성(예비 개념의 논리적 이성)과 정신 현상학의 이성(의식과 자기 의식의 통일)은 서로 다른 층위이나, 헤겔에게는 결국 같은 '사유가 자기 자신을 아는 활동'의 두 측면이다."],
+
+    "형이상학":["형이상학(Metaphysik)","객관성에 대한 사상의 ‘첫째 태도’(§26-36). 볼프 학파를 대표로 하는 이전의 형이상학이며, 사유의 규정을 그대로 대상의 규정으로 삼는 소박한 태도이자 유한한 오성적 규정을 절대에 적용하다 좌초한다. 크리스티안 볼프의 4분과 — 존재론(본체론)·이성적 우주론·이성적 심리학·자연 신학 — 이 그 표준 골격이다. 헤겔은 이 형이상학을 두 방향에서 평가한다. 긍정적 측면: 사유와 존재가 하나라는 <b>진리 주장</b>을 소박하게나마 붙잡고 있었다(칸트 이후의 회의보다 이 점에서 진보적이라고 헤겔은 본다). 부정적 측면: 유한한 규정(원인·실체·단일성 등)을 무한한 대상(신·영혼·세계 전체)에 그대로 적용하려 했기에 좌초한다. 새 형이상학인 <b>사변 논리학</b>이 이 과제를 이어받는다."],
+    "본체론":["본체론(本體論, Ontologie)","형이상학의 한 갈래로, 존재·실체·속성 등의 순수 규정을 다루는 학문. 헤겔은 이를 논리학의 원형으로 본다. 어원 on(있는 것)+logos, 라틴 통용어 ontologia는 야콥 로르하르트(1606)에서 처음 나타나고 볼프 『Ontologia』(1730)에서 학문으로 정착했다. 볼프의 본체론은 존재 일반의 규정들 — 어떤 것(aliquid)·본질·존재·필연·우연·양·질 등 — 을 다루었는데, 헤겔의 유론·본질론은 이 목록을 사변적으로 재구성한 것에 해당한다. 그래서 헤겔은 자기 논리학을 '이전 형이상학의 자리에 들어선 새 형이상학'이라 부른다. 오늘날 '온톨로지'라는 말이 정보과학의 개념 체계까지 두루 쓰이지만, 헤겔의 본체론은 어디까지나 사변적 규정론이다."],
+    "이성적신학":["이성적 신학(rationale Theologie / natürliche Theologie)","형이상학의 한 갈래. 계시에 의존하지 않고 사유의 규정만으로 신의 존재를 이끌어내려는 시도. 존재론적(안셀무스·데카르트)·우주론적(라이프니츠)·목적론적(자연 설계) 세 증명이 대표적이다. 칸트 『순수이성비판』이 세 증명을 모두 거절했지만, 헤겔은 이를 뒤집는다 — 증명은 잘못이 아니라 그 형식이 오성적이었을 뿐이며, 참된 증명은 <b>사유가 필연적으로 절대로 상승해 가는 과정 자체</b>다. 따라서 헤겔은 신 존재 증명을 논리학과 종교철학에서 옹호적으로 재해석한다. 특히 존재론적 증명 — 신의 개념은 필연적 존재를 포함한다 — 에 대한 헤겔의 재해석(『종교철학 강의』)은 20세기 하르트슈론 이후의 존재론적 증명 논쟁에 영향을 남겼다."],
+    "이성적심리학":["이성적 심리학(rationale Psychologie)","형이상학의 한 갈래. 영혼을 실체로 보고 그 단순성·불멸성·인격성 등을 사유의 규정만으로 증명하려는 시도. 데카르트의 코기토, 라이프니츠의 모나드론, 볼프의 심리학이 그 전형이다. 칸트가 『순수이성비판』의 '오류추리(Paralogismus)' 장에서 이를 논박했다 — '나는 생각한다'의 나를 실체로 규정하는 것은 사유의 형식적 통일을 실재 실체로 오인하는 것이다. 헤겔은 칸트 비판을 수용하되 그 결론은 뒤집는다. 영혼의 실체성이 잘못이 아니라, 영혼(심령·의식·정신)이 정지된 실체가 아니라 <b>발전하는 자기 관계</b>임을 봐야 한다는 것이다. 헤겔의 인간학·정신 현상학·심리학이 이성적 심리학의 과제를 사변적으로 대체한다."],
+    "이성적우주론":["이성적 우주론(rationale Kosmologie)","형이상학의 한 갈래. 세계의 시원·한계·자유와 필연·궁극 존재 등을 다룬 볼프 형이상학의 분과다. 칸트가 순수이성비판의 초월적 변증학에서 이 우주론의 물음을 넷의 이율배반(Antinomien)으로 정식화했다 — 세계의 시공적 유·무한, 물질의 단순 부분 유·무, 자유 인과와 자연 인과의 양립, 필연 존재의 유·무. 칸트는 이 이율배반을 이성의 자기 착각으로 진단했으나, 헤겔은 <b>사물 자체가 모순 안에 있음</b>의 증거로 해석한다. 이율배반은 이성의 병리가 아니라 대상 자체의 사변적 본성이 드러나는 자리다. 이 재평가가 헤겔 변증법의 결정적 계기 중 하나다."],
+
+    "경험론":["경험론(經驗論, Empirismus)","객관성에 대한 사상의 ‘둘째 태도’ 앞부분(§37-39). 진리의 원천을 감각적 경험에 두고 형이상학의 사변적 규정을 거부하는 입장으로, 베이컨·로크·흄이 대표한다. 헤겔은 경험론의 두 얼굴을 본다. 긍정적 측면: 감각·현실에 대한 주의, 유한한 형이상학의 공허한 사변에 대한 정당한 반발, 자기 안에서 진리를 확인하려는 자유의 원리. 부정적 측면: 감각 인상의 원자를 아무리 쌓아도 보편·필연·이념에 이를 수 없다는 결정적 한계. 흄이 인과의 필연성을 주관적 습관으로 환원할 수밖에 없었던 이유가 여기 있다. 헤겔은 경험론이 '유한한 규정을 재료로 무한을 짓겠다'는 자기 모순에 빠졌다고 진단하며, 이 좌초가 칸트의 비판철학을 요청했다고 본다."],
+    "비판철학":["비판 철학(kritische Philosophie)","‘둘째 태도’ 뒷부분(§40-60). 칸트의 초월철학이며, 인식의 조건을 주관의 형식(범주)에서 찾아 물자체를 인식 밖에 두고 사유를 유한성 안에 가둔다. 세 비판서 — 순수이성·실천이성·판단력 — 가 그 골격이다. 헤겔의 평가는 <b>양가적</b>이다. 긍정: 사유의 자기 반성을 학문의 필요조건으로 세운 것, 대상 인식이 사유의 자발적 종합임을 밝힌 것, 이율배반에서 사변의 자리를 예비한 것. 부정: 인식 능력을 인식하기 전에 인식하겠다는 순환, 범주를 주관의 형식으로 가둔 이원론, 물자체라는 비어 있는 저편의 잔재. 헤겔은 칸트 비판을 계승하되 그 이원론을 지양하는 것을 자기 과제로 삼는다."],
+    "물자체":["물자체(物自體, Ding an sich)","칸트에서 인식의 형식(감성·오성)에 담기지 않는 대상 그 자체. 헤겔은 사유가 그 자체를 파악할 수 있으므로 물자체는 공허한 추상에 지나지 않는다고 비판한다. §44 주해가 유명하다 — '물자체가 무엇인지 아는 것보다 쉬운 일은 없다. 그것은 모든 규정을 사상(捨象)한 것, 곧 완전한 공허다.' 칸트 자신은 물자체를 (a) 감성의 자극 원천, (b) 인식의 한계 지시, (c) 자유의 가능 지반이라는 여러 기능으로 썼는데, 헤겔은 이 모호함이 이원론의 필연적 귀결이라 본다. 사유가 사물의 규정을 파악한 이상, 파악되지 않은 '순수한 x'는 사유의 산물(가장 공허한 규정)일 뿐 대상 안에 실재하는 저편이 아니다. 이 비판이 헤겔 관념론의 결정적 진일보다."],
+    "이율배반":["이율배반(二律背反, Antinomie)","같은 대상에 대해 정립과 반정립이 똑같이 논증되는 사태. 칸트는 이를 이성의 한계로 보았으나 헤겔은 오히려 유한한 규정이 자기 안에 담고 있는 모순이 드러나는 자리로 본다(§48). 칸트의 넷: 세계의 시공적 유·무한, 물질의 단순 부분 유·무, 자유 인과와 자연 인과, 필연 존재. 헤겔은 세 가지 재평가를 한다. 첫째, 이율배반은 넷이 아니라 사유 규정 곳곳에 있다 — 모든 유한 규정이 자기 안에 이율배반을 담는다. 둘째, 이율배반은 사유의 착각이 아니라 대상 자체의 모순이다. 셋째, 이 모순을 견디고 지양하는 사유가 곧 사변적 이성이다. 이 재해석 없이는 헤겔 변증법을 이해할 수 없다."],
+    "범주":["범주(範疇, Kategorie)","인식과 사유의 근본 규정. 아리스토텔레스가 10범주(실체·양·질·관계 등)를 세웠고, 칸트가 12범주(양·질·관계·양상 각 3)를 순수 오성의 형식으로 재정립했다. 헤겔에서 범주는 주관의 형식이 아니라 <b>사유 규정=대상 규정의 일치</b>다 — 유·정유·대자유·질·양·본질·근거·현상·현실성·개념 등 논리학 전체가 사변적 범주론이다. 이때 범주들은 서로 병렬적이지 않고 <b>발생적 계열</b>을 이룬다는 것이 헤겔의 결정적 혁신이다 — 이전 범주가 자기 한계를 드러내며 다음 범주로 이행한다. 이 발생적 서열이 곧 논리학의 서술 순서다."],
+
+    "직접지":["직접지(直接知, unmittelbares Wissen)","야코비(F. H. Jacobi)를 대표로 하는 ‘셋째 태도’(§61-78). 사변적 매개를 거부하고 진리를 직접적 확신·직관·믿음에 두는 입장으로, 매개를 배제함으로써 근거 없는 소박함으로 회귀한다. 야코비의 저작 — 스피노자·흄 서한, 『다비드 흄과의 대화』, 『인간 자유의 개시』 — 는 칸트의 인식 제한에 반발하여 신·자유·불멸을 매개 없는 확신으로 붙잡으려 했다. 헤겔의 이중 평가: 칸트를 비판한 것은 정당하지만, 매개를 통째 부정한 것은 잘못이다. §65가 결정적이다 — '내가 무엇을 안다'라고 하는 순간 이미 매개가 있다. 데카르트의 '나는 생각한다'조차 매개된 확신이지 직접적 확신이 아니다. 그래서 직접지는 첫째 태도(형이상학)로의 소박한 회귀에 그친다."],
+    "직관":["직관(直觀, Anschauung / Intuition)","대상을 매개 없이 즉시적으로 붙잡는 인식 방식. 예술에서는 진리가 이 형식으로 나타난다. 감성적 직관과 지성적 직관(intellektuelle Anschauung)을 구별해야 한다. 감성적 직관은 시공 안의 주어짐(칸트 감성론)이고, 지성적 직관은 대상 없이 대상을 산출하는 신적 사유(칸트가 인간에게 부정한 능력)로서 셸링과 초기 낭만파가 절대 인식의 형식으로 부활시켰다. 헤겔은 두 방향 모두를 비판한다 — 감성적 직관은 사유의 규정 없이 자립할 수 없고, 지성적 직관은 매개를 뛰어넘는 신비주의로 흐른다. 절대는 오직 <b>매개된 사유</b>로만 파악되며, 예술의 감성적 직관은 표상·개념으로 심화되어야 한다."],
+    "믿음":["믿음(信, Glaube)","야코비의 뜻으로는 매개 없이 붙잡는 직접적 확신. 종교적 표상의 주관적 측면을 가리키기도 한다. 야코비의 Glaube는 종교적 신앙에 국한되지 않고 감각적 현존·타인의 실재·나 자신의 존재 등 우리가 일상적으로 매개 없이 확신하는 모든 것을 아우른다. 헤겔은 이 확장된 의미를 문제 삼는다 — 이 모든 확신이 실은 매개를 포함하고 있는데도 야코비는 매개를 부정하려 한다. 종교적 맥락에서 헤겔은 믿음을 표상(Vorstellung)의 주관적 계기로 자리매김하되, 참된 종교는 개인적 확신이 아니라 <b>공동체적 예배·화해의 삶</b>이라는 표상의 객관적 계기와 결합해야 한다고 본다. 이 자리가 계시 종교(§564-571)다."],
+
+    "유론":["유론(有論, Die Lehre vom Sein)","논리학의 첫째 부문(§84-111). 규정을 자기 밖의 다른 규정에 두는, 가장 직접적이고 표면적인 층위의 논리로, 질·양·한도로 전개된다. 유론의 특징적 논리는 <b>이행(Übergehen)</b>이다 — 유가 무로, 유한이 무한으로, 질이 양으로 넘어가는 방식. 본질론의 <b>반성(Reflektieren)</b>, 개념론의 <b>전개(Entwicklung)</b>와 대비된다. 유론의 규정은 서로 밖에 있는 것처럼 보이나 실은 이미 그 이행 안에 통일이 잠재해 있고, 이 잠재된 통일이 본질론에서 반성으로 드러난다. 파르메니데스적 유(존재만이 있다) → 헤라클레이토스적 성(모든 것이 흐른다) → 데모크리토스적 일자(다자와 원자)의 사변적 재구성이 유론의 첫 세 걸음이다."],
+    "유":["유(有, Sein)","일체 규정을 벗어난, 가장 공허한 직접성. 그 무규정성 때문에 곧 무(無)와 동일하며, 이 하나됨이 성(成)이다(§86-88). 헤겔이 논리학을 순수한 유로 시작하는 이유는 셋이다. 첫째, 어떤 규정도 이미 매개된 것이므로 <b>완전히 무규정한 직접성</b>만이 시원이 될 수 있다. 둘째, 이 시원은 임의적 선택이 아니라 절대 이념의 자기 놓아 줌의 결과 — 그래서 논리학은 원환을 이룬다. 셋째, 순수한 유는 아무 규정도 없으므로 곧 무이며, 이 즉각적 이행이 이후 모든 규정 발생의 원형이다. 파르메니데스 '있는 것만이 있다', 스피노자 '규정은 부정이다', 야코비의 절대적 존재 등을 헤겔은 이 첫 규정의 사례로 든다."],
+    "무":["무(無, Nichts)","일체 규정이 결여된 상태. 유와 마찬가지로 공허하기에 유와 구분 없이 같아진다. 논리학의 시원에서 나타나는 순수한 무다. 여기서 중요한 구별: (1) 순수한 무(reines Nichts)는 유론 시원의 무이고, (2) <b>규정된 무(bestimmtes Nichts)</b>는 어떤 것의 부정으로서 이미 규정성을 지닌 무이며, (3) 인도 사상의 공(śūnya)은 자기 안에 모든 규정을 담는 충만한 무로서 헤겔의 순수한 무와는 다르다. §87의 유명한 물음 — '순수한 유와 순수한 무 사이에는 아무 구별이 없지 않은가?' — 은 논리학의 결정적 시험이다. 이 두 규정의 동일성이 성(Werden)이라는 살아 있는 통일을 낳는다."],
+    "성":["성(成, Werden)","유와 무의 통일. 생성과 소멸의 살아 있는 운동으로, 논리학의 첫 진리이자 이후 모든 규정의 발생지다. §88 주해에서 헤겔은 '유일한 참된 자기 규정은 헤라클레이토스의 판타 레이(모든 것은 흐른다)에 이르러 처음 표명되었다'고 말한다. 성에는 두 방향 — 유에서 무로 가는 <b>소멸(Vergehen)</b>과 무에서 유로 가는 <b>생성(Entstehen)</b> — 이 있고, 이 이중 운동의 통일이 곧 성 자체다. 성은 스스로를 지양하여 규정된 유 곧 <b>정유(Dasein)</b>로 안정된다. 이 지점에서 논리학은 무규정한 시원을 벗어나 구체적 규정으로 나아가기 시작한다."],
+
+    "질":["질(質, Qualität)","존재가 자기와 하나로 있는 규정성(§90-98). 규정이 사라지면 그 존재도 사라진다(정유·유한한 유). 질은 아리스토텔레스의 poion(어떠함)에 뿌리를 두지만, 헤겔에서는 존재론적 규정 그 자체다. 어떤 것을 '이 것'이게 만드는 자기와 일치된 규정 — 물의 젖음, 불의 뜨거움 같은 것. 질은 무엇/타자·유한/무한·대자유의 세 계기를 거쳐 자기를 지양하고 양으로 이행한다. 이 이행이 논리학의 중요한 사건이다 — 질은 존재와 하나이므로 규정이 사라지면 존재도 사라지지만, 양은 그 무관심한 대립물이 되어 규정이 변해도 존재는 유지된다. 이 대립의 통일이 한도(Maß)다."],
+    "정유":["정유(定有, Dasein)","‘규정된 유’. 무규정한 유가 구체적 규정을 얻어 이것 또는 저것으로 있는 상태로, 유한한 존재의 자리(§89-95). Da-sein은 문자 그대로 '거기 있음'이며, 헤겔은 '어디'라는 규정성이 이미 함축되어 있음을 강조한다. 하이데거의 Dasein(현존재, 인간 존재의 실존적 개시성)과는 뜻이 근본적으로 다르므로 혼동에 주의. 정유는 (1) 어떤 것(Etwas)과 (2) 타자(Anderes)라는 두 축으로 서로를 규정하며, 이 상호 규정에서 유한(Endlichkeit)이 발생한다. 어떤 것은 자기 밖의 타자에 의해 규정되고, 그 타자 역시 다른 어떤 것에 의해 규정되어 끝없이 이어지는 <b>나쁜 무한(schlechte Unendlichkeit)</b>의 시작점이 여기다."],
+    "대자유":["대자유(對自有, Fürsichsein)","자기와 관계하며 자기를 자기로서 유지하는 유(§96-98). 유한한 정유가 자기 안으로 응축되어 자기와의 관계로 자립한 자리 — 일자(一者)로 표현된다. 원자론자(레우키포스·데모크리토스·에피쿠로스)의 원자, 라이프니츠의 모나드가 그 역사적 형태다. 대자유의 특징은 자기 바깥의 타자를 <b>배제(Repulsion, 반발)</b>함으로써 자기가 되고, 동시에 다른 일자를 자기와 같은 것으로 <b>끌어당김(Attraktion, 인력)</b>이라는 이중 운동을 자기 안에 지닌다는 점이다. 이 반발과 인력의 상호 지양에서 다자가 자기 안에 응축된 단일성 곧 <b>양의 규정</b>이 발생한다 — 질의 자기 지양이 양으로의 이행이 이렇게 논리적으로 정당화된다."],
+    "유한":["유한(有限, Endlichkeit)","자기 밖의 다른 것에 의해 한계 지어진 규정성. 한계는 곧 그 규정 자체이므로 유한은 자기 안에 자기 넘어섬을 지닌다(§92-93). 헤겔이 유한을 다루는 방식이 사변철학의 결정적 걸음이다 — 유한한 것은 그저 제한된 것이 아니라 <b>자기 안에 자기 부정을 담고 있는 것</b>이며, 따라서 그 자체로 이미 자기 초월을 향하는 것이다. '유한한 것들은 유한하다'는 말은 헤겔에게 가벼운 진술이 아니라 <b>유한한 것은 스스로 사라진다</b>는 사변적 명제다. 이 사변적 성격을 유한이 자기 안에 지니고 있기에, 유한을 넘어 무한으로 가는 것은 외부에서 강제된 도약이 아니라 유한 자체의 자기 운동이다."],
+    "무한":["무한(無限, Unendlichkeit)","유한의 자기 넘어섬. 유한 밖에 놓인 ‘나쁜 무한’이 아니라, 유한을 자기 계기로 포함하는 자기 관계적 원환(참된 무한)이다(§94-95). 유의할 구별: <b>나쁜 무한(schlechte Unendlichkeit)</b>은 유한 밖에 유한을 넘어서는 것이 계속 놓이는 무한한 계열이며, 수학적으로는 자연수의 무한한 후속처럼 유한을 반복해서 넘는 것에 지나지 않는다. 이 무한은 실은 유한의 자기 제한을 벗어나지 못했다. <b>참된 무한(wahre Unendlichkeit)</b>은 유한을 자기 밖에 두지 않고 자기 계기로 포함하는 <b>자기 관계적 원환</b>이며, 헤겔 도상학의 상징인 뱀이 자기 꼬리를 무는 원환(우로보로스)이 그 형상이다. 절대·이념·정신이 모두 이 참된 무한의 형식이다."],
+    "일자":["일자(一者, das Eins)","대자유가 다수의 유한을 자기 안에 응축한 단일성. 다자(das Viele)와 상호 반발·인력을 통해 양(量)으로 이행한다(§96-98). 원자론(레우키포스·데모크리토스), 피타고라스학파의 수, 라이프니츠의 모나드가 역사적 예다. 헤겔은 대자유가 자기를 유지하기 위해 다른 대자유들 곧 다자를 배제해야 하지만, 이 배제(반발) 자체가 이미 다자를 전제하고 다자와의 관계를 함축한다고 논한다. 반발은 곧 인력으로 뒤집히고 — 여러 일자가 하나로 응축된다는 뜻에서 — 이 상호 지양에서 질적 규정이 사라지고 양적 규정이 남는다. 질에서 양으로의 이행이 이렇게 이루어진다."],
+
+    "양":["양(量, Quantität)","질적 규정에 무관심한 규정성(§99-106). 늘고 줄어도 존재 자체는 유지되며, 질의 자기 지양으로 발생한다. 물의 온도가 상승해도 여전히 물이고, 사과가 몇 개든 여전히 사과다 — 이 무관심함이 양의 특징이다. 그러나 이 무관심함에는 한계가 있다. 양이 어떤 임계를 넘으면 질이 변한다(물이 얼음이나 수증기가 됨). 이 사실을 사변적으로 담아내는 것이 한도(Maß)다. 양은 (1) 순수량, (2) 정량(양적 규정), (3) 도(양적 규정의 자기 반성)의 세 계기로 전개된다. 근대 자연과학의 수량화·측정·수학화가 이 양의 논리 안에 자기 자리를 갖는다."],
+    "순수량":["순수량(純粹量, reine Quantität)","한계를 갖지 않는 양 그 자체. 연속량과 이산량으로 갈라진다(§100). 연속량(kontinuierliche Größe)은 대자적 통일성이 지배하는 방식으로, 무한히 분할 가능한 것으로 나타나는 양이며 공간·시간·물질이 그 예다. 이산량(diskrete Größe)은 자기 반발이 지배하는 방식으로, 서로 분리된 단위들로 구성된 양이며 자연수가 그 예다. 헤겔은 이 두 규정이 <b>같은 순수량의 두 계기</b>임을 강조한다 — 모든 양은 연속적이면서 동시에 이산적이다. 이 통일이 정량으로 이행하는 자리다. 수학의 미적분학(연속량의 이산적 처리)이 이 논리를 역사적으로 실현한다."],
+    "정량":["정량(定量, Quantum)","한계 지어진 양. 곧 구체적인 크기·수(數)로, 자기 밖의 다른 정량과의 비율로 도(度)에 이른다(§101-105). 정유가 규정된 유이듯 정량은 규정된 양이다. 정량은 (1) 크기 그 자체로서 수(외연적 크기), (2) 자기 안으로 반성된 도(내포적 크기)의 두 형식을 갖는다. 정량의 결정적 성격은 <b>자기 밖의 다른 정량을 지시한다</b>는 점이다 — 5는 6보다 작고 4보다 크며, 5m는 다른 길이와 비교되어야 의미를 갖는다. 이 자기 초월성이 정량을 무한 계열로 이끌고, 양적 무한 판단(무한소·무한대)이 여기서 발생한다. 이 자리에서 나쁜 무한이 다시 나타나며, 그 지양이 한도로의 이행이다."],
+    "도":["도(度, Grad)","정량이 자기 안으로 반성되어 나타나는 강도(intensive Größe). 다른 정량과의 비율로 규정된다(§103-104). 외연적 크기(수) — 20개의 사과, 5m의 길이 — 와 내포적 크기(도) — 30도의 온도, 5의 소리 세기 — 는 서로 뒤집을 수 있으며, 헤겔은 이 상호 전환 가능성에서 두 형식이 같은 정량의 두 얼굴임을 본다. 강도는 외적 크기의 합계가 아니라 자기 안으로 응축된 규정이지만, 척도(온도계·소리계)로 외연화될 수 있다. 이 상호 전환에서 정량이 자기 밖의 다른 정량을 무한히 지시하는 나쁜 무한이 발생하고, 이 나쁜 무한의 지양에서 양적 무한과 질적 무한의 통일 곧 한도가 요청된다."],
+    "수":["수(數, Zahl)","정량의 근본 형식(§102). 단위(하나, Einheit)와 그 합계(Anzahl)의 결합으로, 이산적 계기(단위)와 연속적 계기(합계)를 자기 안에 지닌다. 헤겔의 수 개념은 근대 수학의 형식적 수 정의(페아노 공리·집합론)와는 다르며, 사변적 재구성이다 — 각 자연수는 순수한 하나의 반복이자, 그 반복이 하나의 총량으로 응축된 것이다. 헤겔은 수학을 오성의 학문으로 자리매김하되 그 한계를 지적한다 — 수는 <b>외적 관계</b>만을 다루기 때문에 사변적 규정을 담아내지 못한다. 그럼에도 자연 안에는 수적 관계로만 표현되는 대목들이 있고(케플러 법칙 등), 헤겔은 이런 자리에서 수학의 자연철학적 지위를 인정한다."],
+
+    "한도":["한도(限度, Maß)","질과 양의 통일. 각 질이 유지되는 양적 범위이며, 이 범위를 넘으면 새로운 질로 도약한다(§107-111). 물이 물로 있는 온도 범위(0-100℃), 인간 체온의 정상 범위(약 36-37℃), 정치체가 인륜적 정체(政體)로 유지되는 규모의 범위 등이 한도의 일상적 예다. 한도의 계열이 전개되어 한 질에서 다른 질로 도약하는 결절선(節線, Knotenlinie)에 이르고, 이 결절선의 전개가 한도의 자기 지양이며 <b>본질(Wesen)</b>로의 이행이다. §111이 이 이행을 명시한다 — 한도의 자기 지양이 곧 본질이다. 이로써 논리학은 유의 직접적 층위를 떠나 매개된 반성의 층위로 넘어간다."],
+    "절점":["절점(節點, Knotenlinie / knotenpunkt)","한도의 계열에서 양적 변화가 질적 도약으로 뒤집히는 결절점(§109). 물의 어는점·끓는점, 화학 원소 계열의 밸런스 변화, 사회·정치적 임계점이 그 예다. 헤겔은 자연과 역사 모두에 결절선의 논리가 관철된다고 본다 — 양적 축적이 어느 지점에서 질적 도약으로 뒤집힌다. 이 논리는 후에 마르크스·엥겔스가 사회 변혁의 법칙으로 원용하며 '양질전화(量質轉化)의 법칙'으로 정식화되었다. 다만 헤겔 자신은 이를 자연법칙 이상의 <b>범주 발생의 논리</b>로 다루었으며, 역사적 변혁이나 진화적 도약 같은 응용은 본래의 사변적 의미의 파생물이다."],
+
+    "본질":["본질(本質, Wesen)","유가 자기 안으로 반성된 규정(§112-159). ‘있는 것 뒤에 있는 것’이 아니라, 있는 것의 자기 관계·매개 그 자체로, 반성 규정으로 전개된다. 어원적으로 Wesen은 '있었던 것(gewesen sein)'과 연결되며 헤겔은 이 어원 유희를 즐긴다 — 본질은 <b>지나간 유(zeitloses Gewesensein)</b>, 즉 유가 자기를 넘어 자기 안으로 반성된 것이다. 서양 형이상학이 본질/현존, 실체/속성, 원형/모방의 이원 구조로 다루어 온 논제를 헤겔은 근본적으로 재정의한다 — 본질은 현상 뒤의 감춰진 것이 아니라 <b>현상 안에서 자기를 드러내는 자기 관계</b>다. 본질론은 반성 규정(동일성·구별·모순·근거), 현상, 현실성의 세 부분으로 전개된다."],
+    "반성":["반성(反省, Reflexion)","무엇이 자기 자신 안으로 되돌아 관계하는 운동. 본질론은 이 반성 운동의 전개다(§112-114). 어원은 광학적 은유로 빛의 반사(re-flectere: 되꺾음)를 가리키며, 근대 철학에서 데카르트·로크·라이프니츠·칸트 모두 자기 인식의 원리로 이 개념을 확장했다. 헤겔은 반성을 세 형식으로 분석한다 — <b>정립 반성(setzende Reflexion)</b>: 스스로를 정립하는 자기 관계, <b>외적 반성(äußere Reflexion)</b>: 주어진 것에 비교와 판단을 덧대는 반성(칸트의 반성이 여기 해당), <b>규정 반성(bestimmende Reflexion)</b>: 이 둘의 통일로서 규정을 자기 안에서 산출하는 반성. 본질론의 반성 규정 이론(§115-122)이 이 세 형식 위에 놓인다."],
+    "동일성":["동일성(同一性, Identität)","자기와의 관계라는 규정(§115-116). 그러나 공허한 A=A로 남으면 곧 구별 안으로 넘어간다. 형식논리학의 동일률(무모순율의 짝)에 대한 헤겔의 사변적 재해석이 이 자리에서 이루어진다. A=A는 형식적으로는 옳지만 <b>공허</b>하다 — 아무 정보도 담지 않는다. 참된 동일성은 자기 안에 구별을 계기로 담고 있는 <b>구체적 동일성</b>이며, 이것이 헤겔이 형식논리학을 부정하지 않으면서도 그것을 넘어서는 방식이다. §115 주해에서 헤겔은 '자기 자신과 같지 않은 것은 없다'는 명제조차 이미 그 자신 안에 구별(자기와 자기 자신의 이중화)을 함축한다고 지적한다."],
+    "구별":["구별(區別, Unterschied)","동일성과 함께 자기 안에 있는 부정성(§116-120). 다양성(Verschiedenheit)과 대립(Gegensatz)을 거쳐 모순으로 심화된다. 구별의 세 단계: (1) <b>상이(Verschiedenheit)</b> — 서로 다른 것들의 외적 나열, 라이프니츠의 식별불가능자 동일성 원리(무구별한 것은 없다)가 여기 해당, (2) <b>대립(Gegensatz)</b> — 각 규정이 자기 안에 자기 반대를 지님(양극·음극·정·부), (3) <b>모순(Widerspruch)</b> — 대립이 자기 자신 안에 내재화되어 각 규정이 자기와 자기 반대의 통일이 됨. 이 심화 과정이 반성 규정 이론의 중심 축이다."],
+    "모순":["모순(矛盾, Widerspruch)","한 규정이 자기 안에 자기 반대를 담고 있음(§119-120). 헤겔은 모순을 오류가 아니라 사물이 살아 움직이는 근거로 본다 — 이는 아리스토텔레스의 무모순율에 대한 사변적 도전이다. 헤겔의 논점은 무모순율을 부정하는 것이 아니라, 무모순율이 오성적 사유의 범위 안에서만 절대적이고 사변적 층위에서는 대상 자체가 모순을 자기 안에 담고 있음을 인정하는 것이다. §119 유명한 명제: '모든 것은 모순적이다.' 살아 있는 것은 자기 안에 자기 부정(죽음)을, 자유는 자기 안에 필연을, 국가는 자기 안에 특수와 보편의 대립을 담고서만 살아 움직인다. 이 통찰이 헤겔 변증법의 심장이다."],
+    "근거":["근거(根據, Grund)","반성 규정의 정점(§121-122). 어떤 것이 왜 그렇게 있는지의 매개된 이유이자, 자신의 결과 안에서 자기를 지양한다. 라이프니츠의 <b>충족이유율(principium rationis sufficientis)</b>이 그 역사적 배경이다. 헤겔은 근거의 형식적 사용을 비판한다 — '왜?'에 대한 답으로 근거를 대는 것은 실은 답을 사후적으로 이유로 둔갑시키는 순환에 가깝다. 참된 근거는 자신의 결과 안에서 자기를 지양하여 결과가 자립적으로 서게 하는 것 — 이것이 <b>현존(Existenz)</b>이다. §122가 근거에서 현존으로의 이행을 서술한다. 근거는 자기가 자기 결과 안에서 사라짐으로써만 참으로 근거이며, 이 자기 소멸이 매개된 있음 곧 현존이다."],
+
+    "현존":["현존(現存, Existenz)","근거로부터 나온 매개된 있음(§123-124). 유(직접적 있음)와 달리, 현존은 자기 자신을 넘어 다른 현존을 지시한다. 라틴어 ex-sistere는 '밖으로 나와 서다'이며, 헤겔은 이 어원을 살려 현존을 <b>근거로부터 나와 자립한 있음</b>으로 규정한다. 현존은 근거의 결과이면서 그 근거를 자기 안에 흡수한 형태다. 그래서 현존들 사이의 관계는 근거-결과의 연쇄로 무한히 이어지고, 이 상호 지시가 물(物)의 세계를 낳는다. 유의: 실존주의(키에르케고르·야스퍼스·사르트르)의 Existenz는 인간의 실존적 있음을 가리키며 헤겔의 논리적 범주 Existenz와는 층위가 다르다."],
+    "물":["물(物, Ding)","여러 성질을 지닌 현존의 통일(§125-130). 물은 자신의 성질들과의 관계, 그리고 다른 물과의 관계 속에서만 물이다. 근대 형이상학의 물자체·성질 이원론(로크의 1차 성질/2차 성질, 칸트의 물자체/현상)에 대한 헤겔의 재구성이 이 자리다. 헤겔은 물과 그 성질의 관계를 사변적으로 재구성한다 — 물은 자기 성질들의 담지자이면서 동시에 그 성질들 없이는 아무것도 아니며, 성질들은 물의 규정이면서 다른 물과의 관계에서만 드러난다. 이 상호 함축에서 물/성질의 실체적 이원성이 지양된다. 물은 자기 성질들의 통일에서 <b>물질(Materie)</b>로, 다시 <b>현상</b>으로 넘어간다."],
+    "성질":["성질(性質, Eigenschaft)","물이 다른 물과의 관계에서 드러내는 규정(§125). 물의 자기 반성이 밖으로 드러남이며, 물의 자기 관계와 타자 관계가 동시에 담기는 자리다. 로크의 1차 성질(연장·형태 등 물 자체의 성질)과 2차 성질(색·소리·맛 등 지각자와의 관계에서 나타나는 성질) 구별에 대한 헤겔의 사변적 응답 — 모든 성질은 이미 관계 안에 있으므로 이 이분법은 성립하지 않는다. 성질(Eigenschaft)의 어원 eigen(고유한)은 물의 <b>자기 소유</b>를 함축한다. 헤겔은 이를 물이 자기 성질을 '가진다(hat)'는 관계, 즉 성질이 물의 소유물이 되어 물과 성질이 분리 가능해지는 방향으로 논리를 전개한다."],
+
+    "현상":["현상(現象, Erscheinung)","본질이 자기를 드러낸 모습(§131-141). 본질 뒤에 숨은 것이 아니라 본질이 스스로 나타난 것이며, 그 배후를 물어도 다시 현상이 있을 뿐이다. 이 규정은 서양 형이상학의 오랜 이원 구조(플라톤의 원형/모방, 칸트의 물자체/현상)를 지양하는 헤겔의 결정적 걸음이다. 현상(Erscheinung)은 가상(Schein, 본질의 반성적 계기, §112)과 구별되어야 한다 — 가상은 본질이 자기 안에서 자기와 노는 순간, 현상은 그 놀이가 본질 밖으로 드러난 것이다. 헤겔의 유명한 구절 — '본질은 나타나야 한다(Das Wesen muß erscheinen)' — 이 이 규정의 정식이다. 나타남을 그 자체로 볼 것이지 배후를 찾을 것이 아니라는 점에서 헤겔은 현상학적 태도의 선구자이기도 하다."],
+    "현상의세계":["현상의 세계(Welt der Erscheinung)","현상들의 상호 관계로 이루어진 전체(§132-133). 법칙(Gesetz)의 자리다. 법칙은 다양한 현상 안에 관철되는 <b>안정된 관계</b>이며, 자연법칙(뉴턴의 만유인력·케플러 법칙)이 그 전형이다. 헤겔은 법칙을 현상의 진리로 인정하지만 그 한계도 지적한다 — 법칙은 현상의 다양성을 다 담아내지 못하며 언제나 그 밖의 '우연'을 남긴다. 그래서 현상의 세계는 법칙의 세계(안정된 반복)와 현상 그 자체의 세계(살아 움직이는 다양성)의 이원으로 갈리고, 이 이원의 지양이 <b>현실성(Wirklichkeit)</b>으로의 이행을 요청한다. 자연과학의 세계상이 이 층위에 놓인다."],
+    "내용과형식":["내용과 형식(Inhalt und Form)","서로에게 반사되는 반성 규정(§133-134). 내용은 그 형식을 자기 안에 지니고, 형식은 곧 내용의 형식이다. 형식/내용의 이분법은 오래된 것이지만 헤겔은 그것이 오성의 유한 규정에 불과함을 밝힌다. 참된 관계에서는 <b>형식과 내용이 서로에게 상호 이행</b>한다 — 내용의 변화는 형식의 변화이고, 형식의 변화는 내용의 변화다. 예: 시의 운율(형식)은 그 시적 내용에 기여하며 형식만 따로 떼어낼 수 없다. 정치체의 헌법(형식)은 그 국가의 인륜적 내용과 분리되지 않는다. 이 상호 반사가 관계(Verhältnis)의 세 형식(전체-부분, 힘-발현, 내면-외면)으로 구체화된다."],
+    "관계":["관계(關係, Verhältnis)","서로를 매개하는 두 규정의 상호 반사(§135-141). 전체와 부분, 힘과 그 발현, 내면과 외면의 관계가 그 형식이다. <b>전체와 부분</b>: 전체는 부분의 총합이 아니고 부분은 전체의 조각이 아니며, 전체는 부분 안에서만 살아 있고 부분은 전체 안에서만 부분이다. <b>힘과 발현</b>: 힘은 스스로 발현하고 발현은 힘의 실현이다. <b>내면과 외면</b>: 내면은 밖으로 드러나야만 참으로 내면이고, 외면은 안을 표현할 때만 참으로 외면이다. 이 세 관계는 점점 심화되며 현실성으로 이행한다. §140의 유명한 명제 — '내면은 외면이고, 외면은 내면이다(Das Innere ist das Äußere und umgekehrt)' — 가 이 이행의 정식이다."],
+    "힘과발현":["힘과 발현(Kraft und Äußerung)","자기 안에 있음(힘)과 그 밖으로 드러남(발현)의 관계(§136). 힘은 발현 없이는 아무것도 아니며, 발현은 힘의 실현이자 자기 지양이다. 근대 역학(뉴턴의 힘, 라이프니츠의 vis viva)이 이 자리에 놓인다. 헤겔은 힘 개념의 형이상학적 한계를 지적한다 — 힘을 발현 뒤의 숨은 원인으로 세우면 '아편이 잠을 재우는 것은 그 안에 잠재우는 힘이 있기 때문'이라는 몰리에르식 설명의 공허함에 빠진다. 참된 힘은 발현과 하나이며, 힘은 발현 안에서 자기를 실현하며 자기를 지양한다. 이 지양이 <b>현실성</b>으로의 이행을 준비한다."],
+
+
+    "현실성":["현실성(現實性, Wirklichkeit)","본질과 현존의 통일(§142-159). 단순한 사실도 순전한 가능성도 아닌, 자기 안에 필연성을 지닌 있음이다. <b>『법철학』 서문의 유명한 명제</b> — '이성적인 것은 현실적이고, 현실적인 것은 이성적이다(Was vernünftig ist, das ist wirklich; und was wirklich ist, das ist vernünftig)' — 의 그 현실이다. 유의: 여기서 wirklich는 단순한 <b>사실(Faktum, es gibt)</b>이 아니다. 존재하는 모든 것이 현실적이라면 이 명제는 부당한 정치적 옹호가 되지만, 헤겔의 현실성은 자기 안에 필연성과 개념적 근거를 지닌 것 — 단순한 사실은 우연이나 가상에 불과하다. 이 구별을 놓치면 헤겔의 명제를 정치적 보수주의로 오해하게 된다."],
+    "가능성":["가능성(可能性, Möglichkeit)","자기 모순 없이 사유될 수 있음(§143). 형식적 가능성은 곧 실재적 가능성(조건이 갖추어짐)으로 이행하고, 결국 필연성에 이른다. <b>형식적 가능성(formelle Möglichkeit)</b>은 무모순성만을 기준으로 하는 라이프니츠적 가능 세계(compossibilia)의 가능성이며, 자기 모순만 없으면 무엇이든 가능하다는 공허한 가능성이다. <b>실재적 가능성(reale Möglichkeit)</b>은 그 가능이 실현될 조건이 실제로 갖추어진 것이며, 씨앗이 있고 토양·물·햇빛이 있으면 나무의 실재적 가능이 있다는 식이다. 실재적 가능이 완비되면 그 자체가 곧 필연이 된다 — 조건이 다 있는데 결과가 나오지 않을 수 없기 때문이다. 이 이행이 §147-149의 논리다."],
+    "필연성":["필연성(必然性, Notwendigkeit)","조건과 사실이 자신의 근거를 자기 안에 지님(§147-149). 우연과 대립하지만, 참된 필연성은 우연을 자기 계기로 포함한다. 필연성의 세 형식: <b>형식적 필연</b>(가능·현실·필연의 순환 관계), <b>실재적 필연</b>(조건 완비의 필연), <b>절대적 필연</b>(자기가 자기의 조건인 필연). 스피노자의 신적 필연(everything follows necessarily from God's nature)이 이 절대적 필연에 근접하지만, 스피노자는 필연과 자유의 대립을 지양하지 못했다. 헤겔에서 참된 필연은 곧 <b>자유</b>이며 — 자기 자신을 자기 근거로 삼음이므로 — 이 지양이 개념론(자유의 논리)으로의 이행을 준비한다."],
+    "실체성":["실체성(實體性, Substantialität)","우연적 규정(우유성)의 근저에 있는 자기 유지의 힘(§150-151). 스피노자적 실체가 그 원형이지만, 헤겔은 이를 인과성·교호작용으로 전개한다. 스피노자의 <b>Substantia sive Deus sive Natura</b>는 자기 원인(causa sui)이자 모든 것의 실체이며, 헤겔은 이를 절대의 최초의 참된 정식화로 존중한다. 그러나 스피노자의 실체는 <b>주체가 아직 아니다</b> — 실체 안에서 유한한 양태(mode)는 우연에 그치고, 실체 자체가 자기를 아는 활동으로 나아가지 못한다. 헤겔은 이 결함을 인과성(실체가 자기 결과로 이행)과 교호작용(실체가 자기와 자기 자신 안에서 관계함)을 거쳐 개념(자기 매개의 자유)으로 지양한다. '실체는 곧 주체'라는 헤겔 명제의 논리적 자리가 여기다."],
+    "인과성":["인과성(因果性, Kausalität)","실체가 자기 밖의 결과로 이행하는 관계(§153-154). 원인은 결과 속에서만 원인이며, 결과는 원인의 다른 자기다. 흄이 인과의 필연성을 주관적 습관으로 환원하고 칸트가 이를 오성의 순수 형식으로 재정립한 흐름에 대한 헤겔의 사변적 응답이다. 헤겔은 유한 인과성의 두 문제를 지적한다. 첫째, 원인과 결과의 분리 — 실은 원인은 결과 안에서 자기를 실현할 때만 원인이며, 결과는 그 원인의 자기 자신이 다르게 나타난 것이다. 둘째, 원인의 원인의 원인이라는 나쁜 무한 — 이 무한 계열은 자기 안에 지양되어 <b>교호작용</b>으로 넘어간다. 여기서 원인과 결과의 대립이 자기 안에서 상쇄된다."],
+    "교호작용":["교호작용(交互作用, Wechselwirkung)","두 실체가 서로 원인이자 결과인 상호 규정(§155-159). 필연성의 완성이며, 개념(자기 자신을 매개하는 자유)으로의 이행점이다. 칸트가 『순수이성비판』의 세 관계 유비 중 셋째로 다룬 '상호작용의 유비'가 그 배경이지만, 헤겔은 교호작용을 단순한 상호 인과가 아니라 <b>실체가 자기 자신 안에서 자기와 관계함</b>으로 재해석한다. A가 B의 원인이고 B가 A의 원인이면, 결국 A와 B는 같은 하나의 실체가 자기 자신에 대해 원인·결과가 되는 것이다. 이 자기 관계가 곧 <b>개념</b>이며, 자기 매개의 자유다. 본질론에서 개념론으로의 이행이 여기서 이루어진다 — 필연이 자기를 지양하여 자유가 된다."],
+    "우연":["우연(偶然, Zufall / Zufälligkeit)","자기 안에 근거를 지니지 않은 있음(§145-146). 우연은 필연의 다른 얼굴이며, 필연은 우연을 통해 자기를 실현한다. 형식논리학에서 우연은 필연의 대립물이지만 헤겔에서는 그렇게 단순하지 않다 — 우연 자체가 <b>필연적으로 있다</b>. 자연과 역사에는 반드시 우연이 있어야 하고, 필연은 이 우연들의 매개를 통해서만 자기를 실현한다. 세계사의 우연 — 특정 개인의 등장, 특정 사건의 시점 — 이 세계정신의 필연을 실현하는 방식이 그 예다. 이 사변적 통찰이 후에 '역사에서 우연과 필연의 변증법'이라는 마르크스주의 역사철학의 논제로 이어진다."],
+
+    "개념":["개념(槪念, Begriff)","유·본질을 지양한 자유로운 사유(§160-244). 자기 자신을 자기 안에서 규정하는 자기 관계적 활동이며, 보편·특수·개별의 세 계기로 자기를 전개한다. 형식논리학의 개념(어떤 대상의 공통 표징들의 묶음)과 근본적으로 다르다는 점이 결정적이다. 형식논리학에서 개념은 개별자의 위에 얹힌 추상이지만, 헤겔에서 <b>개념은 살아 있는 자기 규정 활동</b>이며, 개별자를 자기 밖의 예로 갖는 것이 아니라 개별자를 자기의 계기로 담는다. 이 점에서 헤겔의 개념은 아리스토텔레스의 <b>에이도스(형상)</b>·라이프니츠의 <b>모나드</b>·칸트의 초월적 <b>범주</b>를 사변적으로 통일한 것이라 할 수 있다. 개념은 주관적 개념(개념 자체·판단·추리) → 객관 → 이념으로 전개된다."],
+    "보편":["보편(普遍, Allgemeinheit)","개념의 첫 계기(§163). 자기 안에서 자유롭게 자기와 관계하는 규정으로, 특수한 것들을 자기 안에 담는 살아 있는 보편이다. 헤겔은 두 종류의 보편을 엄격히 구별한다. <b>추상적 보편</b>: 여러 개별자의 공통 표징을 뽑아낸 것으로, 아리스토텔레스 이후 형식논리학이 다루어 온 보편(예: '동물'은 개·고양이·사람 등의 공통 표징). 이 보편은 개별의 뒤에 있고 개별로부터 추출된다. <b>구체적 보편(konkretes Allgemeines)</b>: 자기 안에 특수와 개별을 계기로 담고 있는 살아 있는 보편으로, 유(genos)가 자기 안에서 종(species)과 개체(individuum)로 자기를 나누는 방식이 그 예다. 헤겔의 개념은 이 구체적 보편이며, 국가·인륜·생명 같은 규정이 그 대표다."],
+    "특수":["특수(特殊, Besonderheit)","개념의 둘째 계기(§164). 보편이 규정된 것으로 자기를 나누는 자리 — 보편의 자기 구별이다. 아리스토텔레스의 유(genos)와 종(species)차 개념이 이 자리의 원형이다 — 동물(유)이 자기 안에서 인간·개·고양이(종)로 자기를 나눌 때, 종은 유의 특수화다. 유의: 특수(Besonderheit)와 특수한 것(Besonderes)은 층위가 다르다 — 특수는 개념의 계기이지 독립된 항이 아니며, 보편이 없이는 특수도 없다. 이 상호 함축이 개념의 자기 규정 운동의 핵심이다. 특수는 보편의 자기 구별이자 개별로 넘어가는 매개항이다."],
+    "개별":["개별(個別, Einzelnheit)","개념의 셋째 계기(§163-165). 보편과 특수의 통일이 구체적으로 있는 이 하나(此). 개별은 세 층위로 나타난다 — 추상적 개별(그저 이 하나), 규정된 개별(특수를 담은 이 하나), <b>구체적 개별</b>(보편·특수·개별의 통일이 실현된 이 하나). 마지막 형태가 개념의 완성 형식이다. 헤겔의 개별은 유명론(nominalism)의 개체(오직 개별자만이 실재한다)와 실재론(realism)의 개체(보편의 실현으로서의 개체) 사이의 사변적 통일이다 — 개별은 그 자체로 실재하되 보편과 특수를 자기 안에 담는 것으로만 실재한다. 참된 개별은 소크라테스가 아니라 <b>인격을 실현한 인간</b>, 이 사과가 아니라 <b>종을 실현한 이 살아 있는 것</b>이다."],
+    "판단":["판단(判斷, Urteil)","개념의 근원 분할(Ur-teilung, §166-180). 주어(개별)와 술어(보편)가 계사 ‘~이다’로 결합되며, 현존·반성·필연·개념 판단의 순으로 심화된다. 헤겔의 어원 유희 — <b>Urteil = Ur-Teilung(근원적 분할)</b> — 은 개념 자체가 판단으로 자기를 분할함을 함축한다. 판단은 그저 주어와 술어를 잇는 문장이 아니라 개념이 자기 안의 계기(개별·보편)로 자기를 나누는 사변적 사건이다. 네 형식: <b>현존판단(질적 판단)</b>: '이 장미는 빨갛다' — 개별 감각 성질의 서술, <b>반성판단</b>: '이 식물은 유용하다' — 보편적 관계의 서술, <b>필연판단</b>: '장미는 식물이다' — 유·종 관계의 서술, <b>개념판단</b>: '이 국가는 좋은 국가다' — 개별이 자기 개념에 부합하는가의 서술. 뒤로 갈수록 판단의 진리 심화가 이루어진다."],
+    "추리":["추리(推理, Schluss)","판단의 진리(§181-193). 두 항이 매개항을 통해 결합되는 형식이다. 세 형식은 다음과 같다 — <b>현존추리(질적 추리, Barbara)</b>: E–B–A, 매개항 특수(예: 개별자는 특수한 성질을 지니고, 그 성질은 보편에 속하므로 개별자는 보편에 속한다), <b>반성추리(귀납·유비)</b>: B–E–A, 매개항 개별 전체(모든 개별자가 P를 가지면 유는 P를 가진다), <b>필연추리(정언·가언·선언)</b>: E–A–B (또는 B–A–E), 매개항 실체적 보편. 앞으로 갈수록 매개가 외적이고 뒤로 갈수록 자기 매개적이다 — 필연추리에서는 보편 자체가 자기 안에서 자기를 매개하며, 이 지점에서 추리가 자기 매개적 <b>객관</b>으로 넘어간다. 개념이 자기 밖으로 실재화되는 이행점이다."],
+    "계사":["계사(繫辭, Kopula)","판단의 ‘~이다(ist)’(§166). 단순한 연결어가 아니라 주어와 술어의 동일성을 담지하는 개념의 자기 관계다. 아리스토텔레스 이래 서양 형이상학이 존재(einai/esse)와 계사(einai/ist)의 이중 사용을 문제 삼아 왔다 — '소크라테스는 있다(exists)'와 '소크라테스는 사람이다(is a man)'에서 같은 einai가 다른 방식으로 쓰인다. 헤겔은 계사에서 개념의 자기 관계를 본다 — '주어는 술어이다'는 개별과 보편이 하나임의 표명이며, 계사의 '이다(ist)'는 유의 '유(Sein)'와 같은 뿌리다. 따라서 판단은 존재론적 사건이다 — 이 사변적 독해가 헤겔의 판단론을 형식논리학의 판단론과 근본적으로 구별짓는다."],
+
+    "객관":["객관(客觀, Objekt)","개념이 자기 밖에서 실재화된 형태(§194-212). 기계론·화학론·목적론의 세 형식으로 전개된다. 개념이 판단·추리를 거쳐 자기 매개적 관계에 이르면, 그 관계가 이제 <b>대상 세계 자체</b>로 나타난다. 헤겔의 객관은 칸트의 대상(Gegenstand)과 다르다 — 칸트에서 객관은 주관의 종합에 의한 인식 대상이지만, 헤겔에서 객관은 <b>개념 자체가 실재로 드러난 것</b>이다. 객관은 처음에는 개념과 분리된 외적 실재로 나타나지만(기계론), 점차 그 안에 개념적 규정이 관철되고(화학론), 마침내 개념이 자기 목적으로서 객관 안에 실현된다(목적론). 이 세 단계가 자연 세계의 사변적 재구성이며, 자연철학 전체의 논리적 골격을 예비한다."],
+    "기계론":["기계론(機械論, Mechanismus)","여러 객관이 서로 외적으로만 관계하는 방식(§195-199). 개념이 객관 밖에 서 있는 단계다. 뉴턴 물리학의 세계상 — 서로 무관심하게 외재하는 물체들이 힘의 외적 관계로 움직임 — 이 그 전형이다. 헤겔은 기계론을 세 층위로 나눈다: <b>형식적 기계론</b>(단순한 외적 접촉), <b>규정된 기계론</b>(중심을 가진 관계, 예: 지렛대), <b>절대적 기계론</b>(태양계처럼 자기 안에 중심을 가지고 자기 매개하는 체계). 절대적 기계론에서 이미 개념적 자기 매개가 나타나기 시작하며, 다음 단계인 화학론으로 이행한다. 헤겔은 기계론을 자연 이해의 한 형식으로 인정하지만 그것이 자연 전체의 진리라는 데카르트-뉴턴적 주장은 거부한다."],
+    "화학론":["화학론(化學論, Chemismus)","서로 다른 객관이 자신의 반대를 자기 안에 지니고 서로를 요구하는 관계(§200-203). 개념이 객관 사이에 작용하는 단계다. 산과 염기, 양극과 음극, 남성과 여성의 극성 관계가 그 예다. 각 객관은 자기 자신 안에서 완결되지 못하고 자기 반대(짝)를 자기 안에 함축하며, 결합(중화)과 해리(분해)의 이중 운동으로 자기를 매개한다. 헤겔의 화학론은 당대 화학(라부아지에 이후)의 사변적 재해석이지만, 그것을 넘어 <b>사랑</b>·<b>인륜적 관계</b>·<b>남녀 관계</b> 같은 모든 극성적 상호 관계를 포섭하는 논리적 규정이다. 객관 사이의 결합에서 아직 <b>목적</b>은 나타나지 않지만, 자기 매개의 필연이 이미 드러난다."],
+    "목적론":["목적론(目的論, Teleologie)","목적(개념)이 스스로 수단을 세우고 결과를 자기 안에 실현하는 관계(§204-212). 개념이 객관 안에서 자기를 매개하며, 이념으로의 이행점이다. 아리스토텔레스의 <b>목적인(causa finalis)</b>이 그 원형이고, 칸트가 『판단력비판』에서 목적론적 판단력을 반성적 판단으로 자리매김한 것이 근대적 배경이다. 헤겔은 두 종류의 목적을 구별한다. <b>외적 목적(äußere Zweckmäßigkeit)</b>: 어떤 대상을 다른 것을 위한 수단으로 삼는 방식(농기구는 농사의 수단), 이는 유한한 목적성이다. <b>내적 목적(innere Zweckmäßigkeit)</b>: 자기 자신이 자기 목적인 방식으로, 생명이 그 대표다. 목적론이 내적 합목적성에 이르면 이념으로 넘어간다."],
+    "합목적성":["합목적성(合目的性, Zweckmäßigkeit)","외적 합목적성(수단·목적의 외적 관계)과 내적 합목적성(자기 자신을 목적으로 가짐)의 구별(§204-205). 후자가 생명·이념의 형식이다. 칸트의 『판단력비판』(1790)이 이 이분을 처음 정식화했다. 외적 합목적성은 반성적 판단력이 자연에 투영하는 규제적 원리이고, 내적 합목적성은 유기체(자기 원인이자 자기 목적)에서 반드시 요청되지만 인식의 대상은 아니다. 헤겔은 칸트의 이 이분을 계승하되 <b>내적 합목적성을 인식 가능한 자연 그 자체의 원리</b>로 격상시킨다 — 이것이 헤겔이 칸트를 넘어서는 결정적 지점 중 하나이며, 목적론에서 생명·이념으로의 이행을 정당화하는 논거다."],
+
+    "생명":["생명(生命, Leben)","자기 자신을 매개하는 개념의 첫 형태(§216-222). 자기 목적으로서 자기를 유지·재생·생식하는 살아 있는 개체이며, 자연의 생명은 개별로 죽지만 이념의 생명은 유(類)로 남는다. 논리적 생명(이 자리)과 자연적 생명(자연철학의 유기체)의 구별에 주의해야 한다 — 논리학의 생명은 <b>개념의 첫 실현 형태</b>로서의 사변적 규정이고, 자연철학의 생명은 자연 안에서 이 규정이 특수화된 형태다. 논리적 생명의 세 계기: <b>살아 있는 개체 자신</b>(자기 감각·자기 운동), <b>비유기적 자연과의 관계</b>(동화 = 자기 유지), <b>유(類)와의 관계</b>(생식 = 자기 재생과 죽음). 개체 생명이 유 앞에서 죽음으로써 유가 존속한다는 이 논리가 자연에서 정신으로의 이행을 예비한다."],
+    "인식":["인식(認識, Erkenntnis)","이념의 둘째 형식(§223-235). 진리의 이념(이론적 인식)과 선의 이념(실천적 의지)으로 자기를 나눈다. 생명(자기 목적적 개체)에서 인식으로의 이행에서 개념은 자기를 대상 삼아 파악하는 활동으로 심화된다. 이론적 인식은 세계를 자기 안에 담고, 실천적 의지는 자기를 세계 안에 실현한다. 이 두 방향은 각각 한 편에 치우쳐 있으므로 그 통일이 요청되며, 이 통일이 <b>절대 이념</b>이다. 인식의 사변적 자리매김이 헤겔의 관념론이 주관적 관념론(피히테)이나 초월적 관념론(칸트)과 다른 지점을 보여준다 — 인식은 주관의 활동이면서 동시에 대상 자체의 자기 전개다."],
+    "진리이념":["진리의 이념(Idee des Wahren)","이론적 이념(§226-232). 사유가 대상 안에서 자기 자신을 발견하는 활동으로, 분석적 인식과 종합적 인식의 두 방법을 자기 안에 담는다. <b>분석적 인식</b>: 대상을 그 요소로 분해하여 이해하는 방식으로, 수학이 그 전형이다. <b>종합적 인식</b>: 대상의 여러 요소를 자기 안에서 결합하여 이해하는 방식으로, 자연과학의 법칙 정립이 그 예다. 헤겔은 이 두 방법이 서로를 요구하며 어느 한쪽도 홀로 진리에 이르지 못한다고 논한다. 진리 이념의 한계는 이 이념이 여전히 <b>주어진 대상을 파악하는 데</b> 머문다는 점이다 — 대상을 자기의 규정에 맞게 형성하는 실천이 요청되고, 이것이 선의 이념이다."],
+    "선의이념":["선(善)의 이념(Idee des Guten)","실천적 이념(§233-235). 의지가 세계를 자신의 규정에 맞게 형성하는 활동으로, 진리 이념과의 통일에서 절대 이념이 된다. 선의 이념의 특징은 세계가 아직 자기의 규정에 부합하지 않는다는 <b>무한 판단(unendliches Urteil)</b>이다 — '세계는 선해야 한다, 그러나 아직 선하지 않다'. 이 미완결성이 실천의 무한한 노력을 낳지만, 이 노력이 완결될 수 없다는 것 자체가 선의 이념의 한계다. 이 한계는 이론적 이념과의 통일에서 지양된다 — 세계는 이미 자기 안에 이념을 담고 있으므로 실현되지 않은 이념이 아니라 실현된 이념을 인식하는 것이 참된 실천이다. 이 통일이 절대 이념이다."],
+    "절대이념":["절대 이념(絕對理念, absolute Idee)","이론과 실천, 개념과 실재성의 완전한 통일(§236-244). 논리학의 마지막 규정으로, 자기 밖으로 나가는 결단(Entlassen)을 통해 자연으로 이행한다. 절대 이념의 결정적 특성은 그 <b>내용이 곧 방법 자체</b>라는 점이다 — 논리학의 앞선 모든 규정을 자기 안에 계기로 담고 있으며, 그 규정들의 이행 방식(사변적 방법)이 이제 이념의 내용이다. §244의 유명한 이행: '절대 이념은 자기를 자연으로 자유롭게 놓아준다(entlässt sich frei)' — 이 <b>결단(Entschluss)</b>은 논리적 필연에서 나오지만 자유의 성격을 지닌다. 이 이행이 논리학에서 자연철학으로 가는 사변적 다리이며, 헤겔 체계의 가장 논쟁적인 장면 중 하나다."],
+
+    "자연":["자연(自然, Natur)","이념의 타자태(§245-376). 이념이 자기 밖으로 나가 외재적 실재로 있는 형태이며, 외재성·개별성·필연성의 지배를 받으면서 정신을 향해 자신을 지양해 간다. 헤겔의 자연 개념은 스피노자의 <b>Natura naturata</b>(생성된 자연)와 스토아·괴테적 <b>능산적 자연</b>이 사변적으로 결합된 것이다. 결정적으로 헤겔은 자연의 <b>무력함(Ohnmacht der Natur, §250)</b>을 강조한다 — 자연은 개념을 자기 안에 담고 있으나 그것을 완전히 자기 것으로 만들지 못하며, 그래서 자연 안에는 언제나 우연·기형·비합리가 남는다. 이 무력함이 헤겔 자연철학이 자연과학의 세부(생물 분류·화학 원소 등)에 자주 어긋나는 이유이자, 자연을 정신의 소외태로 자리매김하는 이유다. 자연은 반드시 자기를 지양하고 정신이 되어야 한다."],
+    "역학":["역학(力學, Mechanik)","자연 철학의 첫째 부문(§253-271). 물질의 가장 추상적 규정 — 공간·시간·물질·운동 — 을 다루며, 개별 부분이 서로 무관심하게 외재하는 단계다. 뉴턴의 <b>Philosophiae Naturalis Principia Mathematica</b>(1687)와 칸트의 <b>Metaphysische Anfangsgründe der Naturwissenschaft</b>(1786)에 대한 사변적 응답이 이 부문의 배경이다. 헤겔은 역학을 세 층위로 나눈다 — (a) 유한 역학(관성·충격·낙하: 뉴턴적 상호작용), (b) 절대 역학(태양계: 케플러·뉴턴의 천체 운동), (c) 이 둘의 통일에서 물리학으로 이행. 헤겔의 자연철학이 '반(反)뉴턴적'이라고 하지만 정확히는 뉴턴을 <b>사변적으로 재정초</b>하려 한 시도다."],
+    "공간":["공간(空間, Raum)","자연의 첫 직접적 규정(§254-256). 서로 밖에 있음(Außereinandersein)의 순수한 형식으로, 순수한 양적 다양성이다. 칸트가 『순수이성비판』의 초월적 감성론에서 공간을 감성의 순수 형식으로 자리매김한 것에 대한 헤겔의 재해석 — 헤겔에서 공간은 주관의 형식이 아니라 <b>자연이 자기를 처음 규정한 방식</b>이다. 공간은 세 차원(선·면·입체)으로 자기를 규정하지만 이 차원들은 자기 안에서 아무 필연도 지니지 않는다 — 세 차원인 이유는 우연이 아니지만 각 차원의 규정성은 순수한 외재성이다. 공간의 자기 부정이 <b>시간</b>이다 — 공간이 자기 안에서 자기를 지양할 때 시간이 발생한다."],
+    "시간":["시간(時間, Zeit)","공간의 부정으로서 되어감(성)의 형식(§257-259). 지금(現在, Jetzt)이 사라지고 다시 오는 부정의 부정이다. 아리스토텔레스가 시간을 '운동의 척도'로 규정하고 아우구스티누스가 시간을 영혼의 확장(distentio animi)으로 자리매김한 이래 시간의 형이상학은 서양 철학의 난제 중 하나였다. 헤겔에서 시간은 순수 부정성이다 — 지금은 지금이지만 곧바로 사라지고 다른 지금이 온다. 이 자기 부정의 순수 흐름이 시간이다. 헤겔은 시간을 공간의 진리로 규정하지만 그 자체 최종적 규정은 아니라고 본다 — 참된 시간은 개념의 자기 전개(역사)이며 자연의 시간은 그 최소한의 형태다. 이 통찰이 하이데거·베르그송의 시간론에도 자극이 되었다."],
+    "장소":["장소(場所, Ort)","공간의 특정한 점(§260-261). 운동을 통해 다른 장소로 넘어감으로써 자기를 지양한다. 아리스토텔레스의 topos(장소)는 물체를 담는 그릇으로서의 장소였지만, 헤겔은 장소를 <b>공간과 시간의 최초의 통일</b>로 재정의한다. 어떤 점이 '지금 여기'로 있으면서 다른 지점으로 넘어가야 한다는 필연이 장소 안에 이미 함축되어 있다. 이 자기 지양이 곧 운동이다. 헤겔이 제논의 운동 부정 논변(화살은 각 순간에 정지해 있으므로 움직이지 않는다)에 응답하는 방식이 여기 있다 — 각 순간의 정지 자체가 이미 자기 부정을 함축하므로 운동은 순간의 정지의 지양이 아니라 그 자기 지양의 표현이다."],
+    "운동":["운동(運動, Bewegung)","공간과 시간의 통일(§261). 여기에서 저기로, 지금에서 다음으로 넘어가는 사물의 살아 있는 자기 관계다. 헤겔의 운동론은 제논의 역설에 대한 응답으로 유명하다 — 헤겔은 '움직이는 것은 여기에도 있고 여기에 있지 않기도 하다'는 사변적 정식으로 운동의 모순적 본성을 긍정한다(§260 주해). 아리스토텔레스의 <b>kinesis</b>가 가능태에서 현실태로의 이행이었다면, 헤겔의 Bewegung은 공간의 자기 안 부정(시간)이 실현된 형식이다. 운동은 아직 순수 공간·시간의 관계일 뿐이지 물체의 운동은 아니며, 물체의 운동은 다음 단계인 물질에서 발생한다."],
+    "물질":["물질(物質, Materie)","공간·시간을 채우는 실재(§262-264). 인력과 척력의 통일이며, 자기와 다른 자기(다른 물질)의 상호 관계를 통해서만 물질이다. 칸트가 『자연과학의 형이상학적 원리』(1786)에서 물질을 <b>척력(반발)</b>과 <b>인력</b>의 대립적 힘의 통일로 정의한 것을 헤겔이 계승·심화한다. 물질은 자기 안에 이미 자기 부정(척력: 자기 밖의 다른 물질을 배제)과 자기 긍정(인력: 다른 물질과의 통일 지향)을 담고 있으며, 이 이중 규정이 물질을 물질이게 한다. 헤겔은 원자론적 물질관(레우키포스·데모크리토스·라이프니츠)과 연속론적 물질관을 모두 물질 개념의 한 계기로 자리매김한다."],
+    "관성":["관성적 물질(träge Materie)","자기 상태를 유지하는 물질의 유한한 규정(§265-266). 유한 역학의 대상이다. 뉴턴 제1법칙 — 외력이 없으면 물체는 정지 또는 등속 직선 운동을 유지한다 — 이 관성의 물리학적 정식화다. 헤겔은 관성을 물질의 <b>수동성</b>과 <b>자기 자신에 대한 무관심</b>의 표현으로 본다 — 관성적 물질은 자기 안에 자기를 움직일 원리를 갖지 않으므로, 그 운동은 언제나 외적 원인(다른 물질의 충격이나 낙하)을 요구한다. 이는 유한한 규정이며, 절대 역학(태양계)에서 물질이 자기 안에 운동 원리를 갖는 방향으로 지양된다."],
+    "충격":["충격(衝擊, Stoß)","한 물질이 다른 물질에 자기 운동을 전달하는 외적 관계(§266). 관성적 물질의 상호작용의 기본 형식이다. 데카르트가 물체 상호작용을 충격으로만 설명하려 한 것에 반해 뉴턴이 원격작용의 힘 개념을 도입한 대립 위에 헤겔의 사변이 놓인다. 헤겔에게 충격은 한 물질이 자기 운동을 다른 물질에 <b>외적으로</b> 전달하는 관계로, 관성적 물질 사이의 관계이므로 유한하다. 두 물질의 상호 규정에서 각자가 자기 상태를 유지하려는 관성과 다른 상태로 넘어가는 이행이 함께 나타나며, 이 유한한 관계의 지양이 낙하(자기 중심으로의 이끌림)로 이행하는 논리적 경로다."],
+    "낙하":["낙하(落下, Fall)","자기 밖의 중심을 향해 이끌리는 물질의 운동(§267-268). 절대 역학(자유 낙하)에서 태양계로 이어진다. 갈릴레이의 자유 낙하 법칙(t²에 비례하는 거리)이 물리학의 사변적 자리이며, 헤겔은 이 법칙에 특별한 논리적 의미를 부여한다 — 시간의 제곱이 거리에 비례한다는 관계에서 시간(순수 부정성)이 자기와 관계하여 공간적 규정을 산출하는 사변적 통일이 나타난다. 낙하는 아직 물체가 자기 밖의 중심(지구)에 의해 이끌리는 유한한 운동이지만, 이 관계가 자기 매개로 심화되면 <b>절대 역학</b>의 태양계 운동이 된다."],
+    "절대역학":["절대 역학(absolute Mechanik)","자유롭게 낙하하는 물체와 천체의 자기 매개 운동을 다룸(§269-271). 물질이 자기 안에 중심을 갖게 되는 이행점이다. 케플러의 세 법칙(타원 궤도·면적 속도 일정·조화 법칙)이 헤겔의 절대 역학의 핵심 대상이며, 헤겔은 케플러 편에 서서 뉴턴의 원격 인력을 형식적 서술로 격하시킨다(『박사학위 논문』, 자연철학 §270). 태양계에서 각 행성은 자기 밖의 중심(태양)에 이끌리는 동시에 자기 안에 궤도의 내적 필연을 가지며, 이 자기 매개가 유한 역학의 외적 관계를 지양한다. 태양계의 자기 매개적 총체가 <b>물리학</b>으로의 이행을 준비한다 — 물질이 이제 자기 안에 질적 규정을 갖기 시작한다."],
+
+    "보편적개체성":["보편적 개체성(§272-289)","물리학의 첫 단계. 개별 천체가 고유한 성질을 갖고, 원소(빛·공기·물·지) 및 그 과정으로 자기를 규정하는 자연이다. 절대 역학의 태양계에서 각 천체는 이미 자기 안에 중심을 지녔지만, 아직 그 개체성은 <b>운동의 규정</b>에 지나지 않았다. 물리학에 들어서면 천체가 <b>고유한 질적 성질</b>(태양은 빛, 지구는 어둠 등)을 갖게 되며, 이 질적 규정이 원소들로 세분화되어 지구 위의 원소 순환(대기·물·지질)으로 실현된다. 헤겔의 원소론은 아리스토텔레스의 4원소(불·공기·물·흙)와 근대 화학의 성립기 사이에 놓여 있으며, 오늘의 관점에서는 상당 부분 낡았지만 자연을 <b>질적 개체들의 총체</b>로 파악하려는 사변적 시도로서 그 가치를 지닌다."],
+    "천체":["자유스런 물리적 천체(freier physischer Körper)","자기 안에 중심을 갖고 자유롭게 운행하는 천체(§275-280). 물리학의 문턱을 여는 규정이다. 헤겔은 천체를 네 종류로 분류한다 — <b>태양</b>(순수한 빛의 천체), <b>달·혜성</b>(부정적·비발광 천체), <b>행성</b>(원소의 총체를 자기 안에 지닌 발달한 천체). 지구는 특히 완성된 개체성으로서 원소 순환(기상·수리·지질)을 자기 안에서 실현하는 천체다. 유의: 헤겔의 천체 분류는 현대 천문학의 분류와 다르며, 이는 헤겔이 천체를 관측 데이터가 아닌 <b>사변적 규정</b>으로 다루기 때문이다. 세레스(당시 새로 발견된 소행성)에 대한 헤겔의 유명한 언급 — '행성이 일곱이어야만 하는 논리적 근거' — 도 이 맥락에 있다."],
+    "원소":["원소(元素, Element)","자연 철학에서 헤겔이 다루는 네 원소 — 빛·공기·물·지(§281-285). 물리적 개체성의 보편적 매개다. 아리스토텔레스의 4원소(불·공기·물·흙)를 계승하되 빛을 첫 원소로 놓는 것이 헤겔의 특징이다 — 빛은 순수한 자기 동일성이자 자연의 첫 관념적 규정이다. 공기는 부정성의 원소(어디에나 있으면서 자기를 규정하지 않음), 물은 대립의 원소(액체로서 자기 형태를 갖지 않음), 지(흙)는 이 셋의 통일로서 개체화된 원소다. 근대 화학(라부아지에의 원소론, 1789 이후)이 이미 확립된 시점에서 헤겔이 이 사변적 원소론을 고수한 것은 원소를 <b>화학적 물질</b>이 아니라 <b>자연의 사변적 계기</b>로 다루기 때문이다."],
+    "원소과정":["원소의 과정(elementarischer Prozess)","기상학적 순환 등 원소들 사이의 상호 변환(§286-289). 개체성의 자기 실현이다. 지구 위에서 원소들은 정지해 있지 않고 끊임없이 순환한다 — 태양(빛·열)이 물을 증발시켜 공기 안의 구름이 되고, 다시 응결해 비가 되어 지에 이르고, 지의 형성과 침식으로 다시 자연 순환이 지속된다. 이 과정이 지구의 <b>생명 이전의 자기 매개</b>이며, 이것이 없으면 유기적 자연(식물·동물)의 조건이 성립하지 않는다. 헤겔은 이 순환을 사변적으로 <b>지구의 자기 생명화</b>로 자리매김한다 — 지구는 아직 살아 있지는 않지만, 이 원소 순환을 통해 생명의 조건을 자기 안에 마련한다."],
+    "특수한중력":["특수한 중력(spezifische Schwere)","물체의 밀도로 표현되는 개체성의 첫 물리적 규정(§293-295). 응집력·음향·열로 이어진다. 특수한 중력은 오늘의 <b>밀도(density)</b>에 해당하는 개념으로, 두 물체가 같은 부피를 가지고도 무게가 다르다는 사실에서 물체 자체의 질적 규정성이 드러난다. 이는 뉴턴적 만유인력(모든 물체에 공통된 양적 규정)을 넘어 각 물체의 <b>고유한 물질성</b>이 나타나는 자리다. 물이 아래로 흐르고 공기가 위로 오르는 것도 이 특수한 중력의 표현이며, 헤겔은 이를 물체가 자기 개체성을 처음으로 표명하는 자리로 자리매김한다."],
+    "응집력":["응집력(凝集力, Kohäsion)","물체가 자기 부분을 결속시키는 힘(§296-299). 물체의 형태를 결정하는 물리적 개체성이다. 특수한 중력이 물체의 <b>양적 개체성</b>이라면 응집력은 <b>질적 개체성</b>이다 — 강철은 부서지지 않고 유리는 깨지며 밀랍은 늘어난다. 이 응집의 방식(경도·연성·탄성·취성)이 물체를 물체이게 하는 성질이다. 헤겔은 응집력을 세 층위로 나눈다 — 단순한 응집(부분들의 물리적 결속), 특수한 응집(경도·연성 등), 완결된 응집(탄성). 응집력의 사변적 심화가 <b>음향</b>(응집의 관념적 자기 표명)으로 이어진다."],
+    "음향":["음향(音響, Klang)","물체가 진동으로 자신을 관념적으로 드러내는 방식(§300-302). 형태의 관념적 자기 표현이다. 헤겔은 음향에 특별한 사변적 의미를 부여한다 — 물체가 진동할 때 그것은 자기 응집을 순간적으로 지양하고 회복하는 이중 운동을 반복하며, 이 운동에서 물체의 <b>고유한 자기 표명</b>이 소리로 나타난다. 종이 울리고 강철이 소리를 내는 방식이 그 물체의 물리적 본성을 드러낸다는 것이다. 음향은 물체가 자기를 관념화하는 첫 단계이며, 이 관념성이 심화되면 <b>열(Wärme)</b>이 된다. 헤겔의 이 사변적 음향론은 19세기 낭만파 음악 미학(호프만·쇼펜하우어)에 간접적 영향을 남겼다."],
+    "열":["열(熱, Wärme)","물체가 자기 응집을 지양하고 다른 상태로 이행하게 하는 원리(§303-307). 화학적 과정의 문턱이다. 열은 물체의 응집을 완전히 해체할 수 있는 원리로서, 고체를 액체로·액체를 기체로 상태 변화시킨다. 헤겔은 열을 물체의 <b>자기 지양의 원리</b>로 자리매김한다 — 응집이 물체를 물체이게 하는 것이라면, 열은 그 응집을 지양하여 물체가 다른 물체와의 관계(화학적 결합)에 들어가도록 만드는 것이다. 라부아지에가 열을 원소(칼로릭)로 다룬 시대의 화학사적 맥락에서 헤겔의 열 개념이 형성되었지만, 사변적 규정으로서의 열은 그 시대의 물질 이론과는 층위가 다르다."],
+    "형태":["형태(形態, Gestalt)","물체가 자기 안에 개체성을 완전히 실현한 규정(§310-315). 결정(結晶, Kristall)이 그 대표다. 형태는 물체가 자기 부분을 자기 안에서 규정된 관계로 조직한 상태이며, 결정 구조(입방·육방·삼방 등)가 그 자연 안에서의 순수한 실현이다. 헤겔은 결정을 <b>자연의 첫 예술 작품</b>이라 부르며, 살아 있지 않은 자연이 순수한 기하학적 규정으로 자기를 표명하는 자리로 자리매김한다. 결정학(Kristallographie)이 당시 갓 성립하던 학문이었고, 헤겔은 하위(R. J. Haüy)의 결정 이론에 자극받았다. 결정으로 완성된 형태는 다음 단계에서 <b>다른 물체와의 관계</b>로 자기를 여는데, 이것이 개체적 물체의 특수화다."],
+    "물체의특수화":["개체적 물체의 특수화","자기 형태를 얻은 물체가 빛·소리·냄새·맛 등에서 다른 물체와 관계하는 규정(§316-322). 물체는 자기 형태를 완성한 뒤 다른 물체와의 감각적 관계(빛의 반사=색·투명성, 소리의 발신·수용, 후각·미각의 상호작용)에서 자기의 다른 규정을 드러낸다. 헤겔의 <b>색채론</b>이 이 자리에서 전개된다 — 그는 뉴턴의 프리즘 실험 해석에 반대하고 괴테의 색채론(『Farbenlehre』, 1810)을 지지하여, 색을 밝음과 어둠의 대립에서 발생하는 질적 규정으로 다룬다. 이 헤겔-괴테 진영은 뉴턴 광학과 대립하지만, 20세기 이후 색채의 지각·현상학적 연구에서 다시 조명받았다."],
+    "화학적과정":["화학적 과정(chemischer Prozess)","서로 다른 물체가 자기 부정을 통해 새로운 통일에 이르는 과정(§326-336). 생명(유기체)으로의 이행점이다. 두 물체가 만나면 각자의 자립성을 잃고 새로운 물체(화합물)로 통일되며, 이 과정이 산·염기·염의 관계, 산화·환원, 갈바니 전지 등에서 나타난다. 라부아지에·베르첼리우스의 근대 화학이 이 층위의 자연과학이며, 헤겔은 화학 반응을 <b>대립을 통일로 지양하는 자연의 사변적 운동</b>으로 자리매김한다. 화학적 과정에서 물체는 자기 안에 자기 부정을 담고 그것을 지양하는데, 이것이 아직 <b>외적</b>이면 화학이고, <b>내면화</b>되어 자기 자신에서 일어나면 유기체의 생명이다. 이 이행이 자연철학에서 유기적 자연학으로 넘어가는 사변적 다리다."],
+
+    "유기적자연":["유기적 자연(§337-376)","자연 철학의 셋째 부문. 생명이 자기 목적으로 있는 자연이며, 지질학적·식물적·동물적 유기체의 삼단계로 전개된다. 화학적 과정의 외적 통일이 <b>내면화</b>된 것이 유기체다 — 유기체는 자기 부분들의 화학적 대립을 자기 안에서 지양하며 자기를 유지한다. 논리학의 <b>생명 이념</b>이 자연 안에서 특수화된 것이 이 유기적 자연이다. 유의: 여기서 '유기적'은 오늘의 유기화학의 유기(organic)가 아니라 <b>Organismus(자기 조직화된 총체)</b>의 뜻이다. 지질(무기적 지반) → 식물(자기 밖으로 성장) → 동물(자기를 자기로 감지)의 삼단계는 아리스토텔레스의 영혼론(vegetative·sensitive·rational soul)에서 벡터를 취한다."],
+    "지질학적자연":["지질학적 자연(geologische Natur)","살아 있는 유기체의 무기적 지반(§338-342). 아직 참된 주체성은 없는 자연의 유기적 총체다. 헤겔에서 지구 자체가 이미 <b>일종의 유기체</b>다 — 화산 활동·지진·기상 순환 등이 지구의 자기 조직화의 표현이며, 산맥·바다·강 등의 공간적 배치도 지구의 유기적 총체성의 형상이다. 그러나 지구는 <b>살아 있지는 않다</b> — 자기 자신을 자기 목적으로 삼지 못하기 때문이다. 지질학적 자연은 살아 있는 것(식물·동물)의 <b>지반이자 조건</b>이며, 이 지반 위에서 참된 주체적 생명이 나타난다. 헤겔의 이 지구 유기체론은 아직 자연과학이 아닌 자연철학적 규정이지만, 20세기의 가이아 가설(러브록) 등과 유비적 관심을 지닌다."],
+    "식물":["식물적 자연(vegetabilische Natur)","최초의 주관적 유기체(§343-349). 그러나 자기 감정 없이 스스로 밖으로 자라나기만 하는 미숙한 주체성이다. 식물은 살아 있으므로 자기 유지·재생·생식을 하지만, <b>자기를 자기로 감지하지 못한다</b> — 자기 안에 감각의 중심(신경계·뇌)이 없기 때문이다. 그래서 식물은 자기 안으로 되돌아오는 자기 관계가 없고, 오직 자기 밖으로 자라나는 방향으로만 자기를 실현한다. 헤겔은 식물의 이 미숙한 주체성을 '완전히 밖으로 나가 있음(Außersichsein)'으로 표현한다. 식물의 세 계기 — 형성(뿌리·줄기·잎), 동화(광합성·양분 흡수), 유의 과정(꽃·열매·씨) — 은 다음 단계인 동물적 유기체에서 훨씬 더 명료해진다."],
+    "동물":["동물적 유기체(animalischer Organismus)","자기를 자기로서 느끼는 주관적 유기체(§350-376). 감각·자기 운동·목소리(Stimme)를 지니며, 형태·동화·유(類)의 세 과정으로 자신을 유지한다. 식물과 달리 동물은 <b>자기 감정(Selbstgefühl)</b>을 가진다 — 자기 안에 감각의 중심을 지녀 자기를 자기로 느끼며, 이 자기 감정이 자유로운 자기 운동으로 표현된다. 헤겔은 동물의 목소리(우는 소리)를 특별히 강조한다 — 목소리는 동물이 자기 감정을 소리로 외화한 것이며, 이 자기 외화가 언어(인간의 목소리)의 자연적 예비다. 동물의 세 생명 과정이 논리적 생명 이념의 자연적 실현이며, 마지막의 <b>유의 과정</b>에서 자연이 자기를 지양하고 정신이 발생한다."],
+    "동물형태":["동물의 형태(Gestalt des Tieres, §353-356)","동물이 자기 안에서 자기를 유지하는 첫 과정. 감각·근육·신경계로 조직된 자기 관계다. 형태의 세 계기 — <b>감수성(Sensibilität)</b>: 감각과 신경계, <b>흥분성(Irritabilität)</b>: 근육과 반응, <b>재생(Reproduktion)</b>: 소화·순환으로 자기 유지 — 는 당시 생리학자 킬마이어(C. F. Kielmeyer, 1793)의 삼분법을 헤겔이 사변적으로 재해석한 것이다. 동물의 형태는 자기 부분들을 자기 안에서 조직화된 유기적 총체로 유지하는 <b>자기 관계</b>이며, 이 자기 관계가 유기체의 첫 규정이다. 다음 단계에서 이 형태가 자기 밖의 자연과 관계하는데, 이것이 동화다."],
+    "동화":["동화(同化, Assimilation)","타자(음식·공기 등)를 자기 것으로 변형하는 과정(§357-366). 자기 밖의 자연을 자기 자체로 만드는 유기체의 활동이다. 동화는 유기체가 자기 밖의 비유기적 자연(공기·물·음식)을 자기 안으로 받아들여 자기 유지의 계기로 변형하는 과정이다. 이 과정에서 유기체는 자기의 주체성을 자기 밖의 자연에 대해 실현하며, <b>자연을 자기의 대상으로 삼는 첫 형태</b>가 된다. 헤겔은 이 논리적 규정이 인간의 노동·인식·사회적 활동에서 심화된다고 본다 — 노동은 자연을 인간의 목적에 맞게 변형하는 사회적 동화이며, 인식은 대상을 관념적으로 자기 것으로 만드는 이론적 동화다. 이런 유비가 헤겔의 <b>노동 개념</b>(마르크스에 영향)의 자연철학적 뿌리다."],
+    "유의과정":["유(類)의 과정(Gattungsprozess, §367-376)","개체가 유와 관계하는 과정. 성적 관계·생식·죽음이며, 개체는 유에 대해 죽음으로써 자연을 넘어 정신에 자리를 내준다. 유의 과정의 세 단계: <b>성적 관계</b>(자기와 반대되는 성의 다른 개체를 자기의 짝으로 삼음), <b>생식</b>(새 개체의 산출로 유가 자기를 재생산), <b>죽음</b>(개별 유기체는 자기를 넘어서지 못하고 사라짐). 헤겔의 결정적 통찰: <b>개체는 유에 대해 죽는다</b>. 개체 유기체는 유(species)의 한 사례로 살다가 유를 위해 죽어 사라지며, 그 자리를 다음 세대에 내준다. 그러나 이 <b>개체의 자연적 죽음</b> 안에서 유가 자기 자신을 <b>주관적으로 파악하는 활동</b>이 발생하는 자리 — 이것이 정신(Geist)이다. §376이 이 결정적 이행을 서술한다 — 자연은 자기를 지양하고 정신이 된다."],
+
+    "주관적정신":["주관적 정신(subjektiver Geist, §387-482)","정신 철학의 첫째 부문. 자연에서 깨어나 아직 자기 안에 갇힌 개인의 정신으로, 인간학·정신 현상학·심리학의 세 단계로 전개된다. '주관적'은 여기서 <b>개인적</b>·<b>내면적</b>이라는 뜻이며, 아직 세계에 실현되지 않은 정신을 가리킨다. 세 단계는 아리스토텔레스 영혼론(De Anima)의 삼분(생명 영혼·감각 영혼·이성 영혼)을 사변적으로 재구성한 것으로도 읽을 수 있다. 헤겔이 심리학을 인간학·현상학과 나란히 자리매김한 것은 근대 심리학의 방향(내성·경험·실험)과 다른 <b>사변적 심리학</b>의 시도이며, 20세기 이후 후설의 현상학적 심리학·비교문화 심리학이 역으로 헤겔에 다시 관심을 가진 이유다."],
+    "인간학":["인간학(人間學, Anthropologie, §388-412)","주관적 정신의 첫째 단계. 아직 자연과 얽힌 정신, 곧 심령(心靈)을 다룬다. 근대의 인간학(Anthropologie)은 임마누엘 칸트의 『실용적 관점에서 본 인간학』(1798) 이래 인간의 자연적·문화적 규정을 다루는 학문이었고, 헤겔은 이를 정신철학의 첫 단계로 자리매김한다. 여기서의 인간학은 인종·기후·성별·나이·생활 습관 같은 <b>자연적으로 주어진 인간의 규정</b>을 다루며, 자연과 정신 사이의 경계에 놓인 심령(Seele)이 그 대상이다. 헤겔의 인종론·성별론 등은 이 층위에 놓이는데, 현대 관점에서 문제적인 언명을 다수 담고 있어 비판적 독해가 필요하다."],
+    "심령":["심령(心靈, Seele)","자연의 잠에서 갓 깨어난 정신(§389-390). 신체와 분리되지 않은 상태로, 감각·기분·습관으로 자기를 형성해 간다. 그리스어 psyche·라틴어 anima와 이어지는 서양 영혼론의 계보에서 헤겔은 심령을 <b>정신의 잠자는 형식</b>으로 규정한다. 데카르트의 정신-신체 이원론(res cogitans / res extensa)에 대한 헤겔의 응답이 이 자리에 있다 — 심령은 신체와 분리된 실체가 아니라 <b>신체 안에서 자기를 형성해 가는 활동</b>이며, 자연적 심령·감지하는 심령·현실적 심령의 세 단계로 심화된다. 이 심령이 자기 신체를 자기의 도구·기호로 삼는 데 이르면 <b>의식(Bewusstsein)</b>이 발생하고, 정신 현상학이 시작된다."],
+    "자연적심령":["자연적 심령(natürliche Seele)","자연(인종·기후·나이·성별)과 아직 하나인 심령(§391-402). 잠·꿈·태아의 감정 같은 상태다. 자연적 심령의 세 층위 — <b>보편적 자연 규정</b>(우주적 리듬·계절·낮과 밤), <b>인종·민족·기질</b>(인종·민족의 자연적 차이), <b>개별적 자연 규정</b>(성별·나이·잠·꿈) — 는 헤겔이 심령을 자연의 여러 규정과 얽혀 있는 것으로 파악함을 보여준다. 여기서 <b>잠·꿈</b>은 심령이 아직 자기 안에 갇혀 있는 상태의 자연적 예시로 다루어지며, 이 층위에서 심령은 자기를 자기로 감지하지 못한다. 다음 단계에서 자기 신체를 자기로 감지하기 시작하는데, 이것이 감지하는 심령이다."],
+    "감지하는심령":["감지하는 심령(fühlende Seele)","자기 신체를 어렴풋이 자기로 감지하는 심령(§403-410). 광기·최면(Somnambulismus, 몽유병) 등 병리적 상태도 이 층위에 속한다. 헤겔은 이 단계에서 심령이 자기 신체를 자기로 <b>감지</b>하지만 아직 자기와 자기 신체를 명료히 구별하지 못한다고 본다. 그래서 이 층위는 <b>병리적 상태</b>(광기·최면·꿈속 걷기)와 <b>정상적 발달의 한 계기</b>가 겹치는 자리다. 헤겔의 광기론은 프랑스의 필리프 피넬(1745-1826)의 인도적 정신의학과 동시대 독일의 낭만적 의학(라일 등)의 영향 아래 형성되었으며, 광기를 <b>정신의 한 계기</b>로 자리매김한 점에서 20세기의 정신분석과 유비적 관심을 지닌다."],
+    "현실적심령":["현실적 심령(wirkliche Seele)","습관을 통해 자기 신체를 자기의 도구·기호로 삼는 데 이른 심령(§411-412). 이제 정신은 신체를 넘어 자기 대상을 마주할 준비를 마친다 — 의식의 문턱이다. 현실적 심령의 핵심은 <b>습관(Gewohnheit)</b>이며, 심령은 습관을 통해 자기 신체를 완전히 자기 것으로 만들어 신체가 심령의 의지에 즉시 따르는 <b>제2의 본성</b>을 획득한다. 서기·걷기·말하기 등의 신체적 능력은 처음에는 힘겹지만 습관화되면 무의식적으로 수행된다. 이 자리에서 심령은 자기 신체를 <b>기호(Zeichen)</b>로 삼을 수 있게 되며, 이 기호적 자기 관계가 언어·표상의 기초가 된다. 다음 단계에서 정신은 자기 신체를 딛고 <b>대상 세계</b>와 마주하는데, 이것이 의식이다."],
+    "습관":["습관(習慣, Gewohnheit)","반복을 통해 신체를 자기 아래에 두는 심령의 자기 지양 활동(§409-410). 심령에서 의식으로 넘어가는 결정적 계기다. 아리스토텔레스의 <b>헥시스(hexis)</b> 곧 성품(character)이 그 고대적 배경이다 — 반복된 행위가 성품이 되고 성품이 인간을 인간이게 한다. 헤겔은 습관을 <b>제2의 본성(zweite Natur)</b>이라 부른다. 자연적 신체(제1의 본성)를 심령이 자기 아래 두어 자기의 자유로운 도구로 삼음이 습관이며, 이 습관 위에서 정신은 신체에 얽매이지 않고 자기의 목적을 추구할 수 있다. 인륜(Sittlichkeit)이 사회적 <b>제2의 본성</b>인 것도 같은 논리다 — 관습이 몸에 배어 자유가 되는 방식."],
+
+    "정신현상학":["정신 현상학(엔치클로페디의, §413-439)","『정신현상학』(1807) 전체가 아니라, 그것을 요약한 주관적 정신의 둘째 단계. 대상과 마주 선 의식의 형태학이다. 1807년의 대저 『정신현상학』은 원래 헤겔이 체계 전체의 <b>서장(Einleitung)</b>으로 기획했으나, 1817년 이후 강요 체계에서는 정신철학의 한 국면으로 축소되었다. 두 저작의 관계는 헤겔 연구의 장기적 논쟁거리다 — 1807년의 현상학은 감각 확신에서 절대지까지 이르는 방대한 여정이지만, 강요의 현상학은 의식·자기 의식·이성의 세 단계만 다룬다. 헤겔 자신도 이 관계를 명확히 설명하지 않았고, 대안적 독해로는 1807년의 현상학이 강요 체계로의 <b>일회성 진입로</b>였다고 보는 견해가 유력하다."],
+    "의식":["의식(意識, Bewusstsein)","자기 밖의 대상을 대상으로 알아채는 정신(§418-423). 감각적 의식→지각→오성의 세 단계로 전개된다. 의식의 결정적 규정은 <b>주-객의 대립</b>이다 — 심령은 자기 신체와 하나였지만 의식은 자기 앞에 대상 세계를 세운다. 이 대립 위에서 의식은 대상을 인식하려 하지만, 인식이 심화될수록 대상은 의식이 정립한 것으로 드러난다. 첫째 단계인 <b>감각적 의식</b>(직접적 이 것)은 참된 것이 <b>이것 여기 지금</b>이라 확신하지만, 이 확신은 언어로 표명하는 순간 보편(모든 이것들)으로 바뀌는 사변적 모순을 담고 있다. 이 모순의 전개가 지각·오성의 심화 과정이다."],
+    "의식그자체":["의식 그 자체(Bewusstsein als solches)","대상을 자기 밖의 것으로 붙잡는 최초의 의식(§418-423). 감각적 의식·지각·오성의 총칭이다. 세 단계: <b>감각적 확신</b>(sinnliche Gewißheit) — 이 것 여기 지금이 참이라는 확신, <b>지각</b>(Wahrnehmung) — 대상을 여러 성질의 통일로 붙잡는 의식, <b>오성</b>(Verstand) — 현상 배후의 법칙과 힘을 파악하는 의식. 각 단계는 자기 안의 모순으로 다음 단계로 이행한다. 감각적 확신은 개별을 붙잡으려 하나 보편으로 말하고, 지각은 여러 성질을 통일하려 하나 통일과 차이의 관계에서 좌초하며, 오성은 배후의 법칙을 세우려 하나 그 법칙이 곧 의식 자신의 규정임이 드러난다. 이 마지막 자리에서 의식은 <b>자기 자신을 발견</b>하는데, 이것이 자기 의식으로의 이행이다."],
+    "자기의식":["자기 의식(自己意識, Selbstbewusstsein)","대상 안에서 자기 자신을 발견하는 의식(§424-437). 욕구·인정 투쟁·주인과 노예의 관계를 거쳐 상호 인정에 이른다. 자기 의식의 결정적 대상은 <b>다른 자기 의식</b>이다 — 나는 다른 사람이 나를 자기 의식으로 인정할 때만 참으로 자기 의식이 된다. 헤겔의 유명한 <b>주인과 노예의 변증법</b>(Herrschaft und Knechtschaft)이 이 자리에서 전개된다 — 두 자기 의식의 <b>인정 투쟁</b>에서 죽음을 두려워한 자가 노예가 되고 두려워하지 않은 자가 주인이 되지만, 노예의 <b>노동</b>이 세계를 형성하는 반면 주인은 노예의 노동에 의존하게 되어 관계가 역전된다. 이 변증법이 마르크스·코제브·사르트르에 큰 영향을 남겼다."],
+    "이성":["이성(理性, Vernunft) — 정신 현상학의","의식과 자기 의식의 통일(§438-439). 자기 안에 대상 세계의 진리를 갖고 있다는 확신이다. 예비 개념의 이성(사변적 이성)과 층위가 다르지만, 헤겔에게는 결국 같은 사변적 활동의 두 표현이다. 정신 현상학의 이성은 의식(대상을 밖에 세움)과 자기 의식(대상에서 자기를 발견)의 통일이며, '이성적인 것이 현실적이다'라는 명제의 주체다. 이성의 확신이 구체적 인식·실천으로 전개되면 심리학의 자유로운 정신이 되고, 이 자유로운 정신이 세계에 실현되면 객관적 정신이 된다. 이성은 확신에서 진리로, 진리에서 인륜적 실현으로 심화되는 정신의 한 매듭이다."],
+
+    "심리학":["심리학(心理學, Psychologie, §440-482)","주관적 정신의 셋째 단계. 자기 자신에 대해 자유로운 정신이며, 이론적·실천적·자유로운 정신의 세 계기로 전개된다. 헤겔의 심리학은 근대의 경험 심리학(로크·흄·볼프의 경험적 심리학) 및 초기 실험 심리학(페흐너·분트 등)과 근본적으로 다른 <b>사변적 심리학</b>이다. 대상은 개인의 심적 상태가 아니라 <b>자기 규정하는 정신 활동 그 자체</b>이며, 이론적 정신(대상을 자기 안으로 담아냄)·실천적 정신(자기를 세계에 실현)·자유로운 정신(양자의 통일)의 삼분이 그 골격이다. 이 삼분은 지·정·의(인식·감정·의지)의 삼분법과 부분적으로 대응하지만 헤겔은 이 통속적 삼분을 사변적으로 재편한다."],
+    "이론적정신":["이론적 정신(theoretischer Geist)","직관·표상·사유로 대상을 자기 것으로 만드는 정신(§445-468). 세계를 자기 안에 담아 낸다. 세 계기: <b>직관(Anschauung)</b> — 대상을 직접적으로 붙잡음(감각·주의·직관), <b>표상(Vorstellung)</b> — 직관을 자기 안에 간직하여 회상·상상·기억으로 다시 불러옴, <b>사유(Denken)</b> — 대상을 보편적 규정으로 파악. 뒤로 갈수록 정신은 대상을 <b>더 자기 것</b>으로 만든다. 이 심화 과정이 정신의 자기 관념화이며, 언어(기호적 표상)가 결정적 계기다 — 이름을 붙임으로써 정신은 대상을 자기 안에 간직하고 자유롭게 처분할 수 있게 된다. 이론적 정신의 완성은 대상을 개념으로 파악한 것이며, 이 자리에서 정신은 자기를 세계에 실현하는 실천적 정신으로 이행한다."],
+    "실천적정신":["실천적 정신(praktischer Geist)","자신을 세계에 내보내는 정신(§469-480). 감정·충동·행복의 층위를 거쳐 자유의지에 이른다. 세 계기: <b>실천적 감정</b>(자기와 대상의 부합·불부합의 감정), <b>충동과 자의</b>(특수한 목적을 향한 의지), <b>행복(Glückseligkeit)</b>(모든 충동의 총체적 만족). 헤겔은 특히 <b>행복</b> 개념을 아리스토텔레스 이후의 행복주의(eudaimonism)와 근대 공리주의 사이에 놓고 사변적으로 재편한다. 행복은 특수한 만족들의 합계로는 도달할 수 없으며, 참된 행복은 자기 자신을 목적으로 삼는 <b>자유의지</b>의 자기 관계에서만 성립한다. 이 자리에서 실천적 정신이 자유로운 정신으로 이행한다."],
+    "자유로운정신":["자유로운 정신(freier Geist)","이론과 실천의 통일(§481-482). 자기를 자기 대상으로 삼는 자유의지 그 자체다. 여기서 정신은 자기를 세계에 실현하는 <b>객관적 정신</b>으로 넘어간다. 자유로운 정신은 자기 밖의 어떤 것에도 얽매이지 않고 오직 자기 자신을 자기의 규정 근거로 삼는 <b>자기 관계적 활동</b>이며, 이 자유가 곧 자유의지(freier Wille)다. 이 자유의지가 자기를 <b>외적 물건에 실현하면 법(Recht)</b>이 되고, <b>자기 안에서 실현하면 도덕성(Moralität)</b>이 되며, 이 둘의 통일이 <b>인륜(Sittlichkeit)</b>이다. 주관적 정신에서 객관적 정신으로의 이행이 이 자리에서 이루어지며, 『법철학』이 이 이행에서 시작한다."],
+    "표상":["표상(表象, Vorstellung, §451-464)","직관을 자기 안에 간직하고 언어·기호로 다시 불러오는 정신의 작용. 감성과 사유 사이의 매개 형식이다. 표상의 세 계기 — <b>회상(Erinnerung)</b>: 직관을 자기 안에 간직함, <b>상상력(Einbildungskraft)</b>: 간직한 표상을 결합·재구성, <b>기억(Gedächtnis)</b>: 표상을 언어 기호에 담아 자유롭게 처분 — 는 이론적 정신의 중심축이다. 특히 <b>기호적 상상력</b>은 언어의 발생 지점이며, 헤겔은 여기서 언어를 정신이 자기를 관념화하는 <b>결정적 매체</b>로 자리매김한다. 이 자리매김이 20세기 언어철학(비트겐슈타인·가다머·데리다)과 유비적 관심을 불러일으켰다. 표상은 아직 이미지에 의존하지만, 이 의존을 지양하면 순수 사유가 된다."],
+    "의지":["의지(意志, Wille)","자기를 세계 안에 실현하는 실천적 정신의 활동(§469-482, 『법철학』 §4-33). 형식적 의지(자의 Willkür)에서 참된 의지(자유의지)로 심화된다. 헤겔의 의지론은 칸트의 도덕적 의지·자율(Autonomie) 개념을 계승하되 사변적으로 재편한 것이다. 세 계기: (a) 순수한 자기 관계로서의 의지(무규정한 자유의 첫 계기), (b) 특수한 내용을 향한 의지(특정 목적을 세움), (c) 이 둘의 통일로서의 참된 의지(자기 규정하는 자유). <b>자의(Willkür)</b>는 특수한 충동에 따라 택하는 유한한 의지이며, 참된 <b>자유의지</b>는 자기 자신을 자기의 대상으로 삼아 자기를 규정하는 사변적 의지다. 후자만이 법·인륜의 담지자가 된다."],
+
+    "객관적정신":["객관적 정신(objektiver Geist, §483-552)","자유의지가 자기를 세계 속 제도·규범·공동체로 실현한 정신. 법·도덕성·인륜의 세 단계로 전개되며, 『법철학』(1820)과 대응한다. '객관적'은 여기서 주관 밖에 있음이 아니라 <b>제도·규범으로 실현된</b>이라는 뜻이다 — 자유의지가 개인의 내면에 머물지 않고 사회 제도로 <b>객관화</b>된 형태다. 법(외적 실현)·도덕성(내적 실현)·인륜(두 실현의 통일)이라는 삼분은 헤겔이 근대 계약론적 법철학(홉스·로크·루소·칸트)과 아리스토텔레스적 정치철학(polis·arete)을 사변적으로 종합하려 한 시도의 뼈대다. 이 종합의 결정적 지점이 <b>인륜(Sittlichkeit)</b>이며, 이 개념이 헤겔 정치철학의 심장이다."],
+    "법":["법(法, Recht, §486-502; 『법철학』 §34-104)","자유의지가 외적 물건에 자기를 실현한 첫 형식. 추상적 법·형식적 자유의 자리다. 독일어 Recht는 <b>이중 의미</b>를 지닌다 — (1) 좁은 의미로 실정법·권리·법률(right, law), (2) 넓은 의미로 자유의지가 자기를 실현하는 모든 형식(도덕성·인륜을 포함한 '자유의 정의'). 헤겔의 『Rechtsphilosophie』(1820)의 Recht는 둘째 넓은 의미이며, 이 강요 §486의 법은 첫째 좁은 의미(추상적 법)에 해당한다. 추상적 법의 세 계기 — 소유·계약·불법에 대한 법 — 는 법이 물건·계약·범죄를 다루는 방식을 사변적으로 재구성한다. 이 층위의 법은 자유의 <b>가장 외적이고 형식적인</b> 실현이므로, 아직 도덕적 내면성과 인륜적 실체성이 없다."],
+    "소유":["소유(所有, Eigentum, 『법철학』 §41-71)","인격이 사물에 자기 의지를 새겨 그것을 자기로 만드는 관계. 자유의 첫 외적 현존이다. 로크의 노동 이론(자연에 노동을 섞어 자기 것으로 만듦)이 그 배경이지만, 헤겔은 소유를 노동의 결과가 아니라 <b>인격이 자기를 자기 자신에게 대상적으로 실현하는 방식</b>으로 재정의한다. 소유의 세 계기: <b>취득</b>(사물을 자기 것으로 만듦), <b>사용</b>(자기의 목적으로 씀), <b>양도</b>(자기 의지로 놓아 줌). 소유는 인격의 자유 실현의 첫 형식이므로 헤겔에게 <b>사적 소유는 자유의 필수 조건</b>이다 — 이는 후에 마르크스가 헤겔의 소유론을 비판적으로 계승하며 사적 소유의 지양을 논한 지점이 된다."],
+    "계약":["계약(契約, Vertrag, 『법철학』 §72-81)","두 인격이 각자의 의지의 일치로 소유를 서로 교환·양도하는 관계. 계약은 근대 계약론(홉스의 사회 계약, 루소의 일반 의지)의 정치철학적 배경과 관련되지만, 헤겔은 계약을 <b>추상적 법</b>의 한 계기로 국한한다. 결정적 논점: 헤겔은 국가를 계약으로 설명하려는 시도(계약론적 국가관)를 근본적으로 거부한다. 계약은 두 사적 인격의 임의적 의지의 일치이지만, 국가는 개인의 임의적 의지에 앞서는 <b>인륜적 실체</b>이므로 계약으로 근거지을 수 없다는 것이다. 이 반(反)계약론적 국가관이 헤겔 정치철학의 특징이며, 마르크스·아렌트·롤스의 계약론적 흐름과 대비되는 지점이다."],
+    "불법에대한법":["불법에 대한 법(Recht gegen das Unrecht, 『법철학』 §82-104)","계약의 어긋남 — 시민적 부정(비의도적 오해)·사기·범죄 — 을 지양하는 법의 자기 회복. 형벌(刑罰)의 자리다. 헤겔의 <b>형벌론</b>은 근대 형법사의 중요한 이론적 정식화 중 하나다. 예방설(공리주의: 형벌은 억지 효과로 정당화된다)과 응보설(칸트: 범죄는 필연적 응보를 요구한다) 사이에서 헤겔은 사변적 응보설을 취한다 — 범죄는 법에 대한 부정이고 형벌은 그 부정의 부정이므로 법의 자기 회복이다. 범죄자에게 형벌을 가하는 것은 그를 <b>인격</b>으로 존중하는 것이며(그의 의지에 대한 응답으로), 이 논리가 후에 응보 형법의 헤겔주의적 흐름의 원류가 된다."],
+    "인격":["인격(人格, Person, 『법철학』 §35-40)","자기 자신에 대해 자유로운 주체로서, 법의 담지자. 헤겔의 유명한 <b>법적 명령</b>(Rechtsgebot): '<b>인격이 되어라, 그리고 다른 이들을 인격으로 존중하라(Sei eine Person und respektiere die anderen als Personen)</b>'(§36). 로마법의 <b>persona</b>(가면·역할·법적 주체)에 뿌리를 두며, 칸트의 인격 개념(목적 자체로서의 인격)을 계승한다. 인격은 자유의지의 담지자로서 소유·계약의 주체가 되며, 이 인격성이 법의 근거다. 인격의 결정적 특성은 <b>추상성</b>이다 — 인격으로서 나와 너는 구별되지 않는다. 이 추상적 인격성이 도덕적 주체(내면적 규정을 지닌 주체)로 심화되는 것이 도덕성으로의 이행이다."],
+
+    "도덕성":["도덕성(道德性, Moralität, §503-512; 『법철학』 §105-141)","외적 법이 내면화된 자유. 주관적 의지 자체가 선을 자기의 규정으로 삼는 국면이지만, 내면에 갇혀 실현되지 않는 결함을 지닌다. 헤겔의 도덕성 개념은 <b>칸트의 도덕철학에 대한 사변적 응답</b>이다. 칸트의 정언명령 — 준칙을 보편 법칙으로 삼으라 — 은 도덕의 형식적 원리로서 정당하지만, 헤겔은 칸트가 도덕을 <b>공허한 형식주의</b>에 머물게 했다고 비판한다. 정언명령은 그 자체로 아무런 구체적 의무도 산출하지 못한다는 것이다. 도덕성은 주관적 의지의 내면적 자유이지만, 이 자유는 <b>구체적 인륜 공동체 안에서만</b> 참으로 실현될 수 있다. 이 자리매김이 헤겔의 반(反)형식주의 도덕관의 핵심이다."],
+    "기도":["기도(企圖, Vorsatz, 『법철학』 §115-118)","행위의 결과 중 주체가 알고 하려 한 부분. 그 밖의 결과는 주체의 것이 아니다. 근대 형법의 <b>고의(dolus)·과실</b> 구별의 사변적 자리매김이 이 자리다. 오이디푸스가 자기 아버지인 줄 모르고 죽인 것에 대한 헤겔의 유명한 논의(『법철학』 §118 주해)가 이를 보여준다 — 고대인들은 모든 결과가 행위자의 것이라 여겼지만, 근대적 주체성은 <b>기도한 것만이 나의 행위</b>다. 알지 못한 결과에 대해 나는 책임지지 않는다. 이 원리가 근대 자유 원리의 한 계기이며, 도덕적 책임의 첫 단계다."],
+    "의도":["의도(意圖, Absicht, 『법철학』 §119-125)","행위의 보편적 성격에 대한 주체의 앎. 기도보다 넓고, 복지·목적과 연결된다. 기도가 개별 결과에 대한 앎이라면 의도는 행위의 <b>보편적 성격</b>(정당·부당, 의로움·부정)에 대한 앎이다. 예를 들어 남의 집에 불을 지른 사람이 특정한 개별적 결과(이웃까지 번짐)를 기도하지 않았어도 방화라는 보편적 성격은 그의 의도에 속한다. 이 자리에서 근대 주체는 자기 행위의 <b>보편적 의미</b>를 자기 것으로 인수하며, 개별 행위를 넘어 <b>목적</b>과 <b>복지</b>의 층위에 이른다. 복지가 나의 만족을 의욕함이라면, 목적은 나와 타인을 아우르는 자유의 실현을 의욕함이다."],
+    "복지":["복지(福祉, Wohl / Wohlfahrt, 『법철학』 §123-128)","주체가 자신과 타인의 특수한 만족을 의욕함. 도덕성의 목적 규정이다. Wohl은 개인의 안녕(well-being)이며 Wohlfahrt는 공동체적 복지에 가깝다. 헤겔은 복지를 정당한 도덕적 목적으로 인정하되 그 유한성을 지적한다 — 복지는 특수한 만족의 총합이므로, 나의 복지와 타인의 복지가 충돌할 때 어느 것이 우선인지 복지 자체가 답하지 못한다. 이 문제는 공리주의 윤리학의 만성적 난제(효용의 개인 간 비교)와 연결된다. 헤겔은 복지의 유한성을 지양하는 것이 <b>선(善) 자체를 목적으로 삼는 의지</b>임을 논한다."],
+    "선":["선(善, das Gute, 『법철학』 §129-141)","보편적 자유의지가 자기 자신을 목적으로 삼음. 복지와 법의 참된 통일이다. 헤겔의 선 개념은 <b>실현되어야 할 절대적 목적</b>이며, 이 점에서 아리스토텔레스의 최고선(eudaimonia)이나 칸트의 최고선(도덕과 행복의 일치)과 유비를 이룬다. 그러나 헤겔에서 선은 도덕적 주체의 <b>당위(Sollen)</b>로 남아 있다 — 세계가 아직 선하지 않으므로 주체가 선을 실현해야 한다는 무한 판단이 도덕성의 한계다. 이 한계는 인륜에서 지양된다 — 인륜적 공동체에서는 선이 이미 <b>제도로 실현</b>되어 있고, 개인은 그 실체 안에서 자기의 자유를 살아 간다."],
+    "악":["악(惡, das Böse, 『법철학』 §139-140)","특수한 자의(恣意)를 절대화하여 보편적 선에 맞세우는 자유의 자기 부정. 헤겔의 악 개념은 칸트의 <b>근본악(radikales Böse)</b>과 연결되지만 그것을 넘어선다. 칸트의 근본악은 인간이 도덕법칙을 자기 이익 아래에 두는 성향이지만, 헤겔의 악은 그 이상이다 — <b>주관적 자의를 절대화</b>하여 그것을 보편적 선의 자리에 세우는 자유의 자기 왜곡이다. 그래서 악은 자유 없이는 없다 — 자유롭기에 악할 수 있다. 이 통찰이 셸링·키에르케고르의 악·자유론에 이어진다. 헤겔은 또한 <b>양심의 위선</b>·<b>도덕적 광신</b> 같은 근대적 악의 형식(로베스피에르)을 자유의지의 내적 왜곡으로 분석한다."],
+    "양심":["양심(良心, Gewissen, 『법철학』 §136-141)","주체가 자기 안에서 선을 스스로 규정하는 자리. 참된 양심으로의 심화가 필요하며, 그 결핍이 <b>형식적 양심</b>의 위험을 낳는다. 형식적 양심(formelles Gewissen)은 자기가 옳다고 확신하는 것만으로 자기를 정당화하는 순수 주관성의 극단이며, 헤겔은 이를 근대 도덕적 주체성의 가장 위험한 형태로 진단한다 — 로베스피에르의 공포정치, 낭만주의적 광신, 형식적 종교성이 그 예다. 참된 양심은 자기의 확신을 <b>보편적 실체(인륜)</b>와 매개하여 검증하며, 개인적 확신을 넘어 공동체적 규정과 통일된다. 이 자리에서 도덕성이 인륜으로 이행한다."],
+
+    "인륜":["인륜(人倫, Sittlichkeit, §513-552; 『법철학』 §142-360)","법(외면)과 도덕성(내면)의 살아 있는 통일. 자유가 주관적 뜻과 객관적 제도로 함께 있는 공동체적 삶이며, 가족·시민 사회·국가의 세 형태로 전개된다. 어원 Sitte(관습)에서 오는 이 개념은 라틴 ethica(그리스 ethos, 관습)와 대응하며, 개인의 도덕(Moral)과 대비된다. 헤겔의 인륜 개념은 <b>그리스 폴리스에 대한 향수와 근대적 자유의 화해</b>라는 이중 과제를 담고 있다. 그리스 폴리스는 개인이 공동체와 자연스레 하나였지만 개인의 자유가 아직 성립하지 못했고, 근대는 개인의 자유가 성립했지만 공동체와 개인이 분열되어 있다. 헤겔의 인륜은 <b>근대적 자유 위에서 실현된 공동체적 삶</b>이며, 가족·시민사회·국가의 삼분이 이 실현의 사변적 구조다."],
+    "가족":["가족(家族, Familie, §518-522; 『법철학』 §158-181)","인륜의 첫 형태. 사랑을 매개로 한 직접적·자연적 통일. 세 계기: <b>혼인(Ehe)</b> — 자연적 성별 차이를 사랑과 의무로 인륜화, <b>가족의 재산·자녀 교육</b> — 공동 소유와 다음 세대 형성, <b>가족의 해체</b> — 자녀의 자립으로 새로운 가족·시민 사회로. 헤겔의 가족론은 낭만주의(가족의 감정적 통일)와 계몽주의(계약적 관계)를 사변적으로 종합한 것이며, 사랑을 감정이 아닌 <b>인륜적 실체</b>로 자리매김한다. 유의: 헤겔의 성별 역할론(남편은 시민 사회의 외적 영역, 아내는 가정의 내적 영역)은 시대적 제약을 강하게 반영하며, 페미니즘 이론(주디스 버틀러 등)의 헤겔 비판에서 주요 논쟁점이다."],
+    "시민사회":["시민 사회(市民社會, bürgerliche Gesellschaft, §523-534; 『법철학』 §182-256)","가족의 해체 뒤에 각자가 자신의 욕구·노동으로 서로에게 매개되는 특수성의 무대. 세 계기: <b>욕구 체계</b>(경제적 삶·시장·노동·계급), <b>사법</b>(추상적 법의 실정법적 구현), <b>경찰과 조합</b>(빈곤·복지 문제, 직업 조합). 헤겔은 애덤 스미스·리카도·세이의 정치경제학을 독일 관념론에 최초로 진지하게 도입한 철학자이며, 시민 사회 개념은 그 결과다. 시민 사회는 개인의 <b>사적 이익 추구</b>가 사회적 상호 의존을 낳는 자리로, 스미스의 '보이지 않는 손'의 사변적 재해석이라 할 수 있다. 그러나 헤겔은 시민 사회가 <b>필연적으로 빈곤(Pöbel)</b>을 낳는다는 것을 지적하며(『법철학』 §244-245), 이 통찰이 마르크스의 자본주의 비판의 씨앗이 된다."],
+    "국가":["국가(國家, Staat, §535-546; 『법철학』 §257-329)","보편(공동선)과 특수(개인의 자유)의 참된 통일. 자유의 현실태이며, 내적 국가법·대외 국제법·세계사의 세 계기로 전개된다. 헤겔의 국가론은 20세기의 가장 논쟁적인 헤겔 해석 대상이었다 — <b>전체주의의 철학적 예비</b>라는 비난(포퍼 『열린 사회와 그 적들』)과 <b>근대 자유주의적 헌정 국가의 철학적 정초</b>라는 옹호(핀카드·핏피) 사이에서 논쟁이 이어졌다. 오늘의 표준 해석은 후자에 가깝다 — 헤겔의 국가는 <b>입헌 군주제·삼권 분립·시민적 자유·공적 여론</b>을 요소로 하는 근대적 국가이며, 개인을 흡수하는 전체가 아니라 개인의 자유를 <b>제도로 실현하는 인륜적 실체</b>다. 다만 '국가는 지상의 신적 이념(divine idea)'(§258) 같은 표현이 오해를 낳아 왔다."],
+    "세계사":["세계사(世界史, Weltgeschichte, §548-552; 『법철학』 §341-360)","국가들의 정신이 자유의 이념을 시간 속에서 실현해 가는 무대. 헤겔의 정식: <b>세계사는 자유 의식의 진보(Fortschritt im Bewußtsein der Freiheit)</b>다. 네 세계사적 단계: <b>동방적 세계</b>(한 사람만이 자유), <b>그리스적 세계</b>(몇몇이 자유), <b>로마적 세계</b>(추상적 인격의 자유), <b>게르만적/그리스도교적 세계</b>(모든 인간이 자유). 유의: 헤겔의 이 도식은 19세기 유럽 중심주의의 대표적 표명이며, 인도·중국·이슬람 세계에 대한 헤겔의 서술(『역사철학 강의』)은 오늘의 관점에서 심각한 편견을 담고 있다. 그러나 <b>자유의 보편화</b>라는 사변적 규정 자체는 헤겔 정치철학의 결정적 유산이며, 프랑크푸르트 학파·롤스·호네트의 인정 이론까지 이어진다. 세계사의 진리는 세계사 위의 <b>절대 정신</b>에 있다."],
+
+    "절대적정신":["절대적 정신(absoluter Geist, §553-577)","자기 자신을 대상으로 삼아 파악하는 정신. 예술·계시 종교·철학의 세 형식으로 같은 절대의 진리를 드러낸다 — 직관·표상·개념. '절대적'은 여기서 '완전한·궁극적'이라는 뜻이며, 정신이 자기 밖의 어떤 것에도 얽매이지 않고 오직 자기 자신을 사유하는 활동임을 가리킨다. 세 형식은 <b>같은 내용(절대 진리)</b>을 다른 형식으로 파악하는 세 방식이지 세 다른 대상이 아니다. 이 규정이 헤겔이 예술·종교·철학의 관계를 사변적으로 자리매김한 방식이며, 20세기 이후의 예술철학·종교철학·문화철학이 계속 참조하는 지점이다. 세 형식의 심화는 매개의 완전화이며, 마지막의 철학이 앞의 둘을 자기 안에 담고 있다."],
+    "예술":["예술(藝術, Kunst, §556-563)","절대를 감성적 직관의 형식으로 드러내는 정신. <b>이상(Ideal)</b>의 감각적 현현으로, 상징적·고전적·낭만적 예술의 삼단계를 거친다. 헤겔의 『미학 강의』(Vorlesungen über die Ästhetik, 1835-38 유고)가 이 절의 대대적 확장이다. <b>상징적 예술</b>: 이념이 아직 자기에게 맞는 형상을 찾지 못한 단계로, 고대 이집트·인도·페르시아의 종교 예술이 그 예. <b>고전적 예술</b>: 이념과 감성적 형상이 완전히 부합한 단계로, 그리스 조각(신과 인간의 신체적 통일)이 그 정점. <b>낭만적 예술</b>: 이념이 감성적 형상을 넘어서기 시작한 단계로, 그리스도교 회화·음악·문학이 그 예. 헤겔의 유명한 <b>예술의 종말(Ende der Kunst)</b> 명제 — 절대의 표현은 이제 예술을 넘어 종교·철학으로 이행한다 — 가 여기서 나온다."],
+    "이상":["이상(理想, Ideal)","이념이 감성적 재료 안에서 자기에게 적합하게 나타난 형상. 예술의 참된 대상이다. 칸트의 이상(순수 이성의 최고 대상) 개념과 실러의 <b>미의 이상</b> 개념을 헤겔이 사변적으로 통일한 것이다. 이상은 <b>추상적 이념</b>이 아니라 <b>이념이 감성적 형상으로 현현한 것</b>이며, 그리스 조각의 신상들이 그 완성된 사례다. 신은 순수한 사유의 대상이지만, 그리스 조각은 이 신을 인간의 완전한 신체 형태로 형상화하여 이념과 감성이 완전히 부합하는 순간을 실현한다. 낭만적 예술에서는 이 부합이 다시 깨진다 — 그리스도교적 신은 인간 형태를 넘어서는 정신적 존재이므로, 예술은 이를 완전히 형상화할 수 없고 종교(표상)로 넘어가야 한다."],
+    "계시종교":["계시 종교(啓示宗敎, geoffenbarte Religion, §564-571)","절대를 표상(Vorstellung)의 형식으로 드러내는 정신. 헤겔에게는 그리스도교가 그 완성된 형태이며, 삼위일체·창조·화해·공동체의 서사로 진리를 표현한다. 헤겔의 『종교철학 강의』(1821-31 유고)가 이 절의 대대적 확장이다. 헤겔의 종교 구분 — 자연 종교(동방)·정신적 개별성의 종교(그리스·로마)·절대 종교(그리스도교) — 는 오늘의 관점에서 유럽 중심적 편견을 담고 있으나, 그리스도교의 삼위일체·성육신·화해를 <b>사변적 진리의 표상적 표현</b>으로 자리매김한 것은 종교철학사의 결정적 시도다. 삼위일체는 절대의 자기 관계를 표상하고, 성육신은 신적 이념과 유한한 인간의 통일을 표상하며, 공동체는 정신의 사회적 실현을 표상한다."],
+    "표상형식":["표상의 형식(Form der Vorstellung)","이미지·비유·이야기로 진리를 담는 형식. 예술의 감각과 철학의 개념 사이의 매개다. 표상은 감각과 사유 사이의 정신 활동으로, 이미 감각적 즉시성을 넘어섰지만 아직 순수 개념에 이르지는 못한 형식이다. 종교는 진리를 표상 — 창조 이야기, 성육신 서사, 최후의 심판 등의 <b>이미지·이야기</b> — 으로 담으며, 이것은 순수 사유보다는 감성적이지만 순수 감각보다는 관념적이다. 종교의 표상 형식은 진리를 대중에게 전달할 수 있는 <b>보편적 접근성</b>을 지니지만, 개념의 순수성을 결여한다. 이 표상을 개념으로 다시 쓰는 것이 철학의 일이다."],
+    "철학":["철학(哲學, Philosophie, §572-577)","절대를 순수한 개념의 형식으로 파악하는 정신. 종교의 표상적 내용을 개념적으로 다시 쓴 것으로, 그 결과가 곧 자기 자신을 근거로 삼는 논리학의 이념이며 여기서 체계는 원환을 이룬다. 헤겔의 결정적 명제: <b>철학과 종교는 같은 내용, 다른 형식</b>이다. 그리스도교의 삼위일체가 표상적으로 담고 있는 것을 논리학의 삼분(유·본질·개념)이 개념적으로 담고 있다. 그래서 헤겔은 자신의 철학을 <b>그리스도교의 사변적 재정식화</b>로 자리매김한다. 강요의 마지막 §575-577은 세 개의 결론적 <b>추리(Schlüsse)</b>를 담고 있다 — 논리학-자연-정신, 자연-정신-논리학, 정신-논리학-자연의 세 매개. 이 세 추리에서 체계 전체가 자기 자신을 매개하는 원환으로 완성된다."],
+    "철학사":["철학사(哲學史, Geschichte der Philosophie)","철학 개념의 자기 전개가 시간 속에 나타난 계열. 헤겔에게 <b>철학사와 논리학은 순서만 다를 뿐 같은 내용의 두 판본</b>이다 — 논리학이 사유 규정의 발생적 계열이라면, 철학사는 그 계열이 역사 안에서 실현된 것이다. 헤겔의 『철학사 강의』(1805-31)가 이 규정의 확장이다. 파르메니데스·헤라클레이토스가 유론의 첫 규정에, 소크라테스가 개별성의 원리에, 플라톤·아리스토텔레스가 이념·실체의 규정에, 스토아·회의주의·신플라톤주의가 자기 의식의 여러 형태에, 스콜라가 종교의 개념화에, 데카르트·스피노자·라이프니츠가 근대 실체·모나드에, 칸트·피히테·셸링이 관념론의 여러 계기에 대응한다는 식이다. 이 사변적 철학사관은 하이데거의 존재사(Seinsgeschichte)·풀트만·로티의 철학사 해석 등에 다양한 방식으로 영향을 남겼다."]
+  };
+
+  // 모바일에서 SVG 도표는 원본 폭을 유지한 채 가로 스크롤하도록 래퍼로 감쌈
+  document.querySelectorAll('.dp-svg').forEach(function(svg){
+    if(svg.parentNode && svg.parentNode.classList &&
+       svg.parentNode.classList.contains('dp-svg-wrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'dp-svg-wrap';
+    svg.parentNode.insertBefore(wrap, svg);
+    wrap.appendChild(svg);
+  });
+
+  function isMobile(){ return window.innerWidth <= 640; }
+
+  // 용어 토큰(용어 태그)에 붙일 이름 — 트리의 <b> 텍스트를 그대로 씀
+  var terms = document.querySelectorAll('.term');
+  terms.forEach(function(t){
+    var b = t.querySelector('b');
+    if(!b) return;
+    var key = b.textContent.trim();
+    if(G[key]){
+      t.classList.add('has-def');
+      t.setAttribute('tabindex','0');
+      t.dataset.k = key;
+    }
+  });
+
+  var tip = document.getElementById('defTip');
+  var elHan = document.getElementById('defHan');
+  var elKor = document.getElementById('defKor');
+  var elBody = document.getElementById('defBody');
+  var closeBtn = document.getElementById('defClose');
+  var current = null;
+
+  function showTip(target, key){
+    var d = G[key]; if(!d) return;
+    elHan.textContent = key;
+    elKor.textContent = d[0] || '';
+    elBody.innerHTML = d[1] || '';
+    tip.classList.add('on');
+    if(current) current.classList.remove('active');
+    current = target;
+    current.classList.add('active');
+    if(tip.scrollTop) tip.scrollTop = 0;
+    if(isMobile()){
+      // 모바일: CSS가 하단 바텀시트로 배치. 인라인 위치는 리셋.
+      tip.style.left = '';
+      tip.style.top = '';
+      return;
+    }
+    var r = target.getBoundingClientRect();
+    var tw = tip.offsetWidth, th = tip.offsetHeight;
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var left = r.left + r.width/2 - tw/2;
+    var top = r.bottom + 8;
+    if(left < 8) left = 8;
+    if(left + tw > vw - 8) left = vw - 8 - tw;
+    if(top + th > vh - 8) top = r.top - 8 - th;
+    if(top < 8) top = 8;
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+  }
+  function hideTip(){
+    tip.classList.remove('on');
+    if(current){ current.classList.remove('active'); current = null; }
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('.term.has-def');
+    if(t){
+      e.preventDefault();
+      if(current === t){ hideTip(); return; }
+      showTip(t, t.dataset.k);
+      return;
+    }
+    if(!e.target.closest('#defTip')) hideTip();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') hideTip();
+    if(e.key === 'Enter' || e.key === ' '){
+      var t = document.activeElement;
+      if(t && t.classList.contains('has-def')){
+        e.preventDefault();
+        if(current === t) hideTip();
+        else showTip(t, t.dataset.k);
+      }
+    }
+  });
+  closeBtn.addEventListener('click', hideTip);
+  window.addEventListener('resize', hideTip);
+  // 스크롤로 팝오버를 닫되, 모바일에서는 팝오버 자체를 스크롤할 수 있으므로 예외
+  window.addEventListener('scroll', function(e){
+    if(isMobile() && e.target && e.target.closest && e.target.closest('#defTip')) return;
+    hideTip();
+  }, true);
+})();
+</script>
+</body></html>
